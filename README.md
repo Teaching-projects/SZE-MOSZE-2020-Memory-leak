@@ -1,5 +1,8 @@
 # SZE-MOSZE-2020-Memory-leak
 
-A program v0.0000000000001-es verziója egy main.cpp-ben oldja meg a feladatot. Két segédfüggvényt tartalmaz a mainen kívül a <em>draw</em> és a <em>lesshp</em> függvényt. A <em>draw</em> egyenlőre annyit csinál, hogy a standard cout-ra kiírja az adott körben az állást, illetve hogy melyik hős üt legközelebb. A <em>lesshp</em> függvény a megütött hős hp-ját csökkenti az adott körben. 
+A program v0.0000000000001-es verziója egy **Hero** osztályt tartalmaz, mely három privát adattaggal rendelkezik: <em>name, hp, dmg</em>. Az osztály lényege, hogy egy hős információit eltárolja, kezelje. Az osztály rendelkezik több segédfüggvénnyel: 
+*lesshp, amely csökkenti támadást követően a hős életerejét,
+*draw, amely kiírja a hősök aktuális életerejét, támadási erejét, illetve győzelem esetén a végső állást,
+*getter függvények az adatlekérdezéshez.
 
-A <em>main</em> függvényben történik az adatbekérés, majd a játékmenet. A játék addig tart amíg mindkét hős életereje meghaladja a 0-t. Amikor valamelyik hős életereje 0 alá esik, akkor kiírja a képernyőre a győztest és a vesztest és véget ér a játék.
+A main.cpp-ben történik a változók értékeinek beállítása, illetve a játékmenet. A játék addig tart, amíg valamelyik hős életereje nem csökken 0 alá.
