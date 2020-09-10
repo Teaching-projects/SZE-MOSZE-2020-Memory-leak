@@ -1,11 +1,11 @@
 #include "Hero.h"
 
-int Hero::lesshp(int hp, int edmg)
+int Hero::lesshp(int hp, const int edmg)
 {
 	return hp -= edmg;
 }
 
-void Hero::draw(std::string n1, std::string n2, int hp1, int hp2, int dmg1, int dmg2, bool round)
+void Hero::draw(const std::string n1, const std::string n2, int hp1, int hp2, const int dmg1, const int dmg2, bool round)
 {
 	if (hp1 > 0 && hp2 > 0)
 	{
@@ -31,7 +31,7 @@ void Hero::draw(std::string n1, std::string n2, int hp1, int hp2, int dmg1, int 
 	}
 }
 
-Hero::Hero(std::string name, int hp, int dmg)
+Hero::Hero(const std::string name, int hp, const int dmg)
 	: name(name), hp(hp), dmg(dmg)
 {
 }

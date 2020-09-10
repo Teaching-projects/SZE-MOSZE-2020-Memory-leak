@@ -4,12 +4,12 @@ int main() {
 	Hero* h1 = new Hero("Maple", 150, 10);
 	Hero* h2 = new Hero("Sally", 45, 30);
 	bool round = true;
-	std::string n1 = h1->getName();
+	const std::string n1 = h1->getName();
 	int hp1 = h1->getHp();
-	int dmg1 = h1->getDmg();
-	std::string n2 = h2->getName();
+	const int dmg1 = h1->getDmg();
+	const std::string n2 = h2->getName();
 	int hp2 = h2->getHp();
-	int dmg2 = h2->getDmg();
+	const int dmg2 = h2->getDmg();
 
 	while (hp1 > 0 && hp2 > 0)
 	{
