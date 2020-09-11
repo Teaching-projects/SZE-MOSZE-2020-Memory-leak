@@ -9,8 +9,8 @@ int main(int argc, char *argv[]) {
 	do
 	{
 		if (round) {
-			std::cout << h1;
-			std::cout << h2;
+			std::cout << *h1;
+			std::cout << *h2;
 			std::cout << h1->getName() << " -> " << h2->getName() << std::endl;
 			h1->attackEnemy(h2);
 			if (h2->getHp() < 0) { std::cout << h2->getName() << " died. " << h1->getName() << " wins."; }
@@ -21,8 +21,8 @@ int main(int argc, char *argv[]) {
 		}
 		else
 		{
-			std::cout << h1;
-			std::cout << h2;
+			std::cout << *h1;
+			std::cout << *h2;
 			std::cout << h2->getName() << " -> " << h1->getName() << std::endl;
 			h2->attackEnemy(h1);
 			if (h1->getHp() < 0) { std::cout << h1->getName() << " died. " << h2->getName() << " wins."; }
