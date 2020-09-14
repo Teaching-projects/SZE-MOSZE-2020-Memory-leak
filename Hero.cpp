@@ -1,17 +1,17 @@
 #include "Hero.h"
 
-Hero::Hero(const std::string name, int hp, const int dmg)
+Hero::Hero(const std::string name,  int hp, const int dmg)
 	: name(name), hp(hp), dmg(dmg)
 {
 }
 
-Hero::~Hero()
+const void Hero::attackEnemy(Hero& h2, Hero& h1)
 {
-}
-
-void Hero::attackEnemy(Hero* h)
-{
-	h->hp -= dmg;
+	if (h2.hp - h1.getDmg() > 0) { h2.hp -= h1.getDmg(); }
+	else
+	{
+		h2.hp = 0;
+	}
 }
 
 std::ostream & operator<<(std::ostream & os, const Hero & hero)
