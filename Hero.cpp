@@ -1,16 +1,11 @@
 #include "Hero.h"
 
-Hero::Hero(const std::string name,  int hp, const int dmg)
-	: name(name), hp(hp), dmg(dmg)
+const void Hero::attackEnemy(Hero& h)
 {
-}
-
-const void Hero::attackEnemy(Hero& h2, Hero& h1)
-{
-	if (h2.hp - h1.getDmg() > 0) { h2.hp -= h1.getDmg(); }
+	if (hp - h.getDmg() > 0) { hp -= h.getDmg(); }
 	else
 	{
-		h2.hp = 0;
+		hp = 0;
 	}
 }
 
