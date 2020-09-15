@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
 	} while (h1.getHp() > 0 && h2.getHp() > 0);
 
-	if (h2.getHp() == 0) { 
+	if (h1.getHp() == 0) { 
 		std::cout << h1;
 		std::cout << h2;
 		std::cout << h1.getName() << " died. " << h2.getName() << " wins."; 
