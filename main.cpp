@@ -13,14 +13,14 @@ int main(int argc, char *argv[]) {
 			std::cout << h1;
 			std::cout << h2;
 			std::cout << h1.getName() << " -> " << h2.getName() << std::endl;
-			h2.attackEnemy(h1);
+			h2.getAttack(h1);
 		}
 		else
 		{
 			std::cout << h1;
 			std::cout << h2;
 			std::cout << h2.getName() << " -> " << h1.getName() << std::endl;
-			h1.attackEnemy(h2);
+			h1.getAttack(h2);
 		}
 
 	} while (h1.getHp() > 0 && h2.getHp() > 0);

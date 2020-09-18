@@ -1,12 +1,9 @@
 #include "Hero.h"
 
-const void Hero::attackEnemy(Hero& h)
+void Hero::getAttack(const Hero& h)
 {
 	if (hp - h.getDmg() > 0) { hp -= h.getDmg(); }
-	else
-	{
-		hp = 0;
-	}
+	else { hp = 0; }
 }
 
 std::ostream & operator<<(std::ostream & os, const Hero & hero)
