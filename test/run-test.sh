@@ -1,13 +1,18 @@
 #!/bin/bash
 
-./a.out test/units/kakarott.json test/units/kikarott.json >> result.txt
-./a.out test/units/kakarott.json test/units/kekarott.json >> result.txt
-./a.out test/units/kikarott.json test/units/kekarott.json >> result.txt
-./a.out test/units/kikarott.json test/units/kakarott.json >> result.txt
-./a.out test/units/kekarott.json test/units/kakarott.json >> result.txt
-./a.out test/units/kekarott.json test/units/kikarott.json >> result.txt
+touch result.txt
+> result.txt
 
-CHECK=$(diff result.txt expected.txt)
+cd ..
+
+./a.out test/units/kakarott.json test/units/kikarott.json >> test/result.txt
+./a.out test/units/kakarott.json test/units/kekarott.json >> test/result.txt
+./a.out test/units/kikarott.json test/units/kekarott.json >> test/result.txt
+./a.out test/units/kikarott.json test/units/kakarott.json >> test/result.txt
+./a.out test/units/kekarott.json test/units/kakarott.json >> test/result.txt
+./a.out test/units/kekarott.json test/units/kikarott.json >> test/result.txt
+
+CHECK=$(diff test/result.txt test/expected.txt)
 
 if ["$CHECK" == ""]; then
 	echo "No difference between the outputs."
