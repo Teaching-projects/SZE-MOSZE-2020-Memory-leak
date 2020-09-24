@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 
 class Hero
 {
@@ -19,6 +20,7 @@ public:
 	std::string getName() const { return name; }
 	int getHp() const { return hp; }
 	int getDmg() const { return dmg; }
+	static Hero parseUnit (const std::string& filename);
 };
 
 
