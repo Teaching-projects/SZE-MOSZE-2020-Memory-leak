@@ -12,7 +12,7 @@ touch result.txt
 
 CHECK=$(diff result.txt test/expected.txt)
 
-if ["$CHECK" == ""]; then
+if [ "$CHECK" == "" ]; then
 	echo "No difference between the outputs."
 	exit 0
 else
