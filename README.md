@@ -10,6 +10,6 @@ A kiiratáshoz operátort használunk, mely bármilyen outstreamre a kiiratást 
 
 A main.cpp-ben történik a változók értékeinek beállítása, illetve a játékmenet. A játék addig tart, amíg valamelyik hős életereje nem csökken 0 alá. Továbbá itt történik a fájlok beolvasása is.
 
-A fájlbekérés során keletkező hibák kezelésének megkönnyítése érdekében létrehoztunk egy HeroFileError nevű osztályt, mely egy privát tagot (<em>msg<em>) tartalmaz. Az osztály a string osztályból származik, mely megkönnyíti a hiba kiírását, mivel nincs szükség külön függvényre, hiszen így az osztály rendelkezik alapból a << operátorral.
+A fájlbekérés során keletkező hibák kezelésének megkönnyítése érdekében létrehoztunk egy HeroFileError nevű osztályt, mely egy privát tagot (<em>msg</em>) tartalmaz. Az osztály a string osztályból származik, mely megkönnyíti a hiba kiírását, mivel nincs szükség külön függvényre, hiszen így az osztály rendelkezik alapból a << operátorral.
 
 A program működésének testeléséhez egy alkönytárban létrehoztunk 3 hőst, melyek egy bash szkript által megküzdenek egymással. A szkript összehasonlítja a várt/kézzel kalkulált kimentetet a program által adott kimenettel és amennyiben nem egyezik, akkor hibakóddal tér vissza.
