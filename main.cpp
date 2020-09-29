@@ -1,39 +1,39 @@
 #include "Hero.h"
+#include "HeroFileError.h"
 
-int main(int argc, char *argv[]) {
-	Hero h1(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
-	Hero h2(argv[4], std::stoi(argv[5]), std::stoi(argv[6]));
+int main(int argc, char* argv[]) {
+	try {
+		Hero h1 = Hero::parseUnit(argv[1]);
+		Hero h2 = Hero::parseUnit(argv[2]);
 
-	bool round = false;
+		bool round = false;
 
-	do
-	{
-		round = !round;
-		if (round) {
-			std::cout << h1;
+		do
+		{
+			round = !round;
+			if (round) {
+				h2.getAttack(h1);
+			}
+			else
+			{
+				h1.getAttack(h2);
+			}
+
+		} while (h1.getHp() > 0 && h2.getHp() > 0);
+
+		if (h1.getHp() == 0) {
 			std::cout << h2;
-			std::cout << h1.getName() << " -> " << h2.getName() << std::endl;
-			h2.getAttack(h1);
 		}
 		else
 		{
 			std::cout << h1;
-			std::cout << h2;
-			std::cout << h2.getName() << " -> " << h1.getName() << std::endl;
-			h1.getAttack(h2);
 		}
-
-	} while (h1.getHp() > 0 && h2.getHp() > 0);
-
-	if (h1.getHp() == 0) { 
-		std::cout << h1;
-		std::cout << h2;
-		std::cout << h1.getName() << " died. " << h2.getName() << " wins."; 
 	}
-	else
-	{
-		std::cout << h1;
-		std::cout << h2;
-		std::cout << h2.getName() << " died. " << h1.getName() << " wins.";
+
+	catch (HeroFileError ex) {
+		std::cout << ex << std::endl;
+		return 1;
 	}
+
+	return 0;
 }
