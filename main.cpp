@@ -19,9 +19,9 @@ int main(int argc, char* argv[]) {
 				h1.getAttack(h2);
 			}
 
-		} while (h1.getHp() > 0 && h2.getHp() > 0);
+		} while (h1.getActHp() > 0 && h2.getActHp() > 0);
 
-		if (h1.getHp() == 0) {
+		if (h1.getActHp() == 0) {
 			std::cout << h2;
 		}
 		else

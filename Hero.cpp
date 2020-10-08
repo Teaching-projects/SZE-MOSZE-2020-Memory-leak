@@ -1,10 +1,18 @@
 #include "Hero.h"
 #include "HeroFileError.h"
 
-void Hero::getAttack(const Hero& h)
+void Hero::getAttack(Hero& h)
 {
-	if (hp - h.getDmg() > 0) { hp -= h.getDmg(); }
-	else { hp = 0; }
+	h.xp += h.getDmg();
+	while (h.xp >= 100)
+	{
+		h.maxhp *= 1.10;
+		h.dmg *= 1.10;
+		h.acthp = maxhp;
+		h.xp -= 100;
+	}
+	if (acthp - h.getDmg() > 0) { acthp -= h.getDmg(); }
+	else { acthp = 0; }
 }
 
 Hero Hero::parseUnit(const std::string& filename)
@@ -59,6 +67,6 @@ Hero Hero::parseUnit(const std::string& filename)
 
 std::ostream & operator<<(std::ostream & os, const Hero & hero)
 {
-	os << hero.name << " wins. Remaining HP: " << hero.hp << std::endl;
+	os << hero.name << " wins. Remaining HP: " << hero.acthp << std::endl;
 	return os;
 }
