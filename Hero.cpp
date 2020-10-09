@@ -87,7 +87,7 @@ void Hero::fight(Hero& attacked){
 	}
 	else
 	{
-		std::cout << this;
+		std::cout << *this;
 	}
 }
 
