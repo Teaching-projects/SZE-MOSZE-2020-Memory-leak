@@ -6,28 +6,7 @@ int main(int argc, char* argv[]) {
 		Hero h1 = Hero::parseUnit(argv[1]);
 		Hero h2 = Hero::parseUnit(argv[2]);
 
-		bool round = false;
-
-		do
-		{
-			round = !round;
-			if (round) {
-				h2.getAttack(h1);
-			}
-			else
-			{
-				h1.getAttack(h2);
-			}
-
-		} while (h1.getHp() > 0 && h2.getHp() > 0);
-
-		if (h1.getHp() == 0) {
-			std::cout << h2;
-		}
-		else
-		{
-			std::cout << h1;
-		}
+		h1.fight(h2);
 	}
 
 	catch (HeroFileError ex) {

@@ -19,10 +19,11 @@ Hero Hero::parseUnit(const std::string& filename)
 	std::string name;
 	int hp;
 	int dmg;
+	float atkspeed;
 
 	while (getline(jsonFile, line))
 	{
-		if (line == "{" or line == "}") {}
+		if (line == "{" || line == "}") {}
 		else
 		{
 			key = "";
@@ -49,12 +50,45 @@ Hero Hero::parseUnit(const std::string& filename)
 
 			else if (key == "dmg")
 			{
+				line.erase(line.size());
 				dmg = std::stoi(line);
+			}
+
+			else if (key == "attackCooldown")
+			{
+				atkspeed = std::stof(line);
 			}
 		}
 	}
 	jsonFile.close();
-	return Hero(name, hp, dmg);
+	return Hero(name, hp, dmg, atkspeed);
+}
+
+void Hero::fight(Hero& attacked){
+	attacked.takeAttack(*this);
+	this->takeAttack(attacked);
+
+	while (this->getHp() > 0 && attacked.getHp() > 0)
+	{
+		if (this->getNextAttack() <= attacked.getNextAttack()) {
+			attacked.takeAttack(*this);
+			this->setNextAttack();
+		}
+		else
+		{
+			this->takeAttack(attacked);
+			attacked.setNextAttack();
+		}
+
+	}
+
+	if (this->getHp() == 0) {
+		std::cout << attacked;
+	}
+	else
+	{
+		std::cout << this;
+	}
 }
 
 std::ostream & operator<<(std::ostream & os, const Hero & hero)
