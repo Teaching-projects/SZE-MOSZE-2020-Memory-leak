@@ -1,4 +1,4 @@
-name: TestOutput
+name: AttackCooldownTest
 
 on:
   push 
