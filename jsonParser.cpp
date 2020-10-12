@@ -43,3 +43,33 @@ jsonMap jsonParser::parsePair(const std::string& line){
 
     return dataofHero;
 }
+
+jsonMap jsonParser::parseString(const std::string& input){
+    std::ifstream jsonIfs(input);
+
+    if (jsonIfs.fail()){
+        if (input.find('{') < 0) { throw HeroFileError("Can't open the json file."); }
+        jsonIfs.close();
+        return parsePair(input);
+    }
+    else
+    {
+        std::string line;
+        std::string textFromInput;
+
+        while(std::getline(jsonIfs, line)){
+            textFromInput += line;
+        }
+
+        jsonIfs.close();
+        
+        return parsePair(textFromInput);
+    }
+}
+    
+jsonMap jsonParser::parseIstream(std::istream& inputStream){
+    std::string textFromInput;
+    std::getline(inputStream, textFromInput);
+
+    return parsePair(textFromInput);
+}

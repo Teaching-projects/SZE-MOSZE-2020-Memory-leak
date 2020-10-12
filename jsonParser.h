@@ -16,7 +16,7 @@ private:
     static void searchandCleanJsonWord(std::string& line);
     static jsonMap parsePair(const std::string& line);
 public:
-    static jsonMap parseString(const std::string input);
+    static jsonMap parseString(const std::string& input);
     static jsonMap parseIstream(std::istream& inputStream);
 };
 
