@@ -27,8 +27,8 @@ jsonMap jsonParser::parsePair(const std::string& line){
         int colonPos = line.find(':', currentPos);
         int commaPos = line.find(',', currentPos);
 
-        if (commaPos < 0) { commaPos = line.length(); }
-        else if (commaPos >= 0)
+        if (commaPos < 0) { commaPos = line.length() - 1; }
+        if (commaPos >= 0)
         {
             std::string keyValue = line.substr(currentPos, colonPos - (currentPos + 1));
             std::string valueofKey = line.substr(colonPos + 1, commaPos - (colonPos + 1));

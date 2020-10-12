@@ -13,6 +13,11 @@ Hero Hero::parseUnit(const std::string& s)
 	return Hero(heroData["name"], std::stoi(heroData["hp"]), std::stoi(heroData["dmg"]));
 }
 
+Hero Hero::parseUnit(std::istream& stream){
+	jsonMap heroData = jsonParser::parse(stream);
+	return Hero(heroData["name"], std::stoi(heroData["hp"]), std::stoi(heroData["dmg"]));
+}
+
 std::ostream & operator<<(std::ostream & os, const Hero & hero)
 {
 	os << hero.name << " wins. Remaining HP: " << hero.hp << std::endl;
