@@ -44,7 +44,7 @@ jsonMap jsonParser::parsePair(const std::string& line){
     return dataofHero;
 }
 
-jsonMap jsonParser::parseString(const std::string& input){
+jsonMap jsonParser::parse(const std::string& input){
     std::ifstream jsonIfs(input);
 
     if (jsonIfs.fail()){
@@ -67,7 +67,7 @@ jsonMap jsonParser::parseString(const std::string& input){
     }
 }
     
-jsonMap jsonParser::parseIstream(std::istream& inputStream){
+jsonMap jsonParser::parse(std::istream& inputStream){
     std::string textFromInput;
     std::getline(inputStream, textFromInput);
 

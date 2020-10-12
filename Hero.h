@@ -1,6 +1,8 @@
 #ifndef HERO_H
 #define HERO_H
 
+#include "jsonParser.h"
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -20,7 +22,7 @@ public:
 	std::string getName() const { return name; }
 	int getHp() const { return hp; }
 	int getDmg() const { return dmg; }
-	static Hero parseUnit (const std::string& filename);
+	static Hero parseUnit (const std::string& s);
 };
 
 
