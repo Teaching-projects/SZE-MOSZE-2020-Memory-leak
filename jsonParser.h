@@ -13,7 +13,7 @@ typedef std::map<std::string, std::string> jsonMap;
 class jsonParser
 {
 private:
-    static void searchandCleanJsonWord(std::string& line);
+    static std::string searchandCleanJsonWord(std::string& line);
     static jsonMap parsePair(const std::string& line);
 public:
     static jsonMap parse(const std::string& input);

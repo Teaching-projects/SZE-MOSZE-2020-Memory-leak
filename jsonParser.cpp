@@ -1,18 +1,18 @@
 #include "jsonParser.h"
 
-void jsonParser::searchandCleanJsonWord(std::string& line){
-    std::string cleanText;
+std::string jsonParser::searchandCleanJsonWord(std::string& line){
     int firstQoMarkpos = line.find('"');
 
     if (firstQoMarkpos >= 0)
     {
         int lastQoMarkpos = line.find('"', firstQoMarkpos + 1);
-        cleanText = line.substr(firstQoMarkpos + 1, lastQoMarkpos - (firstQoMarkpos + 1));
+        return line.substr(firstQoMarkpos + 1, lastQoMarkpos - (firstQoMarkpos + 1));
+
     }
     else
     {
         int findFirstChar = line.find_first_not_of(' ');
-        cleanText = line.substr(findFirstChar, line.find_last_not_of(' ' | ',' | '}') - findFirstChar + 1);
+        return line.substr(findFirstChar, line.find_last_not_of(' ' | ',' | '}') - findFirstChar + 1);
     }
     
 }
@@ -20,7 +20,7 @@ void jsonParser::searchandCleanJsonWord(std::string& line){
 jsonMap jsonParser::parsePair(const std::string& line){
     jsonMap dataofHero;
 
-    int currentPos = 0;
+    int currentPos = 1;
 
     while(currentPos < line.length())
     {
@@ -28,15 +28,15 @@ jsonMap jsonParser::parsePair(const std::string& line){
         int commaPos = line.find(',', currentPos);
 
         if (commaPos < 0) { commaPos = line.length() - 1; }
-        if (commaPos >= 0)
+        if (colonPos >= 0)
         {
             std::string keyValue = line.substr(currentPos, colonPos - (currentPos + 1));
             std::string valueofKey = line.substr(colonPos + 1, commaPos - (colonPos + 1));
 
-            dataofHero[keyValue] = valueofKey;
+            keyValue = searchandCleanJsonWord(keyValue);
+            valueofKey = searchandCleanJsonWord(valueofKey);
 
-            searchandCleanJsonWord(keyValue);
-            searchandCleanJsonWord(valueofKey);
+            dataofHero[keyValue] = valueofKey;
         }
         currentPos = commaPos + 1;        
     }
