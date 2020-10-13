@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RPG Game
-   &#160;<span id="projectnumber">0.0000000000002</span>
+   &#160;<span id="projectnumber">0.0000000000003</span>
    </div>
    <div id="projectbrief">This is a cool RPG game</div>
   </td>
@@ -78,20 +78,19 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a85d6818b1b8e9c2a459452957759205f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a85d6818b1b8e9c2a459452957759205f">Hero</a> (const std::string name, int hp, const int dmg, const float atkspeed)</td></tr>
-<tr class="memdesc:a85d6818b1b8e9c2a459452957759205f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setting the heroes properties.  <a href="#a85d6818b1b8e9c2a459452957759205f">More...</a><br /></td></tr>
+<tr class="memdesc:a85d6818b1b8e9c2a459452957759205f"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the hero class  <a href="#a85d6818b1b8e9c2a459452957759205f">More...</a><br /></td></tr>
 <tr class="separator:a85d6818b1b8e9c2a459452957759205f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf2d1483db83cba46e2c89fb62dc218a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHero.html">Hero</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#aaf2d1483db83cba46e2c89fb62dc218a">fight</a> (<a class="el" href="classHero.html">Hero</a> &amp;attacked)</td></tr>
-<tr class="memdesc:aaf2d1483db83cba46e2c89fb62dc218a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the hero who get attacked  <a href="#aaf2d1483db83cba46e2c89fb62dc218a">More...</a><br /></td></tr>
+<tr class="memdesc:aaf2d1483db83cba46e2c89fb62dc218a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the battle logic implementation  <a href="#aaf2d1483db83cba46e2c89fb62dc218a">More...</a><br /></td></tr>
 <tr class="separator:aaf2d1483db83cba46e2c89fb62dc218a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267f7d3ab815c00b5e1df543ede97a27"><td class="memItemLeft" align="right" valign="top"><a id="a267f7d3ab815c00b5e1df543ede97a27"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a267f7d3ab815c00b5e1df543ede97a27">getHp</a> () const</td></tr>
-<tr class="memdesc:a267f7d3ab815c00b5e1df543ede97a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the hp of the hero <br /></td></tr>
+<tr class="memitem:a267f7d3ab815c00b5e1df543ede97a27"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a267f7d3ab815c00b5e1df543ede97a27">getHp</a> () const</td></tr>
+<tr class="memdesc:a267f7d3ab815c00b5e1df543ede97a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the hp of the hero  <a href="#a267f7d3ab815c00b5e1df543ede97a27">More...</a><br /></td></tr>
 <tr class="separator:a267f7d3ab815c00b5e1df543ede97a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af67009208506d2970af7c3737b58c8d5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHero.html">Hero</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#af67009208506d2970af7c3737b58c8d5">parseUnit</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:af67009208506d2970af7c3737b58c8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator overloading  <a href="#af67009208506d2970af7c3737b58c8d5">More...</a><br /></td></tr>
+<tr class="memdesc:af67009208506d2970af7c3737b58c8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator overloading for an easier write to any standard output  <a href="#af67009208506d2970af7c3737b58c8d5">More...</a><br /></td></tr>
 <tr class="separator:af67009208506d2970af7c3737b58c8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -150,8 +149,16 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Setting the heroes properties. </p>
-<p>Setting the hero properties and the required things to the battle. </p>
+<p>constructor for the hero class </p>
+<p>Setting the hero properties and the required things to the battle. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the hero </td></tr>
+    <tr><td class="paramname">hp</td><td>the healt points of the hero </td></tr>
+    <tr><td class="paramname">dmg</td><td>the damage of the hero </td></tr>
+    <tr><td class="paramname">atkspeed</td><td>the attack speed of the hero </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -172,8 +179,43 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>the hero who get attacked </p>
+<p>the battle logic implementation </p>
+<dl class="section return"><dt>Returns</dt><dd>The winner hero </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attacked</td><td>the defender hero </td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Here happens the fight. First the attacker attacks then the other <a class="el" href="classHero.html" title="Hero class. ">Hero</a> after that if both of them survives the first attack the timers start. The hero who needs less seconds to attack attacks first then we "reset" his timer. After the reset we repeat it until one of them has 0 or less than 0 attack</p>
+
+</div>
+</div>
+<a id="a267f7d3ab815c00b5e1df543ede97a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a267f7d3ab815c00b5e1df543ede97a27">&#9670;&nbsp;</a></span>getHp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Hero::getHp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getter for the hp of the hero </p>
+<dl class="section return"><dt>Returns</dt><dd>the hp of the hero </dd></dl>
 
 </div>
 </div>
@@ -201,9 +243,15 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>operator overloading </p>
-<p>reading the properties from file </p>
-<p>Setting the hero properties from a JSON file.</p>
+<p>operator overloading for an easier write to any standard output </p>
+<p>parse hero from json file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>name of the json file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the read hero </dd></dl>
+<p>Reading the hero properties from a JSON file and return the hero.</p>
 
 </div>
 </div>
