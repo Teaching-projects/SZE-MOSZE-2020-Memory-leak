@@ -13,7 +13,6 @@ private:
 	const float atkspeed;
 	const std::string name;
 	float nextAttack=atkspeed;
-	void takeDamage(int dmg);
 	void getAttack (const Hero& enemy);
 
 public:
