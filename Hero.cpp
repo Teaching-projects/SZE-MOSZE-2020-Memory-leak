@@ -13,7 +13,7 @@ void Hero::getAttack(const Hero& h)
 Hero Hero::parseUnit(const std::string& filename)
 {
 	/**
-	 * Setting the hero properties from a JSON file.
+	 * Reading the hero properties from a JSON file and return the hero.
 	*/
 	std::ifstream jsonFile(filename);
 
