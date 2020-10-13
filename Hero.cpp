@@ -70,7 +70,7 @@ Hero Hero::parseUnit(const std::string& filename)
 	return Hero(name, hp, dmg, atkspeed);
 }
 
-void Hero::fight(Hero& attacked){
+Hero Hero::fight(Hero& attacked){
 	/**
 	 * Here happens the fight. First the attacker attacks then the other Hero after that if both of them survives the first attack the timers start. 
 	 * The hero who needs less seconds to attack attacks first then we "reset" his timer. 
@@ -94,11 +94,11 @@ void Hero::fight(Hero& attacked){
 	}
 
 	if (this->getHp() == 0) {
-		std::cout << attacked;
+		return attacked;
 	}
 	else
 	{
-		std::cout << *this;
+		return *this;
 	}
 }
 

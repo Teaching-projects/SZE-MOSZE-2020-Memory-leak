@@ -11,6 +11,14 @@ int main(int argc, char* argv[]) {
 		Hero h2 = Hero::parseUnit(argv[2]);
 
 		h1.fight(h2);
+	
+		if (h1.getHp() == 0) {
+			std::cout << h2;
+		}
+		else
+		{
+			std::cout << h1;
+		}
 	}
 
 	catch (HeroFileError ex) {

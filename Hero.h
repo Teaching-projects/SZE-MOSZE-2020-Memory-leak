@@ -27,7 +27,6 @@ private:
 	float nextAttack=atkspeed; ///< Keeps track of the current attackspeed
 	void getAttack (const Hero& enemy); ///< A hero take damage from another hero
 	std::string getName() const { return name; } ///< getter for the name of the hero
-	int getHp() const { return hp; } ///< getter for the hp of the hero
 	int getDmg() const { return dmg; } ///< getter for the damage of the hero
 	float getAtkspeed() const { return atkspeed; } ///< getter for the attack speed of the hero
 	void setNextAttack() { nextAttack+=atkspeed; } ///< after an attack setting the nextattack as a "timer" 
@@ -40,7 +39,8 @@ public:
 	Hero(const std::string name, int hp, const int dmg, const float atkspeed) : name(name), hp(hp), dmg(dmg), atkspeed(atkspeed){} ///< Setting the heroes properties
 	friend std::ostream& operator << (std::ostream& os, const Hero& hero); /// operator overloading
 	static Hero parseUnit (const std::string& filename); ///< reading the properties from file
-	void fight(Hero& attacked); ///< the hero who get attacked
+	Hero fight(Hero& attacked); ///< the hero who get attacked
+	int getHp() const { return hp; } ///< getter for the hp of the hero
 };
 
 
