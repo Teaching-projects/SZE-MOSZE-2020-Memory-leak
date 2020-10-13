@@ -76,18 +76,18 @@ void Hero::fight(Hero& attacked){
 	 * The hero who needs less seconds to attack attacks first then we "reset" his timer. 
 	 * After the reset we repeat it until one of them has 0 or less than 0 attack
 	*/
-	attacked.takeAttack(*this);
-	this->takeAttack(attacked);
+	attacked.getAttack(*this);
+	this->getAttack(attacked);
 
 	while (this->getHp() > 0 && attacked.getHp() > 0)
 	{
 		if (this->getNextAttack() <= attacked.getNextAttack()) {
-			attacked.takeAttack(*this);
+			attacked.getAttack(*this);
 			this->setNextAttack();
 		}
 		else
 		{
-			this->takeAttack(attacked);
+			this->getAttack(attacked);
 			attacked.setNextAttack();
 		}
 
