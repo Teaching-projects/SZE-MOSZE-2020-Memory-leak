@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parseunit',['parseUnit',['../classHero.html#af67009208506d2970af7c3737b58c8d5',1,'Hero']]]
+  ['sze_2dmosze_2d2020_2dmemory_2dleak',['SZE-MOSZE-2020-Memory-leak',['../autotoc_md0.html',1,'']]]
 ];

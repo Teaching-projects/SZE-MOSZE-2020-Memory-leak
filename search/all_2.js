@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['hero',['Hero',['../classHero.html',1,'Hero'],['../classHero.html#a85d6818b1b8e9c2a459452957759205f',1,'Hero::Hero()']]],
-  ['herofileerror',['HeroFileError',['../classHeroFileError.html',1,'']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../classHero.html#a55a8f3c0d344a22389dd61f7901e1b0a',1,'Hero']]]
 ];
