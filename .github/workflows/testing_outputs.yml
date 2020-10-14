@@ -3,10 +3,7 @@ name: TestOutput
 on: push 
 
 jobs:
-  HeroFight:
-	runs-on:ubuntu-latest
-	build_and_test:
-	Testing:
+	HeroFight:
 		runs-on: ubuntu-latest
 		steps:
 		- uses: actions/checkout@v2
