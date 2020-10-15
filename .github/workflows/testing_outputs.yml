@@ -10,11 +10,11 @@ jobs:
                 - uses: actions/checkout@v2
                 - run: sudo apt-get install -y valgrind cppcheck
                 - run: cppcheck *.cpp --enable=warning --error-exitcode=1
-                - run: cppcheck *.cpp --enable=warning,style,performance --output-file=testing/styleperform.txt
+                - run: cppcheck *.cpp --enable=warning,style,performance --output-file=test/styleperform.txt
                 - uses: actions/upload-artifact@v2
                   with:
                         name: styleperform
-                        path: ./testing/styleperform.txt
+                        path: ./test/styleperform.txt
                 - run: clang++ *.cpp -Wall -Wextra
                 - run: valgrind --leak-check=full --error-exitcode=1 ./a.out test/units/kakarott.json test/units/kikarott.json
                 - run: ./run-test.sh
