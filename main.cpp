@@ -2,6 +2,7 @@
 #include "HeroFileError.h"
 
 int main(int argc, char* argv[]) {
+	(void)argc;
 	try {
 		Hero h1 = Hero::parseUnit(argv[1]);
 		Hero h2 = Hero::parseUnit(argv[2]);

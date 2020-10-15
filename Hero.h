@@ -8,14 +8,15 @@
 class Hero
 {
 protected:
+	const std::string name;
 	int acthp;
 	int maxhp;
-	int xp;
 	int dmg;
-	const std::string name;
+	int xp;
+	
 
 public:
-	Hero(const std::string name, int maxhp, const int dmg) : name(name), acthp(maxhp), maxhp(maxhp), xp(0), dmg(dmg) {}
+	Hero(const std::string name, int maxhp, const int dmg) : name(name), acthp(maxhp), maxhp(maxhp), dmg(dmg), xp(0) {}
 
 	friend std::ostream& operator << (std::ostream& os, const Hero& hero);
 	void getAttack (Hero& h);
