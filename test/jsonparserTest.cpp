@@ -12,9 +12,17 @@ TEST(ParseTest, stringParseTest) {
 
     input = jsonParser::parse(testJsonText);
 
-    for(auto segment: input){
-        //ASSERT_EQ(expected[0], segment.first);
-        ASSERT_EQ(expected.at(segment.first), segment.second);
+    ASSERT_EQ(expected.size(), input.size());
+
+    std::map<std::string, std::string>::iterator itinput = input.begin();
+    std::map<std::string, std::string>::iterator itexpected = expected.begin();
+
+    while (itexpected != expected.end() && itinput != input.end())
+    {
+        ASSERT_EQ(itexpected->first, itinput->first);
+        ASSERT_EQ(itexpected->second, itinput->second);
+        itexpected++;
+        itinput++;
     }
 }
 
@@ -28,10 +36,18 @@ TEST(ParseTest, fileParseTest) {
     };
 
     input = jsonParser::parse(filename);
+    
+    ASSERT_EQ(expected.size(), input.size());
 
-    for(auto segment: input){
-        //ASSERT_EQ(expected[0], segment.first);
-        ASSERT_EQ(expected.at(segment.first), segment.second);
+    std::map<std::string, std::string>::iterator itinput = input.begin();
+    std::map<std::string, std::string>::iterator itexpected = expected.begin();
+
+    while (itexpected != expected.end() && itinput != input.end())
+    {
+        ASSERT_EQ(itexpected->first, itinput->first);
+        ASSERT_EQ(itexpected->second, itinput->second);
+        itexpected++;
+        itinput++;
     }
 }
 
@@ -45,10 +61,18 @@ TEST(ParseTest, streamParseTest) {
     };
 
     input = jsonParser::parse(parsingfile);
+    
+    ASSERT_EQ(expected.size(), input.size());
 
-    for(auto& segment: input){
-        ASSERT_EQ(expected[0], segment.first);
-        ASSERT_EQ(expected.at(segment.first), segment.second);
+    std::map<std::string, std::string>::iterator itinput = input.begin();
+    std::map<std::string, std::string>::iterator itexpected = expected.begin();
+
+    while (itexpected != expected.end() && itinput != input.end())
+    {
+        ASSERT_EQ(itexpected->first, itinput->first);
+        ASSERT_EQ(itexpected->second, itinput->second);
+        itexpected++;
+        itinput++;
     }
 }
 

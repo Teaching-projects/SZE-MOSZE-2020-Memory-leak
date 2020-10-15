@@ -68,8 +68,11 @@ jsonMap jsonParser::parse(const std::string& input){
 }
     
 jsonMap jsonParser::parse(std::istream& inputStream){
-    std::string textFromInput;
-    std::getline(inputStream, textFromInput);
+    std::string line = "";
+    std::string textFromInput = "";
+    while (std::getline(inputStream, line)){
+        textFromInput += line;
+    }
 
     return parsePair(textFromInput);
 }
