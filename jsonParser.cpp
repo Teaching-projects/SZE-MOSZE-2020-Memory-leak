@@ -55,7 +55,7 @@ jsonMap jsonParser::parse(const std::string& input){
     else
     {
         std::string line;
-        std::string textFromInput;
+        std::string textFromInput = "";
 
         while(std::getline(jsonIfs, line)){
             textFromInput += line;
