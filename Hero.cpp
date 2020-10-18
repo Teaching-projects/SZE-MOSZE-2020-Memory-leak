@@ -1,18 +1,26 @@
 #include "Hero.h"
 #include "HeroFileError.h"
 
+void Hero::incXp(int getxp) {
+	this->xp += getxp;
+	while(this->xp >= 100){
+		maxhp = (int)round(maxhp * 1.10);
+		dmg = (int)round(dmg * 1.10);
+		acthp = maxhp;
+		xp -= 100;
+	}
+}
+
 void Hero::getAttack(Hero& h)
 {
-	h.xp += h.getDmg();
-	while (h.xp >= 100)
-	{
-		h.maxhp *= 1.10;
-		h.dmg *= 1.10;
-		h.acthp = maxhp;
-		h.xp -= 100;
+	if (acthp - h.getDmg() > 0) { 
+		acthp -= h.getDmg();
+		h.incXp(h.getDmg());
 	}
-	if (acthp - h.getDmg() > 0) { acthp -= h.getDmg(); }
-	else { acthp = 0; }
+	else { 
+		acthp = 0; 
+		h.incXp(acthp);
+	}
 }
 
 Hero Hero::parseUnit(const std::string& filename)

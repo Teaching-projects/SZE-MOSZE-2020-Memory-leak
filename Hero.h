@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 class Hero
 {
@@ -25,6 +26,7 @@ public:
 	int getMaxHp() const { return maxhp; }
 	int getDmg() const { return dmg; }
 	int getXp() const { return xp; }
+	void incXp (int getxp);
 	static Hero parseUnit (const std::string& filename);
 };
 
