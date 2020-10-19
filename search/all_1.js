@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gethp',['getHp',['../classHero.html#a267f7d3ab815c00b5e1df543ede97a27',1,'Hero']]]
+  ['getacthp',['getActHp',['../classHero.html#adf3672a72509e78d6288e3e3de5f1fe5',1,'Hero']]]
 ];
