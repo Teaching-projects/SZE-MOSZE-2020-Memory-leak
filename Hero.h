@@ -26,7 +26,7 @@ private:
 	int maxhp; ///< The maximum hp of the hero at the start
 	int xp; ///< The xp of the hero
 	int dmg; ///< The damage of the heroes
-	const float atkspeed; ///< How many seconds pass between the attacks of the hero
+	float atkspeed; ///< How many seconds pass between the attacks of the hero
 	float nextAttack=atkspeed; ///< Keeps track of the current attackspeed
 	/**
 	 * \brief A hero get damage from another hero
