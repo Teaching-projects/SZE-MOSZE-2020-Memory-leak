@@ -1,5 +1,6 @@
 {
   "name" : "Kakarott",
-  "hp" : 300,
-  "dmg" : 85
+  "hp" : 30000,
+  "dmg" : 9000,
+  "attackCooldown" : 4.2
 }

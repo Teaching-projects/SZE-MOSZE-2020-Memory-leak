@@ -1,3 +1,14 @@
+/**
+ * \class HeroFileError
+ * 
+ * \brief HeroFileError class
+ * 
+ * If we can not reach the file gives back an error message
+ * 
+ * \date 2020/10/13
+ * 
+*/
+
 #pragma once
 
 #include <iostream>
