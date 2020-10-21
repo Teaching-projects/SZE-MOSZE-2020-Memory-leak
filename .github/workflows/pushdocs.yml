@@ -1,10 +1,7 @@
 name: pushdocs.yml
 
 on:
-  push:	
-    branches:	
-      - attackspeed
-      - pages
+  push
 
 jobs:
 
