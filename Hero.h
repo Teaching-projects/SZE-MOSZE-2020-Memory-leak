@@ -9,9 +9,9 @@
 class Hero
 {
 private:
+	const std::string name;
 	int hp;
 	const int dmg;
-	const std::string name;
 
 public:
 	Hero(const std::string name, int hp, const int dmg) : name(name), hp(hp), dmg(dmg) {}

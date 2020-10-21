@@ -9,12 +9,12 @@ void Hero::getAttack(const Hero& h)
 
 Hero Hero::parseUnit(const std::string& s)
 {
-	jsonMap heroData = jsonParser::parse(s);
+	jsonMap heroData = jsonParser::parseFile(s);
 	return Hero(heroData["name"], std::stoi(heroData["hp"]), std::stoi(heroData["dmg"]));
 }
 
 Hero Hero::parseUnit(std::istream& stream){
-	jsonMap heroData = jsonParser::parse(stream);
+	jsonMap heroData = jsonParser::parseStream(stream);
 	return Hero(heroData["name"], std::stoi(heroData["hp"]), std::stoi(heroData["dmg"]));
 }
 
