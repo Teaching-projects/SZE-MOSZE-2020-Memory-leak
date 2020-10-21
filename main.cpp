@@ -14,13 +14,14 @@ int main(int argc, char* argv[]) {
 	 * This function have a try catch control flow.
 	 * The main reason is that we can't be sure that the file name is correct or even it is exists.
 	*/
+	(void)argc;
 	try {
 		Hero h1 = Hero::parseUnit(argv[1]);
 		Hero h2 = Hero::parseUnit(argv[2]);
 
 		h1.fight(h2);
 	
-		if (h1.getHp() == 0) {
+		if (h1.getActHp() == 0) {
 			std::cout << h2;
 		}
 		else

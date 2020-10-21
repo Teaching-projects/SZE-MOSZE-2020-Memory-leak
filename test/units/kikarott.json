@@ -1,6 +1,6 @@
 {
   "name" : "Kikarott",
-  "hp" : 35000,
-  "dmg" : 8000,
+  "hp" : 350,
+  "dmg" : 80,
   "attackCooldown" : 2
 }

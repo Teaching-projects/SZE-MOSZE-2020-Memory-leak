@@ -1,13 +1,35 @@
 #include "Hero.h"
 #include "HeroFileError.h"
 
-void Hero::getAttack(const Hero& h)
+void Hero::incXp(int getxp) {
+	/**
+	 * The Hero get xp from attack and if it reach 100 xp it keep some extra dmg and hp.
+	 * And its actual hp will be its maximum hp.
+	*/
+	this->xp += getxp;
+	while(this->xp >= 100){
+		maxhp = (int)round(maxhp * 1.10);
+		dmg = (int)round(dmg * 1.10);
+		atkspeed = (float)round(atkspeed * 0.9);
+		acthp = maxhp;
+		xp -= 100;
+	}
+}
+
+void Hero::getAttack(Hero& h)
 {
-/**
- * After a hero get attecked reduce its HP by the DMG of the enemy, if the reduced hp is less then 0 set it 0.
-*/
-	if (hp - h.getDmg() > 0) { hp -= h.getDmg(); }
-	else { hp = 0; }
+	/**
+	 * The hero keep attack for enemy hero and decrease its hp.
+	 * The attacker hero keep xp as much as it decrease from enemy.
+	*/
+	if (acthp - h.getDmg() > 0) { 
+		acthp -= h.getDmg();
+		h.incXp(h.getDmg());
+	}
+	else { 
+		acthp = 0; 
+		h.incXp(acthp);
+	}
 }
 
 Hero Hero::parseUnit(const std::string& filename)
@@ -79,7 +101,7 @@ Hero Hero::fight(Hero& attacked){
 	attacked.getAttack(*this);
 	this->getAttack(attacked);
 
-	while (this->getHp() > 0 && attacked.getHp() > 0)
+	while (this->getActHp() > 0 && attacked.getActHp() > 0)
 	{
 		if (this->getNextAttack() <= attacked.getNextAttack()) {
 			attacked.getAttack(*this);
@@ -93,7 +115,7 @@ Hero Hero::fight(Hero& attacked){
 
 	}
 
-	if (this->getHp() == 0) {
+	if (this->getActHp() == 0) {
 		return attacked;
 	}
 	else
@@ -107,6 +129,6 @@ std::ostream & operator<<(std::ostream & os, const Hero & hero)
  * Writng out the winner and the remaining HP
 */
 {
-	os << hero.name << " wins. Remaining HP: " << hero.hp << std::endl;
+	os << hero.name << " wins. Remaining HP: " << hero.acthp << std::endl;
 	return os;
 }

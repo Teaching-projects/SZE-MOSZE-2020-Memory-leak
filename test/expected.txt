@@ -1,6 +1,6 @@
-Kikarott wins. Remaining HP: 17000
-Kekarott wins. Remaining HP: 2000
-Kikarott wins. Remaining HP: 10000
-Kikarott wins. Remaining HP: 17000
-Kekarott wins. Remaining HP: 2000
-Kikarott wins. Remaining HP: 10000
+Kikarott wins. Remaining HP: 1770
+Kekarott wins. Remaining HP: 293
+Kekarott wins. Remaining HP: 1958
+Kikarott wins. Remaining HP: 1770
+Kekarott wins. Remaining HP: 293
+Kekarott wins. Remaining HP: 1958
