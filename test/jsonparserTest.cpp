@@ -76,7 +76,7 @@ TEST(ParseTest, streamParseTest) {
     }
 }
 
-TEST(ParseTest, unmatchedQuo) {
+TEST(JSONFileTest, unmatchedQuo) {
     std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\": 30000,\"dmg\": 9000}";
 
     int sumqou = 0;
@@ -86,7 +86,7 @@ TEST(ParseTest, unmatchedQuo) {
     EXPECT_EQ(8, sumqou);
 }
 
-TEST(ParseTest, commaCount) {
+TEST(JSONFileTest, commaCount) {
     std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\": 30000,\"dmg\": 9000}";
 
     int sumcomma = 0;
@@ -96,7 +96,7 @@ TEST(ParseTest, commaCount) {
     ASSERT_EQ(2, sumcomma);
 }
 
-TEST(ParseTest, rowCount) {
+TEST(JSONFileTest, rowCount) {
     int rowcount = 0;
     std::string filename = "units/kakarott.json";
     std::ifstream jsonIfs(filename);    
@@ -109,7 +109,7 @@ TEST(ParseTest, rowCount) {
     EXPECT_EQ(5, rowcount);
 }
 
-TEST(ParseTest, columnCount) {
+TEST(JSONFileTest, columnCount) {
     int expectedLength [5] = {1,22,15,14,1};
     int resultLength [5];
 
@@ -128,7 +128,7 @@ TEST(ParseTest, columnCount) {
     }
 }
 
-TEST(ParseTest, switchedKeys) {
+TEST(JSONFileTest, switchedKeys) {
     std::string testJsonText = "{\"hp\": 30000, \"name\": \"Kakarott\", \"dmg\": 9000}";
     std::map<std::string, std::string> input;
     std::map<std::string, std::string> expected{
@@ -147,6 +147,31 @@ TEST(ParseTest, switchedKeys) {
     while (itexpected != expected.end() && itinput != input.end())
     {
         ASSERT_EQ(itexpected->first, itinput->first);
+        itexpected++;
+        itinput++;
+    }
+}
+
+TEST(ParseTest, BadInputTest) {
+    std::string filename = "units/badunit.json";
+    std::map<std::string, std::string> input;
+    std::map<std::string, std::string> expected{
+        {"name", "Bad"},
+        {"hp", "35000"},
+        {"dmg", "8000"}
+    };
+
+    input = jsonParser::parseFile(filename);
+
+    ASSERT_EQ(expected.size(), input.size());
+
+    std::map<std::string, std::string>::iterator itinput = input.begin();
+    std::map<std::string, std::string>::iterator itexpected = expected.begin();
+
+    while (itexpected != expected.end() && itinput != input.end())
+    {
+        ASSERT_EQ(itexpected->first, itinput->first);
+        ASSERT_EQ(itexpected->second, itinput->second);
         itexpected++;
         itinput++;
     }
