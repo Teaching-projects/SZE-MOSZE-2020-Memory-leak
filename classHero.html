@@ -89,9 +89,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af67009208506d2970af7c3737b58c8d5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHero.html">Hero</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#af67009208506d2970af7c3737b58c8d5">parseUnit</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:af67009208506d2970af7c3737b58c8d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator overloading for an easier write to any standard output  <a href="#af67009208506d2970af7c3737b58c8d5">More...</a><br /></td></tr>
-<tr class="separator:af67009208506d2970af7c3737b58c8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f51171514dc70e3da5d75cfaab157b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHero.html">Hero</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#aa3f51171514dc70e3da5d75cfaab157b">parseUnit</a> (const std::string &amp;s)</td></tr>
+<tr class="memdesc:aa3f51171514dc70e3da5d75cfaab157b"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator overloading for an easier write to any standard output  <a href="#aa3f51171514dc70e3da5d75cfaab157b">More...</a><br /></td></tr>
+<tr class="separator:aa3f51171514dc70e3da5d75cfaab157b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592b00214fda514e490d40fcc6d8bcd9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classHero.html">Hero</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a592b00214fda514e490d40fcc6d8bcd9">parseUnit</a> (std::istream &amp;stream)</td></tr>
+<tr class="memdesc:a592b00214fda514e490d40fcc6d8bcd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">parse hero from inputstream  <a href="#a592b00214fda514e490d40fcc6d8bcd9">More...</a><br /></td></tr>
+<tr class="separator:a592b00214fda514e490d40fcc6d8bcd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -219,8 +222,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="af67009208506d2970af7c3737b58c8d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af67009208506d2970af7c3737b58c8d5">&#9670;&nbsp;</a></span>parseUnit()</h2>
+<a id="aa3f51171514dc70e3da5d75cfaab157b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f51171514dc70e3da5d75cfaab157b">&#9670;&nbsp;</a></span>parseUnit() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +235,7 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="classHero.html">Hero</a> Hero::parseUnit </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -244,14 +247,50 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>operator overloading for an easier write to any standard output </p>
-<p>parse hero from json file </p><dl class="params"><dt>Parameters</dt><dd>
+<p>parse hero from json file or string input </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>name of the json file </td></tr>
+    <tr><td class="paramname">s</td><td>name of the json file or the content of string parameter </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the read hero </dd></dl>
-<p>Reading the hero properties from a JSON file and return the hero.</p>
+<p>This function read from file, or string input. This make a jsonMap type map and parse the hero. After parsing this return a new <a class="el" href="classHero.html" title="Hero class. ">Hero</a>, with the parsed attributes.</p>
+
+</div>
+</div>
+<a id="a592b00214fda514e490d40fcc6d8bcd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592b00214fda514e490d40fcc6d8bcd9">&#9670;&nbsp;</a></span>parseUnit() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classHero.html">Hero</a> Hero::parseUnit </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>parse hero from inputstream </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>the input stream what contain the hero's attribute </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the read hero </dd></dl>
+<p>This function read from file, or string input. This make a jsonMap type map and parse the hero. After parsing this return a new <a class="el" href="classHero.html" title="Hero class. ">Hero</a>, with the parsed attributes.</p>
 
 </div>
 </div>
