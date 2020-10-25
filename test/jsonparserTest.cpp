@@ -109,25 +109,26 @@ TEST(JSONFileTest, rowCount) {
 		rowcount++;
 	}
 
-    EXPECT_EQ(6, rowcount);
+    EXPECT_EQ(7, rowcount);
 }
 
 TEST(JSONFileTest, columnCount) {
-    int expectedLength [5] = {1,22,15,14,1};
-    int resultLength [5];
+    int expectedLength [6] = {1,22,13,13,24,1};
+    int resultLength [6];
 
     std::string filename = "units/kakarott.json";
-    std::ifstream jsonIfs(filename);    
+    std::ifstream jsonFile(filename);    
     std::string line;
     int i = 0;
 
-    while (std::getline(jsonIfs, line)) {
+    while (std::getline(jsonFile, line)) {
 		resultLength[i] = line.length();
+        i++;
 	}
 
-    for (int j = 0; j < 5; j++)
+    for (int j = 0; j < 6; j++)
     {
-        EXPECT_EQ(expectedLength[i], resultLength[i]);
+        EXPECT_EQ(expectedLength[j], resultLength[j]);
     }
 }
 
