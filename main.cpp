@@ -1,27 +1,27 @@
 #include "Hero.h"
 #include "HeroFileError.h"
+#include "jsonParser.h"
 
+
+/**
+ * \brief the main function of the program 
+ * \param argc number of the command line parameters 
+ * \param argv command line parameters
+ * \return 0 if the code goes well and 1 if we have error
+ * 
+*/
 int main(int, char* argv[]) {
+	/**
+	 * This function have a try catch control flow.
+	 * The main reason is that we can't be sure that the file name is correct or even it is exists.
+	*/
 	try {
 		Hero h1 = Hero::parseUnit(argv[1]);
 		Hero h2 = Hero::parseUnit(argv[2]);
 
-		bool round = false;
-
-		do
-		{
-			round = !round;
-			if (round) {
-				h2.getAttack(h1);
-			}
-			else
-			{
-				h1.getAttack(h2);
-			}
-
-		} while (h1.getHp() > 0 && h2.getHp() > 0);
-
-		if (h1.getHp() == 0) {
+		h1.fight(h2);
+	
+		if (h1.getActHp() == 0) {
 			std::cout << h2;
 		}
 		else

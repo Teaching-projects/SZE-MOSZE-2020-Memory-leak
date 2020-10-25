@@ -2,12 +2,13 @@
 #include "../jsonParser.h"
 
 TEST(ParseTest, stringParseTest) {
-    std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\": 30000,\"dmg\": 9000}";
+    std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\": 30000,\"dmg\": 9000, \"attackCooldown\": 4.2}";
     std::map<std::string, std::string> input;
     std::map<std::string, std::string> expected{
         {"name", "Kakarott"},
         {"hp", "30000"},
-        {"dmg", "9000"}
+        {"dmg", "9000"},
+        {"attackCooldown", "4.2"}
     };
 
     input = jsonParser::parseString(testJsonText);
@@ -31,8 +32,9 @@ TEST(ParseTest, fileParseTest) {
     std::map<std::string, std::string> input;
     std::map<std::string, std::string> expected{
         {"name", "Kakarott"},
-        {"hp", "30000"},
-        {"dmg", "9000"}
+        {"hp", "300"},
+        {"dmg", "90"},
+        {"attackCooldown", "4.2"}
     };
 
     input = jsonParser::parseFile(filename);
@@ -56,8 +58,9 @@ TEST(ParseTest, streamParseTest) {
     std::map<std::string, std::string> input;
     std::map<std::string, std::string> expected{
         {"name", "Kakarott"},
-        {"hp", "30000"},
-        {"dmg", "9000"}
+        {"hp", "300"},
+        {"dmg", "90"},
+        {"attackCooldown", "4.2"}
     };
 
     input = jsonParser::parseStream(parsingfile);
@@ -106,7 +109,7 @@ TEST(JSONFileTest, rowCount) {
 		rowcount++;
 	}
 
-    EXPECT_EQ(5, rowcount);
+    EXPECT_EQ(6, rowcount);
 }
 
 TEST(JSONFileTest, columnCount) {
@@ -158,7 +161,8 @@ TEST(ParseTest, BadInputTest) {
     std::map<std::string, std::string> expected{
         {"name", "Bad"},
         {"hp", "35000"},
-        {"dmg", "8000"}
+        {"dmg", "8000"}, 
+        {"attackCooldown", "4.2"}
     };
 
     input = jsonParser::parseFile(filename);

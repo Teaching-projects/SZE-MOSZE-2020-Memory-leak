@@ -5,7 +5,7 @@ std::string jsonParser::searchandCleanJsonWord(std::string& line) {
 	int lastidx = line.length() - 1;
 
 	while (firstidx < (int)line.length() && (line[firstidx] == ' ' || line[firstidx] == '\"' ||  line[firstidx] == '{' || line[firstidx] == '\t')) { firstidx++; }
-	while (lastidx >= 0 && (line[lastidx] == ' ' || line[lastidx] == '\t') || line[lastidx] == '\"' ||  line[lastidx] == '}') { lastidx--; }
+	while (lastidx >= 0 && (line[lastidx] == ' ' || line[lastidx] == '\t' || line[lastidx] == '\"' ||  line[lastidx] == '}')) { lastidx--; }
 
 	line = line.substr(firstidx, lastidx - firstidx + 1);
 
