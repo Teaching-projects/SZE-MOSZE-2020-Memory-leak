@@ -67,137 +67,19 @@ $(function() {
 <div class="title">jsonParser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><a class="el" href="classjsonParser.html" title="jsonParser class ">jsonParser</a> class  
- <a href="classjsonParser.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="jsonParser_8h_source.html">jsonParser.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ef05d02e97fe159b254e58b92c5794f"><td class="memItemLeft" align="right" valign="top">static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsonParser.html#a5ef05d02e97fe159b254e58b92c5794f">parseFile</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:a5ef05d02e97fe159b254e58b92c5794f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function parse json from file input.  <a href="#a5ef05d02e97fe159b254e58b92c5794f">More...</a><br /></td></tr>
+<tr class="memitem:a5ef05d02e97fe159b254e58b92c5794f"><td class="memItemLeft" align="right" valign="top"><a id="a5ef05d02e97fe159b254e58b92c5794f"></a>
+static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><b>parseFile</b> (const std::string &amp;filename)</td></tr>
 <tr class="separator:a5ef05d02e97fe159b254e58b92c5794f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c68d90df9fe992e7d8c41957e00035"><td class="memItemLeft" align="right" valign="top">static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsonParser.html#ae7c68d90df9fe992e7d8c41957e00035">parseString</a> (const std::string &amp;inputtext)</td></tr>
-<tr class="memdesc:ae7c68d90df9fe992e7d8c41957e00035"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function parse json from string input.  <a href="#ae7c68d90df9fe992e7d8c41957e00035">More...</a><br /></td></tr>
+<tr class="memitem:ae7c68d90df9fe992e7d8c41957e00035"><td class="memItemLeft" align="right" valign="top"><a id="ae7c68d90df9fe992e7d8c41957e00035"></a>
+static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><b>parseString</b> (const std::string &amp;inputtext)</td></tr>
 <tr class="separator:ae7c68d90df9fe992e7d8c41957e00035"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e16d0e2c697b0dda37599d36dc6300d"><td class="memItemLeft" align="right" valign="top">static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classjsonParser.html#a7e16d0e2c697b0dda37599d36dc6300d">parseStream</a> (std::istream &amp;inputStream)</td></tr>
-<tr class="memdesc:a7e16d0e2c697b0dda37599d36dc6300d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function parse json from inputstream input.  <a href="#a7e16d0e2c697b0dda37599d36dc6300d">More...</a><br /></td></tr>
+<tr class="memitem:a7e16d0e2c697b0dda37599d36dc6300d"><td class="memItemLeft" align="right" valign="top"><a id="a7e16d0e2c697b0dda37599d36dc6300d"></a>
+static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><b>parseStream</b> (std::istream &amp;inputStream)</td></tr>
 <tr class="separator:a7e16d0e2c697b0dda37599d36dc6300d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classjsonParser.html" title="jsonParser class ">jsonParser</a> class </p>
-<p>Here we do the parse from a json input.</p>
-<dl class="section date"><dt>Date</dt><dd>2020/10/27 </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5ef05d02e97fe159b254e58b92c5794f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ef05d02e97fe159b254e58b92c5794f">&#9670;&nbsp;</a></span>parseFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">jsonMap jsonParser::parseFile </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function parse json from file input. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filename</td><td>The name of the json file. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A map, which contain the data of a hero. </dd></dl>
-<p>We make an ifstream from received filename. If the file not openable we throw an error message. If the file is ok, this fuction parse this line by line.</p>
-
-</div>
-</div>
-<a id="a7e16d0e2c697b0dda37599d36dc6300d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e16d0e2c697b0dda37599d36dc6300d">&#9670;&nbsp;</a></span>parseStream()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">jsonMap jsonParser::parseStream </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>inputStream</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function parse json from inputstream input. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inputStream</td><td>The inputstream of a json file. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A map, which contain the data of a hero. </dd></dl>
-<p>This fucntion parse the inputstream line by line.</p>
-
-</div>
-</div>
-<a id="ae7c68d90df9fe992e7d8c41957e00035"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7c68d90df9fe992e7d8c41957e00035">&#9670;&nbsp;</a></span>parseString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">jsonMap jsonParser::parseString </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>inputtext</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function parse json from string input. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inputtext</td><td>This string parameter contain the datas. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A map, which contain the data of a hero. </dd></dl>
-<p>This fucntion hand over the input parameter to another function which parse in the input string.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="jsonParser_8h_source.html">jsonParser.h</a></li>
 <li>jsonParser.cpp</li>
