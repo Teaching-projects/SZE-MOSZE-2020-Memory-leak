@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jsonparser',['jsonParser',['../classjsonParser.html',1,'']]]
+  ['incxp',['incXp',['../classHero.html#a4042d6cf127e95d4137d78c5217b5724',1,'Hero']]]
 ];
