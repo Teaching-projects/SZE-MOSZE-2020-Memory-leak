@@ -5,7 +5,7 @@
 
 /**
  * \brief the main function of the program 
- * \param argc number of the command line parameters 
+ * \param argc number of the command line parameters, but it is not used yet
  * \param argv command line parameters
  * \return 0 if the code goes well and 1 if we have error
  * 

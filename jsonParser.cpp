@@ -1,6 +1,10 @@
 #include "jsonParser.h"
 
 std::string jsonParser::searchandCleanJsonWord(std::string& line) {
+	/**
+	 * In this function we search the first and last index of the necessary value.
+	 * After that we cut the input and return the cleaned value.
+	*/
 	int firstidx = 0;
 	int lastidx = line.length() - 1;
 
@@ -13,6 +17,11 @@ std::string jsonParser::searchandCleanJsonWord(std::string& line) {
 }
 
 jsonMap jsonParser::parsePair(const std::string& line) {
+	/**
+	 * We go along the input line and find the key and data value.
+	 * If we found it, clean it and save to the map.
+	 * At the end, we return the map with the datas.
+	*/
 	jsonMap dataofHero;
 	std::string keyValue = "";
 	std::string valueofKey = "";
@@ -42,6 +51,11 @@ jsonMap jsonParser::parsePair(const std::string& line) {
 }
 
 jsonMap jsonParser::parseFile(const std::string& filename) {
+	/**
+	 * We make an ifstream from received filename.
+	 * If the file not openable we throw an error message.
+	 * If the file is ok, this fuction parse this line by line.
+	*/
 	std::ifstream jsonIfs(filename);
 
 	if (jsonIfs.fail()) {
@@ -60,10 +74,16 @@ jsonMap jsonParser::parseFile(const std::string& filename) {
 }
 
 jsonMap jsonParser::parseString(const std::string& inputtext) {
+	/**
+	 * This fucntion hand over the input parameter to another function which parse in the input string.
+	*/
 	return parsePair(inputtext);
 }
 
 jsonMap jsonParser::parseStream(std::istream& inputStream) {
+	/**
+	 * This fucntion parse the inputstream line by line.
+	*/
 	std::string line = "";
 	std::string textFromInput = "";
 	while (std::getline(inputStream, line)) {
