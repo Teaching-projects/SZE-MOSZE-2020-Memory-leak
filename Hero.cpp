@@ -10,7 +10,7 @@ void Hero::incXp(int getxp) {
 	while(this->xp >= 100){
 		maxhp = (int)round(maxhp * 1.10);
 		dmg = (int)round(dmg * 1.10);
-		atkspeed = (float)round(atkspeed * 0.9);
+		atkspeed = (float) atkspeed * 0.9;
 		acthp = maxhp;
 		xp -= 100;
 	}
