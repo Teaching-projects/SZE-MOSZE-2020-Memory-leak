@@ -3,6 +3,10 @@
  * 
  * \brief jsonParser class
  * 
+ * \author joostibor
+ * 
+ * \version 0.04
+ * 
  * Here we do the parse from a json input.
  * 
  * \date 2020/10/27

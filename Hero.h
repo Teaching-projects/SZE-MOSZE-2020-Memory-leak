@@ -3,6 +3,10 @@
  * 
  * \brief Hero class
  * 
+ * \author Peti96
+ * 
+ * \version 0.04
+ * 
  * Here we crate the heroes and set their properties.
  * 
  * \date 2020/10/13
