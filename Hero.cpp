@@ -32,64 +32,25 @@ void Hero::getAttack(Hero& h)
 	}
 }
 
-Hero Hero::parseUnit(const std::string& filename)
+Hero Hero::parseUnit(const std::string& s)
 {
 	/**
-	 * Reading the hero properties from a JSON file and return the hero.
+	 * This function read from file, or string input.
+	 * This make a jsonMap type map and parse the hero.
+	 * After parsing this return a new Hero, with the parsed attributes.
 	*/
-	std::ifstream jsonFile(filename);
+	jsonMap heroData = jsonParser::parseFile(s);
+	return Hero(heroData["name"], std::stoi(heroData["hp"]), std::stoi(heroData["dmg"]), std::stof(heroData["attackCooldown"]));
+}
 
-	if (jsonFile.fail()) { throw HeroFileError("Can't open the file."); }
-
-	std::string line;
-	std::string key;
-	int pos;
-	std::string name;
-	int hp;
-	int dmg;
-	float atkspeed;
-
-	while (getline(jsonFile, line))
-	{
-		if (line == "{" || line == "}") {}
-		else
-		{
-			key = "";
-			pos = line.find("\"");
-			line = line.erase(0, pos + 1);
-			pos = line.find("\"");
-			for (int i = 0; i < pos; i++)
-			{
-				key += line[i];
-			}
-			line = line.erase(0, pos + 4);
-
-			if (key == "name") {
-				line.erase(0, 1);
-				line.erase(line.size() - 3);
-				name = line;
-			}
-
-			else if (key == "hp")
-			{
-				line.erase(line.size());
-				hp = std::stoi(line);
-			}
-
-			else if (key == "dmg")
-			{
-				line.erase(line.size());
-				dmg = std::stoi(line);
-			}
-
-			else if (key == "attackCooldown")
-			{
-				atkspeed = std::stof(line);
-			}
-		}
-	}
-	jsonFile.close();
-	return Hero(name, hp, dmg, atkspeed);
+Hero Hero::parseUnit(std::istream& stream){
+	/**
+	 * This function read from file, or string input.
+	 * This make a jsonMap type map and parse the hero.
+	 * After parsing this return a new Hero, with the parsed attributes.
+	*/
+	jsonMap heroData = jsonParser::parseStream(stream);
+	return Hero(heroData["name"], std::stoi(heroData["hp"]), std::stoi(heroData["dmg"]), std::stof(heroData["attackCooldown"]));
 }
 
 Hero Hero::fight(Hero& attacked){

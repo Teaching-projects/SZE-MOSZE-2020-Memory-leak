@@ -18,6 +18,8 @@
 #include <fstream>
 #include <cmath>
 
+#include "jsonParser.h"
+
 class Hero
 {
 private:
@@ -84,11 +86,17 @@ public:
 	Hero(const std::string name, int maxhp, const int dmg, const float atkspeed) : name(name), acthp(maxhp), maxhp(maxhp), xp(0), dmg(dmg), atkspeed(atkspeed){} 	
 	friend std::ostream& operator << (std::ostream& os, const Hero& hero); /// operator overloading for an easier write to any standard output
 	/**
-	 * \brief parse hero from json file
-	 * \param filename name of the json file
+	 * \brief parse hero from json file or string input
+	 * \param s name of the json file or the content of string parameter
 	 * \return the read hero
 	*/
-	static Hero parseUnit (const std::string& filename);
+	static Hero parseUnit (const std::string& s);
+	/**
+	 * \brief parse hero from inputstream
+	 * \param stream the input stream what contain the hero's attribute
+	 * \return the read hero
+	*/
+	static Hero parseUnit (std::istream& stream);
 	/**
 	 * \brief the battle logic implementation
 	 * \return The winner hero
