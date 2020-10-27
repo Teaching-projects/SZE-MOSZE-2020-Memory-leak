@@ -145,7 +145,7 @@ TEST(ParseTest, TooMuchWhiteSpace) {
         {"dmg", "9000"}
     };
 
-    input = jsonParser::parseFile(filename);
+    input = jsonParser::parseString(testJsonText);
 
     ASSERT_EQ(expected.size(), input.size());
 
