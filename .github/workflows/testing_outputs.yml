@@ -16,5 +16,5 @@ jobs:
                         path: ./test/styleperform.txt
                 - run: make
                 - run: make valgrind
-                - run: make Fight
-		- run: diff ../../result.txt ../../expected.txt
+                - run: make fight && cd test/
+		- run: diff result.txt expected.txt

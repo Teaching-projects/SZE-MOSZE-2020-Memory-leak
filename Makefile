@@ -26,14 +26,14 @@ memoryleak:
 	valgrind --leak-check=full --error-exitcode=1 ./run-test test/units/kakarott.json test/units/kikarott.json
 
 fight:
-	touch result.txt
-	> result.txt
-	./run-test test/units/kakarott.json test/units/kikarott.json >> result.txt
-	./run-test test/units/kakarott.json test/units/kekarott.json >> result.txt
-	./run-test test/units/kikarott.json test/units/kekarott.json >> result.txt
-	./run-test test/units/kikarott.json test/units/kakarott.json >> result.txt
-	./run-test test/units/kekarott.json test/units/kakarott.json >> result.txt
-	./run-test test/units/kekarott.json test/units/kikarott.json >> result.txt
+	touch test/result.txt
+	> test/result.txt
+	./run-test test/units/kakarott.json test/units/kikarott.json >> test/result.txt
+	./run-test test/units/kakarott.json test/units/kekarott.json >> test/result.txt
+	./run-test test/units/kikarott.json test/units/kekarott.json >> test/result.txt
+	./run-test test/units/kikarott.json test/units/kakarott.json >> test/result.txt
+	./run-test test/units/kekarott.json test/units/kakarott.json >> test/result.txt
+	./run-test test/units/kekarott.json test/units/kikarott.json >> test/result.txt
 
 parserTest:
 	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
