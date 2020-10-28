@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "../jsonParser.h"
+#include "../Hero.h"
 
 TEST(ParseTest, stringParseTest) {
     std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\": 30000,\"dmg\": 9000, \"attackCooldown\": 4.2}";
@@ -79,58 +80,87 @@ TEST(ParseTest, streamParseTest) {
     }
 }
 
-TEST(JSONFileTest, unmatchedQuo) {
-    std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\": 30000,\"dmg\": 9000}";
+TEST(ParseTest, BadInputTest) {
+    std::string filename = "units/badunit.json";
+    std::map<std::string, std::string> input;
+    std::map<std::string, std::string> expected{
+        {"name", "Bad"},
+        {"hp", "35000"},
+        {"dmg", "8000"}, 
+        {"attackCooldown", "4.2"}
+    };
 
-    int sumqou = 0;
-    for (int i = 0; i < testJsonText.size(); i++){
-        if (testJsonText[i] == '\"') sumqou++;
-    }
-    EXPECT_EQ(8, sumqou);
-}
+    input = jsonParser::parseFile(filename);
 
-TEST(JSONFileTest, commaCount) {
-    std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\": 30000,\"dmg\": 9000}";
+    ASSERT_EQ(expected.size(), input.size());
 
-    int sumcomma = 0;
-    for (int i = 0; i < testJsonText.size(); i++){
-        if (testJsonText[i] == ',') sumcomma++;
-    }
-    ASSERT_EQ(2, sumcomma);
-}
+    std::map<std::string, std::string>::iterator itinput = input.begin();
+    std::map<std::string, std::string>::iterator itexpected = expected.begin();
 
-TEST(JSONFileTest, rowCount) {
-    int rowcount = 0;
-    std::string filename = "units/kakarott.json";
-    std::ifstream jsonIfs(filename);    
-    std::string line;
-
-    while (std::getline(jsonIfs, line)) {
-		rowcount++;
-	}
-
-    EXPECT_EQ(7, rowcount);
-}
-
-TEST(JSONFileTest, columnCount) {
-    int expectedLength [6] = {1,22,13,13,24,1};
-    int resultLength [6];
-
-    std::string filename = "units/kakarott.json";
-    std::ifstream jsonFile(filename);    
-    std::string line;
-    int i = 0;
-
-    while (std::getline(jsonFile, line)) {
-		resultLength[i] = line.length();
-        i++;
-	}
-
-    for (int j = 0; j < 6; j++)
+    while (itexpected != expected.end() && itinput != input.end())
     {
-        EXPECT_EQ(expectedLength[j], resultLength[j]);
+        ASSERT_EQ(itexpected->first, itinput->first);
+        ASSERT_EQ(itexpected->second, itinput->second);
+        itexpected++;
+        itinput++;
     }
 }
+
+TEST(ParseTest, unmatchedQuo) {
+    std::string testJsonText = "{\"name\": \"Kakarott,\"hp\": 30000,\"dmg\": 9000}";
+
+    try{
+        jsonParser::parseString(testJsonText);
+    } catch(std::runtime_error& e){
+        ASSERT_STREQ(e.what(), "Wrong JSON syntax!");
+    }
+}
+
+TEST(ParseTest, missingComma) {
+    std::string testJsonText = "{\"name\": \"Kakarott\"\"hp\": 30000,\"dmg\": 9000}";
+
+    try{
+        jsonParser::parseString(testJsonText);
+    } catch(std::runtime_error& e){
+        ASSERT_STREQ(e.what(), "Wrong JSON syntax!");
+    }
+}
+
+TEST(ParseTest, missingColon) {
+    std::string testJsonText = "{\"name\": \"Kakarott\",\"hp\" 30000,\"dmg\": 9000}";
+
+    try{
+        jsonParser::parseString(testJsonText);
+    } catch(std::runtime_error& e){
+        ASSERT_STREQ(e.what(), "Wrong JSON syntax!");
+    }
+}
+
+TEST(ParseTest, TooMuchWhiteSpace) {
+    std::string testJsonText = "{\"name                    \"            :                   \"Kakarott\",\"hp\": 30000,\"dmg\": 9000    }";
+    std::map<std::string, std::string> input;
+    std::map<std::string, std::string> expected{
+        {"name", "Kakarott"},
+        {"hp", "30000"},
+        {"dmg", "9000"}
+    };
+
+    input = jsonParser::parseString(testJsonText);
+
+    ASSERT_EQ(expected.size(), input.size());
+
+    std::map<std::string, std::string>::iterator itinput = input.begin();
+    std::map<std::string, std::string>::iterator itexpected = expected.begin();
+
+    while (itexpected != expected.end() && itinput != input.end())
+    {
+        ASSERT_EQ(itexpected->first, itinput->first);
+        ASSERT_EQ(itexpected->second, itinput->second);
+        itexpected++;
+        itinput++;
+    }
+}
+
 
 TEST(JSONFileTest, switchedKeys) {
     std::string testJsonText = "{\"hp\": 30000, \"name\": \"Kakarott\", \"dmg\": 9000}";
@@ -156,30 +186,56 @@ TEST(JSONFileTest, switchedKeys) {
     }
 }
 
-TEST(ParseTest, BadInputTest) {
-    std::string filename = "units/badunit.json";
-    std::map<std::string, std::string> input;
-    std::map<std::string, std::string> expected{
-        {"name", "Bad"},
-        {"hp", "35000"},
-        {"dmg", "8000"}, 
-        {"attackCooldown", "4.2"}
-    };
+TEST(HeroTest, heroLvlUpTest) {
+    Hero testhero ("Testhero", 1000, 120, 3.2);
+    testhero.incXp(101);
+    ASSERT_EQ(1100, testhero.getMaxHp());
+    ASSERT_EQ(132, testhero.getDmg());
+    ASSERT_FLOAT_EQ(2.88, testhero.getAtkspeed());
+}
 
-    input = jsonParser::parseFile(filename);
+TEST(HeroTest, getAttackTest){
+    Hero attacker ("Attacker", 1000, 80, 3.2);
+    Hero attacked ("Attacked", 1000, 70, 3.2);
+    attacked.getAttack(attacker);
+    ASSERT_EQ(920, attacked.getActHp());
+    attacker.getAttack(attacked);
+    ASSERT_EQ(930, attacker.getActHp());
+}
 
-    ASSERT_EQ(expected.size(), input.size());
+TEST(HeroTest, multiplyLvlUpTest){
+    Hero testhero ("Testhero", 1000, 120, 3.2);
+    testhero.incXp(301);
+    ASSERT_EQ(1331, testhero.getMaxHp());
+    ASSERT_EQ(160, testhero.getDmg());
+    ASSERT_FLOAT_EQ(2.3328, testhero.getAtkspeed());
+}
 
-    std::map<std::string, std::string>::iterator itinput = input.begin();
-    std::map<std::string, std::string>::iterator itexpected = expected.begin();
+TEST(HeroTest, goodWinnerTest){
+    Hero h1 = Hero::parseUnit("units/kakarott.json");
+    Hero h2 = Hero::parseUnit("units/kikarott.json");
 
-    while (itexpected != expected.end() && itinput != input.end())
-    {
-        ASSERT_EQ(itexpected->first, itinput->first);
-        ASSERT_EQ(itexpected->second, itinput->second);
-        itexpected++;
-        itinput++;
-    }
+    h1.fight(h2);
+
+    ASSERT_EQ(0, h1.getActHp());
+} 
+
+TEST(HeroTest, actHpBeMaxHpTest){
+    Hero testhero ("Testhero", 1000, 120, 3.2);
+    testhero.incXp(101);
+    ASSERT_EQ(testhero.getActHp(), testhero.getMaxHp());
+}
+
+TEST(HeroTest, xpDecTest){
+    Hero testhero ("Testhero", 1000, 120, 3.2);
+    testhero.incXp(150);
+    ASSERT_EQ(50, testhero.getXp());
+}
+
+TEST(HeroTest, xpIncTest){
+    Hero testhero ("Testhero", 1000, 120, 3.2);
+    testhero.incXp(99);
+    ASSERT_EQ(99, testhero.getXp());
 }
 
 int main(int argc, char* argv[]){
