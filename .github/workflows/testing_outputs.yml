@@ -9,12 +9,12 @@ jobs:
                 steps: 
                 - uses: actions/checkout@v2
                 - run: sudo apt-get install -y valgrind cppcheck
-                - run: cppcheck *.cpp --enable=warning --error-exitcode=1
-                - run: cppcheck *.cpp --enable=warning,style,performance --output-file=test/styleperform.txt
+                - run: make cppcheck
                 - uses: actions/upload-artifact@v2
                   with:
                         name: styleperform
                         path: ./test/styleperform.txt
-                - run: clang++ *.cpp -Wall -Wextra
-                - run: valgrind --leak-check=full --error-exitcode=1 ./a.out test/units/kakarott.json test/units/kikarott.json
-                - run: ./run-test.sh
+                - run: make
+                - run: make valgrind
+                - run: make Fight
+		- run: diff ../../result.txt ../../expected.txt
