@@ -15,5 +15,5 @@ jobs:
                         name: styleperform
                         path: ./test/styleperform.txt
                 - run: make
-                - run: make memoryleak
-                - run: make fight && cd test && diff result.txt expected.txt
+                - run: make memoryleak-check
+                - run: make fight-diff

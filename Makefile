@@ -1,15 +1,16 @@
 OBJS := Hero.o main.o jsonParser.o
+FILES := test/units/kakarott.json test/units/kekarott.json test/units/kikarott.json
 
 run-test: $(OBJS)
 	g++ -Wall -o run-test $(OBJS)
 
-Hero.o: Hero.cpp
+Hero.o: Hero.cpp Hero.h
 	g++ -Wall -c Hero.cpp
 
 main.o: main.cpp
 	g++ -Wall -c main.cpp
 
-jsonParser.o: jsonParser.cpp
+jsonParser.o: jsonParser.cpp jsonParser.h
 	g++ -Wall -c jsonParser.cpp
 
 clean:
@@ -22,18 +23,23 @@ cppcheck:
 	cppcheck *.cpp --enable=warning --error-exitcode=1
 	cppcheck *.cpp --enable=warning,style,performance --output-file=test/styleperform.txt
 
-memoryleak:
+memoryleak-check:
 	valgrind --leak-check=full --error-exitcode=1 ./run-test test/units/kakarott.json test/units/kikarott.json
 
 fight:
 	touch test/result.txt
 	> test/result.txt
-	./run-test test/units/kakarott.json test/units/kikarott.json >> test/result.txt
-	./run-test test/units/kakarott.json test/units/kekarott.json >> test/result.txt
-	./run-test test/units/kikarott.json test/units/kekarott.json >> test/result.txt
-	./run-test test/units/kikarott.json test/units/kakarott.json >> test/result.txt
-	./run-test test/units/kekarott.json test/units/kakarott.json >> test/result.txt
-	./run-test test/units/kekarott.json test/units/kikarott.json >> test/result.txt
+
+	for f1 in $(FILES); do \
+		for f2 in $(FILES); do \
+			if [ $$f1 != $$f2 ]; then \
+				./run-test $$f1 $$f2 >> test/result.txt; \
+			fi; \
+		done; \
+	done
+
+fight-diff: fight
+	diff test/result.txt test/expected.txt
 
 parserTest:
 	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
