@@ -1,6 +1,6 @@
-#include "jsonParser.h"
+#include "JSON.h"
 
-std::string jsonParser::searchandCleanJsonWord(std::string& line) {
+std::string JSON::searchandCleanJsonWord(std::string& line) {
 	/**
 	 * In this function we search the first and last index of the necessary value.
 	 * After that we cut the input and return the cleaned value.
@@ -16,7 +16,7 @@ std::string jsonParser::searchandCleanJsonWord(std::string& line) {
 	return line;
 }
 
-jsonMap jsonParser::parsePair(const std::string& line) {
+jsonMap JSON::parsePair(const std::string& line) {
 	/**
 	 * We go along the input line and find the key and data value.
 	 * If we found it, clean it and save to the map.
@@ -40,9 +40,18 @@ jsonMap jsonParser::parsePair(const std::string& line) {
 			valueofKey = line.substr(colonPos + 1, commaPos - (colonPos + 1));
 
 			keyValue = searchandCleanJsonWord(keyValue);
-			valueofKey = searchandCleanJsonWord(valueofKey);
-
-			dataofHero[keyValue] = valueofKey;
+			if (valueofKey.find('\"') != std::string::npos){
+				valueofKey = searchandCleanJsonWord(valueofKey);
+				dataofHero[keyValue] = valueofKey;
+			}
+			else if (valueofKey.find('.') != std::string::npos){
+				valueofKey = searchandCleanJsonWord(valueofKey);
+				dataofHero[keyValue] = std::stof(valueofKey);
+			}
+			else{
+				valueofKey = searchandCleanJsonWord(valueofKey);
+				dataofHero[keyValue] = std::stoi(valueofKey);
+			}
 		}
 		currentPos = commaPos + 1;
 	}
@@ -50,7 +59,7 @@ jsonMap jsonParser::parsePair(const std::string& line) {
 	return dataofHero;
 }
 
-jsonMap jsonParser::parseFile(const std::string& filename) {
+JSON JSON::parseFromFile(const std::string& filename) {
 	/**
 	 * We make an ifstream from received filename.
 	 * If the file not openable we throw an error message.
@@ -59,7 +68,7 @@ jsonMap jsonParser::parseFile(const std::string& filename) {
 	std::ifstream jsonIfs(filename);
 
 	if (jsonIfs.fail()) {
-		throw HeroFileError("Can't open the json file.");
+		throw ParseException("Can't open the json file.");
 	}
 
 	std::string line;
@@ -70,17 +79,19 @@ jsonMap jsonParser::parseFile(const std::string& filename) {
 	}
 
 	jsonIfs.close();
-	return parsePair(textFromInput);
+	jsonMap datas = parsePair(textFromInput);
+	return JSON(datas);
 }
 
-jsonMap jsonParser::parseString(const std::string& inputtext) {
+JSON JSON::parseFromString(const std::string& inputtext) {
 	/**
 	 * This fucntion hand over the input parameter to another function which parse in the input string.
 	*/
-	return parsePair(inputtext);
+	jsonMap datas = parsePair(inputtext);
+	return JSON(datas);
 }
 
-jsonMap jsonParser::parseStream(std::istream& inputStream) {
+JSON JSON::parseFromStream(std::istream& inputStream) {
 	/**
 	 * This fucntion parse the inputstream line by line.
 	*/
@@ -90,5 +101,6 @@ jsonMap jsonParser::parseStream(std::istream& inputStream) {
 		textFromInput += line;
 	}
 
-	return parsePair(textFromInput);
+	jsonMap datas = parsePair(textFromInput);
+	return JSON(datas);
 }

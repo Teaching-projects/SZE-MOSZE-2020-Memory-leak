@@ -1,7 +1,7 @@
 /**
- * \class jsonParser
+ * \class JSON
  * 
- * \brief jsonParser class
+ * \brief JSON class
  * 
  * \author joostibor
  * 
@@ -13,22 +13,21 @@
  * 
 */
 
-#ifndef JSONPARSER_H
-#define JSONPARSER_H
-
-#include "HeroFileError.h"
+#ifndef JSON_H
+#define JSON_H
 
 #include <string>
 #include <map>
 #include <fstream>
 #include <iostream>
+#include <any>
 
 /**
  * Make a type for parse a json into this. This is a standard map, which have two string parameter.
 */
-typedef std::map<std::string, std::string> jsonMap;
+typedef std::map<std::string, std::any> jsonMap;
 
-class jsonParser
+class JSON
 {
 private:
     /**
@@ -43,25 +42,67 @@ private:
      * \return A jsonMap type map, which contain the data of the hero.
     */
     static jsonMap parsePair(const std::string& line);
+    jsonMap inputdatas; ///< This cotain the input datas.
 public:
+    template <typename T>
+    T get(const std::string& key)
+    {
+        return std::any_cast<T>(inputdatas[key]);
+    }
+    /**
+     * \brief Simple construktor for JSON class.
+     * \param inputdatas The jsonMap type argument, what contain hero's data.
+    */
+    JSON(jsonMap inputdatas) : inputdatas(inputdatas) {}
     /**
      * \brief This function parse json from file input.
      * \param filename The name of the json file.
      * \return A map, which contain the data of a hero.
     */
-    static jsonMap parseFile(const std::string& filename);
+    static JSON parseFromFile(const std::string& filename);
     /**
      * \brief This function parse json from string input.
      * \param inputtext This string parameter contain the datas.
      * \return A map, which contain the data of a hero.
     */
-    static jsonMap parseString(const std::string& inputtext);
+    static JSON parseFromString(const std::string& inputtext);
     /**
      * \brief This function parse json from inputstream input.
      * \param inputStream The inputstream of a json file.
      * \return A map, which contain the data of a hero.
     */
-    static jsonMap parseStream(std::istream& inputStream);
+    static JSON parseFromStream(std::istream& inputStream);
+    /**
+     * \brief This function return count of the jsonMap.
+     * \param key The name of key
+     * \return The count of jsonMap.
+    */
+    bool count(std::string key) { return inputdatas.count(key); }
+
+    /**
+     * \class HeroFileError
+     * 
+     * \brief HeroFileError class
+     * 
+     * \author Krisiiii98
+     * 
+     * \version 0.04
+     * 
+     * If we can not reach the file gives back an error message
+     * 
+     * \date 2020/10/13
+     * 
+    */
+
+    class ParseException : public std::string
+    {
+    private:
+        std::string msg;
+
+    public:
+        ParseException(std::string msg) : msg(msg) {}
+        ~ParseException() {}
+    };
 };
 
 #endif
