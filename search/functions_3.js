@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['incxp',['incXp',['../classHero.html#a4042d6cf127e95d4137d78c5217b5724',1,'Hero']]]
+  ['hero',['Hero',['../classHero.html#aea5f54bb386a198cac4084e14ddf1a1e',1,'Hero']]]
 ];
