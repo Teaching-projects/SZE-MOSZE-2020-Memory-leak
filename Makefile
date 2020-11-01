@@ -4,7 +4,7 @@ FILES := test/units/kakarott.json test/units/kekarott.json test/units/kikarott.j
 run-test: $(OBJS)
 	g++ -Wall -o run-test $(OBJS)
 
-Hero.o: Hero.cpp Hero.h
+Hero.o: Hero.cpp Hero.h jsonParser.h
 	g++ -Wall -c Hero.cpp
 
 main.o: main.cpp
