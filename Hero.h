@@ -3,9 +3,9 @@
  * 
  * \brief Hero class
  * 
- * \author Peti96
+ * \author Peti96, joostibor, Krisiiii98
  * 
- * \version 0.04
+ * \version 0.5
  * 
  * Here we crate the heroes and set their properties.
  * 
@@ -29,9 +29,9 @@ class Hero : public Monster
 {
 private:
 	const int bonus_health_per_level; ///< The hero keep this hp in every levelup.
-	int xp; ///< The xp of the hero
+	int xp; ///< The xp of the hero.
 	const int xpforlvlup; ///< The xp what need for levelup.
-	int lvl;
+	int lvl; ///< The lvl what the hero is in.
 	const int bonus_damage_per_level; ///< The hero keep this damage in every levelup.
 	const float atkspeed_multiplier; ///< This multiplier reduce the hero's attack cooldown in every levelup.
 	/**
@@ -76,6 +76,7 @@ public:
 	/**
 	 * \brief A monster get damage from the hero
 	 * \param m constant reference for the monster who get the attack
+	 * \return 0 if the funciton gonna be okay.
 	*/
 	virtual int takeAttack (Monster& m) override; 
 	/**

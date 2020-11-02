@@ -2,8 +2,9 @@
 
 void Hero::incXp(int getxp) {
 	/**
-	 * The Hero get xp from attack and if it reach 100 xp it keep some extra dmg and hp.
+	 * The Hero get xp from attack and if it reach xpforlvlup parameter xp it keep some extra dmg, hp and decrease the attack cooldown.
 	 * And its actual hp will be its maximum hp.
+	 * The xp will decrease with xpforlvlup.
 	*/
 	xp += getxp;
 	while(xp >= xpforlvlup){ 
@@ -19,8 +20,8 @@ void Hero::incXp(int getxp) {
 int Hero::takeAttack(Monster& m)
 {
 	/**
-	 * The monster keep attack from hero and decrease its hp.
-	 * The attacker keep xp as much as it decrease from enemy.
+	 * The hero call the Monster class takeattack function with the real taken dmg.
+	 * The hero keep same xp with the dealth dmg and it's increase it's xp.
 	*/
 	int dmgDealth = Monster::takeAttack(m);
 	incXp(dmgDealth);
@@ -31,7 +32,6 @@ Hero Hero::parse(const std::string& s)
 {
 	/**
 	 * This function read from file, or string input.
-	 * This make a jsonMap type map and parse the hero.
 	 * After parsing this return a new Hero, with the parsed attributes.
 	*/
 	JSON heroData = JSON::parseFromFile(s);
@@ -44,7 +44,6 @@ Hero Hero::parse(const std::string& s)
 Hero Hero::parse(std::istream& stream){
 	/**
 	 * This function read from file, or string input.
-	 * This make a jsonMap type map and parse the hero.
 	 * After parsing this return a new Hero, with the parsed attributes.
 	*/
 	JSON heroData = JSON::parseFromStream(stream);

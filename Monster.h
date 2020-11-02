@@ -3,9 +3,9 @@
  * 
  * \brief Monster class
  * 
- * \author joostibor
+ * \author joostibor, Peti96, Krisiiii98
  * 
- * \version 0.04
+ * \version 0.1
  * 
  * Here we crate the monsters and set their properties.
  * 
@@ -34,8 +34,9 @@ protected:
 	float atkspeed; ///< How many seconds pass between the attacks of the monster
 	float nextAttack=atkspeed; ///< Keeps track of the current attackspeed 
     /**
-	 * \brief A hero get damage from the monster
-	 * \param h constant reference for the hero who get the attack
+	 * \brief A monster get damage from the monster
+	 * \param m constant reference for the hero who get the attack
+	 * \return the dmg, what the Monster taken.
 	*/
     virtual int takeAttack(Monster& m);
     /**
@@ -44,7 +45,7 @@ protected:
 	*/
 	float getNextAttack() const { return nextAttack; }
 	/**
-	 * \brief return the real damage what monster take to the opponent
+	 * \brief return the real damage what monster take to the opponent and setup the enemy monster's hp.
 	 * \param m the opponent Monster
 	 * \return taken damage
 	*/
@@ -86,8 +87,7 @@ public:
 	std::string getName() const { return name;}
 	/**
 	 * \brief the battle logic implementation
-	 * \return The winner hero
-	 * \param attacked the defender hero
+	 * \param m the enemy monster
 	*/
 	void fightTilDeath(Monster& m);
 	/**
@@ -102,19 +102,14 @@ public:
 	int getHealthPoints() const { return acthp; }
 	/**
 	 * \brief getter for the maximum hp of the hero
-	 * \return the maximum hp of the hero
+	 * \return the maximum hp of the monster
 	*/
 	int getMaxHealthPoints() const { return maxhp; }
 	/**
 	 * \brief getter for the damage of the hero
-	 * \return the damage of the hero
+	 * \return the damage of the monster
 	*/
 	int getDamage() const { return dmg; }
-	/**
-	 * \brief setter for the actual hp of the monster
-     * \param dechp The hp what the monster lost.
-	*/
-	void setActHp(const int dechp);
 };
 
 #endif 

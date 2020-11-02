@@ -3,9 +3,9 @@
  * 
  * \brief JSON class
  * 
- * \author joostibor
+ * \author joostibor, Krisiiii98, Peti96
  * 
- * \version 0.04
+ * \version 0.4
  * 
  * Here we do the parse from a json input.
  * 
@@ -20,12 +20,12 @@
 #include <map>
 #include <fstream>
 #include <iostream>
-#include <any>
+#include <variant>
 
 /**
- * Make a type for parse a json into this. This is a standard map, which have two string parameter.
+ * Make a type for parse a json into this. This is a standard map, which have two parameter, a string and a variant parameter what contain string, int and float.
 */
-typedef std::map<std::string, std::any> jsonMap;
+typedef std::map<std::string, std::variant<std::string, int, float>> jsonMap;
 
 class JSON
 {
@@ -44,10 +44,21 @@ private:
     static jsonMap parsePair(const std::string& line);
     jsonMap inputdatas; ///< This cotain the input datas.
 public:
+    /**
+     * \brief getter for the parser
+     * \param key the JSON element's key
+     * \return T template, with a JSON data-key pair.
+    */
     template <typename T>
     T get(const std::string& key)
     {
-        return std::any_cast<T>(inputdatas[key]);
+        if (inputdatas.find(key) == inputdatas.end()) throw "Wrong JSON key!";
+        try{
+            return std::get<T>(inputdatas[key]);
+        }
+        catch(const std::exception& e) {
+            throw ParseException("Wrong JSON type!");
+        }
     }
     /**
      * \brief Simple construktor for JSON class.
@@ -84,9 +95,9 @@ public:
      * 
      * \brief HeroFileError class
      * 
-     * \author Krisiiii98
+     * \author Krisiiii98, Peti96, joostibor
      * 
-     * \version 0.04
+     * \version 0.9
      * 
      * If we can not reach the file gives back an error message
      * 
