@@ -1,4 +1,5 @@
 #include "JSON.h"
+#include <string>
 
 std::string JSON::searchandCleanJsonWord(std::string& line) {
 	/**
@@ -84,11 +85,54 @@ JSON JSON::parseFromFile(const std::string& filename) {
 }
 
 JSON JSON::parseFromString(const std::string& inputtext) {
-	/**
-	 * This fucntion hand over the input parameter to another function which parse in the input string.
-	*/
-	jsonMap datas = parsePair(inputtext);
-	return JSON(datas);
+	jsonMap dataOfHero;
+
+	int currentPos = 1;
+	int colonCount = 0;
+	int commaCount = 0;
+	int dataCount = 0;
+
+	std::string keyvalue = "";
+	std::string valueofKey = "";
+
+	while (currentPos < (int)inputtext.length())
+	{
+		bool posisgood = true;
+		int colonPos = inputtext.find(':', currentPos);
+		int commaPos = currentPos;
+
+		while (commaPos < (int)inputtext.length() && (!posisgood || inputtext[commaPos] != ',')) {
+			if (inputtext[commaPos] == '\"') posisgood = !posisgood;
+			++commaPos;
+		}
+
+		if (inputtext[commaPos]==',') commaCount++;
+
+		if (commaPos < 0) commaPos = inputtext.length();
+
+		if (colonPos >= 0) {
+			colonCount++;
+
+			keyvalue = inputtext.substr(currentPos, colonPos - (currentPos + 1));
+			valueofKey = inputtext.substr(colonPos + 1, commaPos - (colonPos + 1));
+
+			bool valueofKeyIsString = valueofKey.find('\"') != std::string::npos;
+			keyvalue = searchandCleanJsonWord(keyvalue);
+			valueofKey = searchandCleanJsonWord(valueofKey);			
+			if (valueofKeyIsString){ dataOfHero[keyvalue] = valueofKey; }
+			else if (valueofKey.find('.') != std::string::npos){ dataOfHero[keyvalue] = std::stof(valueofKey); }
+			else{ dataOfHero[keyvalue] = std::stoi(valueofKey); }
+
+			dataCount++;
+		}
+
+		currentPos = commaPos + 1;
+	}
+
+	if(dataCount != colonCount || commaCount != colonCount - 1){
+		throw ParseException("Wrong JSON syntax!");
+	}
+	return JSON(dataOfHero);
 }
 
 JSON JSON::parseFromStream(std::istream& inputStream) {

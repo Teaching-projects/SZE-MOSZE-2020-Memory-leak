@@ -64,7 +64,7 @@ public:
      * \brief Simple construktor for JSON class.
      * \param inputdatas The jsonMap type argument, what contain hero's data.
     */
-    JSON(jsonMap inputdatas) : inputdatas(inputdatas) {}
+    JSON(jsonMap _inputdatas) : inputdatas(_inputdatas) {}
     /**
      * \brief This function parse json from file input.
      * \param filename The name of the json file.

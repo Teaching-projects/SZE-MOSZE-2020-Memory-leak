@@ -1,6 +1,6 @@
 {
     "name": "  Bad"  ,
-  "hp" : "35000,
-  "dmg" :"   8000" ,
-  "  attackCooldown ": 4.2"
+  "health_points" : "35000,
+  "damage" :"   8000" ,
+  "  attack_cooldown ": 4.2"
 }

@@ -34,11 +34,6 @@ private:
 	int lvl; ///< The lvl what the hero is in.
 	const int bonus_damage_per_level; ///< The hero keep this damage in every levelup.
 	const float atkspeed_multiplier; ///< This multiplier reduce the hero's attack cooldown in every levelup.
-	/**
-	 * \brief increment the xp of the hero
-	 * \param getxp the xp, what the hero will recive
-	*/
-	void incXp(int getxp);
 
 public:
 /**
@@ -89,6 +84,11 @@ public:
 	 * \return the level of the hero
 	*/
 	int getLevel() const { return lvl; }
+	/**
+	 * \brief increment the xp of the hero
+	 * \param getxp the xp, what the hero will recive
+	*/
+	void incXp(int getxp);
 };
 
 #endif 
