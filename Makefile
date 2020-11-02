@@ -7,10 +7,10 @@ run-test: $(OBJS)
 Hero.o: Hero.cpp Hero.h jsonParser.h
 	g++ -Wall -c Hero.cpp
 
-main.o: main.cpp
+main.o: main.cpp Hero.h jsonParser.h HeroFileError.h
 	g++ -Wall -c main.cpp
 
-jsonParser.o: jsonParser.cpp jsonParser.h
+jsonParser.o: jsonParser.cpp jsonParser.h HeroFileError.h
 	g++ -Wall -c jsonParser.cpp
 
 clean:
