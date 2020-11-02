@@ -63,6 +63,7 @@ public:
 	 * \param atkspeed the attack speed of the hero
 	*/
 	Monster(const std::string name, int maxhp, int dmg,  float atkspeed) : name(name), acthp(maxhp), maxhp(maxhp), dmg(dmg), atkspeed(atkspeed){} 
+	virtual ~Monster() {} 	///< Virtual destructor for the class
 	/**
 	 * \brief parse a monster from json file or string input
 	 * \param s name of the json file or the content of string parameter
