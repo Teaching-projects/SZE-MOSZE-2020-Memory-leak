@@ -1,15 +1,13 @@
 # SZE-MOSZE-2020-Memory-leak
 
-A program v0.0000000000002-es verziója egy **Hero** osztályt tartalmaz, mely három privát adattaggal rendelkezik: <em>name, hp, dmg</em>. Az osztály lényege, hogy egy hős információit eltárolja, kezelje. Az osztály rendelkezik több segédfüggvénnyel: 
-1. getAttack, mely csökkenti az adott hős életerejét az ellenfél támadási erejével,
-2. getter függvények az adatlekérdezéshez,
-3. parseUnit függvényt, mely argumentumként vár egy fájlnevet, majd beolvassa a megadott formátumnak megfelelő json fájlt.
+## RPG Game szoftver
 
+### Csapattagok
+* Joós Tibor (joostibor)
+* Károlyi Péter (Peti96)
+* Török Kristóf (Krisiiii98)
 
-A kiiratáshoz operátort használunk, mely bármilyen outstreamre a kiiratást megkönnyíti.
+A Modern Szoftverfejlesztési Eszközök tárgyra készült a projektünk, melyben két hős harcol egymással amíg az egyik meg nem hal. A program úgy működik, hogy parancssori argumentumban egy json fájlt, amely tartalmaz egy forgatókönyvet a harchoz. Pl.: <code> ./a.out scenario 1.json </code> 
 
-A main.cpp-ben történik a változók értékeinek beállítása, illetve a játékmenet. A játék addig tart, amíg valamelyik hős életereje nem csökken 0 alá. Továbbá itt történik a fájlok beolvasása is.
-
-A fájlbekérés során keletkező hibák kezelésének megkönnyítése érdekében létrehoztunk egy HeroFileError nevű osztályt, mely egy privát tagot (<em>msg</em>) tartalmaz. Az osztály a string osztályból származik, mely megkönnyíti a hiba kiírását, mivel nincs szükség külön függvényre, hiszen így az osztály rendelkezik alapból a << operátorral.
-
-A program működésének testeléséhez egy alkönytárban létrehoztunk 3 hőst, melyek egy bash szkript által megküzdenek egymással. A szkript összehasonlítja a várt/kézzel kalkulált kimentetet a program által adott kimenettel és amennyiben nem egyezik, akkor hibakóddal tér vissza.
+### Dokumentáció
+A szoftverhez tartozik egy doxygen dokumentáció, mely [ide kattintva](https://teaching-projects.github.io/SZE-MOSZE-2020-Memory-leak/) érhető el.
