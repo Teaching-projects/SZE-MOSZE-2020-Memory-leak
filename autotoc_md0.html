@@ -64,15 +64,13 @@ $(function() {
 <div class="title">SZE-MOSZE-2020-Memory-leak </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>A program v0.0000000000002-es verziója egy <b><a class="el" href="classHero.html" title="Hero class. ">Hero</a></b> osztályt tartalmaz, mely három privát adattaggal rendelkezik: <em>name, hp, dmg</em>. Az osztály lényege, hogy egy hős információit eltárolja, kezelje. Az osztály rendelkezik több segédfüggvénnyel:</p><ol type="1">
-<li>getAttack, mely csökkenti az adott hős életerejét az ellenfél támadási erejével,</li>
-<li>getter függvények az adatlekérdezéshez,</li>
-<li>parseUnit függvényt, mely argumentumként vár egy fájlnevet, majd beolvassa a megadott formátumnak megfelelő json fájlt.</li>
-</ol>
-<p>A kiiratáshoz operátort használunk, mely bármilyen outstreamre a kiiratást megkönnyíti.</p>
-<p>A main.cpp-ben történik a változók értékeinek beállítása, illetve a játékmenet. A játék addig tart, amíg valamelyik hős életereje nem csökken 0 alá. Továbbá itt történik a fájlok beolvasása is.</p>
-<p>A fájlbekérés során keletkező hibák kezelésének megkönnyítése érdekében létrehoztunk egy <a class="el" href="classHeroFileError.html" title="HeroFileError class. ">HeroFileError</a> nevű osztályt, mely egy privát tagot (<em>msg</em>) tartalmaz. Az osztály a string osztályból származik, mely megkönnyíti a hiba kiírását, mivel nincs szükség külön függvényre, hiszen így az osztály rendelkezik alapból a &lt;&lt; operátorral.</p>
-<p>A program működésének testeléséhez egy alkönytárban létrehoztunk 3 hőst, melyek egy bash szkript által megküzdenek egymással. A szkript összehasonlítja a várt/kézzel kalkulált kimentetet a program által adott kimenettel és amennyiben nem egyezik, akkor hibakóddal tér vissza. </p>
+<div class="textblock"><ul>
+<li>Joós Tibor (joostibor)</li>
+<li>Károlyi Péter (Peti96)</li>
+<li>Török Kristóf (Krisiiii98)</li>
+</ul>
+<p>A Modern Szoftverfejlesztési Eszközök tárgyra készült a projektünk, melyben két hős harcol egymással amíg az egyik meg nem hal. A program úgy működik, hogy parancssori argumentumban egy json fájlt, amely tartalmaz egy forgatókönyvet a harchoz. Pl.: <code> ./a.out scenario 1.json </code></p>
+<p>A szoftverhez tartozik egy doxygen dokumentáció, mely <a href="https://teaching-projects.github.io/SZE-MOSZE-2020-Memory-leak/">ide kattintva</a> érhető el. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
