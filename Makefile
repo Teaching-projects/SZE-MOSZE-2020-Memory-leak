@@ -3,13 +3,13 @@ FILES := test/units/kakarott.json test/units/kekarott.json test/units/kikarott.j
 FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
-	g++ -std=c++17 -Wall -Wextra -o run-test $(OBJS)
+	g++ -fPIC -std=c++17 -Wall -Wextra -o run-test $(OBJS)
 
 Hero.o: Hero.cpp Hero.h JSON.h Monster.h
 	g++ $(FLAGS) Hero.cpp
 
 main.o: main.cpp Hero.h JSON.h Monster.h
-	clang++ $(FLAGS) main.cpp
+	clang++ -fPIC $(FLAGS) main.cpp
 
 JSON.o: JSON.cpp JSON.h 
 	g++ $(FLAGS) JSON.cpp
