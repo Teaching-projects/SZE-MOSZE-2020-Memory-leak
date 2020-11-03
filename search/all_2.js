@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dmg',['dmg',['../classMonster.html#a23d6a9678d6df28b540c3be9f102daea',1,'Monster']]]
+  ['hero',['Hero',['../classHero.html',1,'Hero'],['../classHero.html#a2eede81fa227b79e8ef762f47d58b8c4',1,'Hero::Hero()']]],
+  ['herofileerror',['HeroFileError',['../classHeroFileError.html',1,'']]]
 ];
