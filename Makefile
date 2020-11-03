@@ -14,6 +14,9 @@ main.o: main.cpp Hero.h JSON.h Monster.h
 JSON.o: JSON.cpp JSON.h 
 	g++ $(FLAGS) JSON.cpp
 
+Monster.o: Monster.cpp Monster.h JSON.h
+	g++ $(FLAGS) Monster.cpp
+
 clean:
 	rm -rf *.o run-test ./DOCS
 
