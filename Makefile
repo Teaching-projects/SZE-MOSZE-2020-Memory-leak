@@ -9,7 +9,7 @@ Hero.o: Hero.cpp Hero.h JSON.h Monster.h
 	g++ $(FLAGS) Hero.cpp
 
 main.o: main.cpp Hero.h JSON.h Monster.h
-	g++ $(FLAGS) main.cpp
+	clang++ $(FLAGS) main.cpp
 
 JSON.o: JSON.cpp JSON.h 
 	g++ $(FLAGS) JSON.cpp
