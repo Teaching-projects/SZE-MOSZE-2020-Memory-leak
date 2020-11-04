@@ -1,7 +1,7 @@
 {
   "name" : "Kakarott",
-  "hp" : 300,
-  "dmg" : 90,
-  "attackCooldown" : 4.2
+  "health_points" : 300,
+  "damage" : 90,
+  "attack_cooldown" : 4.2
 }
 

@@ -1,17 +1,21 @@
-OBJS := Hero.o main.o jsonParser.o
+OBJS := Hero.o Monster.o main.o JSON.o
 FILES := test/units/kakarott.json test/units/kekarott.json test/units/kikarott.json
+FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
-	g++ -Wall -o run-test $(OBJS)
+	g++ -fPIC -std=c++17 -Wall -Wextra -o run-test $(OBJS)
 
-Hero.o: Hero.cpp Hero.h jsonParser.h
-	g++ -Wall -c Hero.cpp
+Hero.o: Hero.cpp Hero.h JSON.h Monster.h
+	g++ $(FLAGS) Hero.cpp
 
-main.o: main.cpp Hero.h jsonParser.h HeroFileError.h
-	g++ -Wall -c main.cpp
+main.o: main.cpp Hero.h JSON.h Monster.h
+	clang++ -fPIC $(FLAGS) main.cpp
 
-jsonParser.o: jsonParser.cpp jsonParser.h HeroFileError.h
-	g++ -Wall -c jsonParser.cpp
+JSON.o: JSON.cpp JSON.h 
+	g++ $(FLAGS) JSON.cpp
+
+Monster.o: Monster.cpp Monster.h JSON.h
+	g++ $(FLAGS) Monster.cpp
 
 clean:
 	rm -rf *.o run-test ./DOCS
@@ -24,24 +28,23 @@ cppcheck:
 	cppcheck *.cpp --enable=warning,style,performance --output-file=test/styleperform.txt
 
 memoryleak-check:
-	valgrind --leak-check=full --error-exitcode=1 ./run-test test/units/kakarott.json test/units/kikarott.json
+	valgrind --leak-check=full --error-exitcode=1 ./run-test scenario1.json
 
 fight:
-	touch test/result.txt
-	> test/result.txt
+	touch fight_sc1.txt
+	> fight_sc1.txt
 
-	for f1 in $(FILES); do \
-		for f2 in $(FILES); do \
-			if [ $$f1 != $$f2 ]; then \
-				./run-test $$f1 $$f2 >> test/result.txt; \
-			fi; \
-		done; \
-	done
+	touch fight_sc2.txt
+	> fight_sc2.txt
+
+	./run-test scenario1.json >> fight_sc1.txt
+	./run-test scenario2.json >> fight_sc2.txt
 
 fight-diff: fight
-	diff test/result.txt test/expected.txt
+	diff fight_sc1.txt test/expected_sc1.txt
+	diff fight_sc2.txt test/expected_sc2.txt
 
-parserTest:
+programTest:
 	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
 	sudo ln -st /usr/lib/ /usr/src/gtest/libgtest.a
 	sudo ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
