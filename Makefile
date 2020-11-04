@@ -31,15 +31,18 @@ memoryleak-check:
 	valgrind --leak-check=full --error-exitcode=1 ./run-test scenario1.json
 
 fight:
-	touch fight.txt
-	> fight.txt
+	touch fight_sc1.txt
+	> fight_sc1.txt
 
-	./run-test scenario1.json >> fight.txt
-	echo "" >> fight.txt
-	./run-test scenario2.json >> fight.txt
+	touch fight_sc2.txt
+	> fight_sc2.txt
+
+	./run-test scenario1.json >> fight_sc1.txt
+	./run-test scenario2.json >> fight_sc2.txt
 
 fight-diff: fight
-	diff fight.txt test/expected.txt
+	diff fight_sc1.txt test/expected_sc1.txt
+	diff fight_sc2.txt test/expected_sc2.txt
 
 programTest:
 	cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
