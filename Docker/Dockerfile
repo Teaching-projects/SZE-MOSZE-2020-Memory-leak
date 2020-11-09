@@ -4,6 +4,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install --no-instal
 cmake \ 
 valgrind \ 
 git \ 
+g++ \ 
+clang \
 cppcheck \
 doxygen \
 graphviz \
