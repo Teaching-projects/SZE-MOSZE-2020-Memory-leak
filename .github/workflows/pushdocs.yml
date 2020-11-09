@@ -7,12 +7,11 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest   
+    container: tibix2310/mosze:latest 
     steps:
     - uses: actions/checkout@v2
     
-    - run: sudo apt-get install doxygen
-    - run: sudo apt-get install graphviz
     - run: make doc
 
     - name: Push git subdirectory as branch
