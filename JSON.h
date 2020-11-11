@@ -21,6 +21,7 @@
 #include <fstream>
 #include <iostream>
 #include <variant>
+#include <list>
 
 /**
  * Make a type for parse a json into this. This is a standard map, which have two parameter, a string and a variant parameter what contain string, int and float.
@@ -36,21 +37,22 @@ private:
      * \return The cleaned json key or value.
     */
     static std::string searchandCleanJsonWord(std::string& line);
-    /**
-     * \brief This funciton do key and value pairs from the json input.
-     * \param line This is a line from json input.
-     * \return A jsonMap type map, which contain the data of the hero.
-    */
-    static jsonMap parsePair(const std::string& line);
     jsonMap inputdatas; ///< This cotain the input datas.
 public:
+    /**
+     * \brief Simple construktor for JSON class.
+     * \param inputdatas The jsonMap type argument, what contain hero's data.
+    */
+    JSON(jsonMap _inputdatas) : inputdatas(_inputdatas) {}
+
+    typedef std::list<std::variant<std::string, int, float>> list;
     /**
      * \brief getter for the parser
      * \param key the JSON element's key
      * \return T template, with a JSON data-key pair.
     */
     template <typename T>
-    T get(const std::string& key)
+    inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(const std::string& key)
     {
         if (inputdatas.find(key) == inputdatas.end()) throw "Wrong JSON key!";
         try{
@@ -60,11 +62,32 @@ public:
             throw ParseException("Wrong JSON type!");
         }
     }
-    /**
-     * \brief Simple construktor for JSON class.
-     * \param inputdatas The jsonMap type argument, what contain hero's data.
-    */
-    JSON(jsonMap _inputdatas) : inputdatas(_inputdatas) {}
+
+    template <typename T>
+    inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(const std::string& key)
+    {
+        if(!inputdatas.count(key)) throw "Missing JSON key! The key is: " + key;
+
+        JSON::list monsters;
+
+        std::string inputList = std::get<std::string>(inputdatas[key]);
+        std::string listValue;
+
+        unsigned int actPos = 0;
+
+        while (actPos < inputList.length())
+        {
+            int commaPos = inputList.find(',', actPos);
+            if (commaPos < 0) commaPos = inputList.length();
+
+            listValue = inputList.substr(actPos, commaPos-actPos);
+            monsters.push_back(listValue);
+
+            actPos = commaPos + 1;
+        }
+
+        return monsters;
+    }
     /**
      * \brief This function parse json from file input.
      * \param filename The name of the json file.
