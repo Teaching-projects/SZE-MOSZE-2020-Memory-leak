@@ -62,7 +62,11 @@ public:
             throw ParseException("Wrong JSON type!");
         }
     }
-
+    /**
+     * \brief getter for the parser
+     * \param key the JSON element's key
+     * \return List of monsters.
+    */
     template <typename T>
     inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(const std::string& key)
     {

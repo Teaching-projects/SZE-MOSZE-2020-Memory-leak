@@ -3,7 +3,7 @@
 
 std::string JSON::searchandCleanJsonWord(std::string& line) {
 	/**
-	 * In this function we search the first and last index of the necessary value.
+	 * In this function we search for the first and last index of the necessary value.
 	 * After that we cut the input and return the cleaned value.
 	*/
 	int firstidx = 0;
@@ -100,9 +100,9 @@ JSON JSON::parseFromString(const std::string& inputtext) {
 
 JSON JSON::parseFromFile(const std::string& filename) {
 	/**
-	 * We make an ifstream from received filename.
-	 * If the file not openable we throw an error message.
-	 * If the file is ok, this fuction parse this line by line.
+	 * We make an ifstream from the received filename.
+	 * If the file is not openable we throw an error message.
+	 * If the file is ok, this fuction parses this line by line.
 	*/
 	std::ifstream jsonIfs(filename);
 
@@ -123,7 +123,7 @@ JSON JSON::parseFromFile(const std::string& filename) {
 
 JSON JSON::parseFromStream(std::istream& inputStream) {
 	/**
-	 * This fucntion parse the inputstream line by line.
+	 * This function parses the inputstream line by line.
 	*/
 	std::string line = "";
 	std::string textFromInput = "";
