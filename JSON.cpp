@@ -46,8 +46,8 @@ JSON JSON::parseFromString(const std::string& inputtext) {
 
 		if (colonPos >= 0) {
 			colonCount++;
-
-			keyvalue = inputtext.substr(currentPos, colonPos - (currentPos + 1));
+			
+			keyvalue = inputtext.substr(currentPos + 1, colonPos - currentPos - 1);
 			valueofKey = inputtext.substr(colonPos + 1, commaPos - (colonPos + 1));
 
 			int monsterListStart = valueofKey.find('[');
@@ -58,6 +58,7 @@ JSON JSON::parseFromString(const std::string& inputtext) {
 				if (monsterListEnd < 0) throw "Wrong syntax!";
 
 				valueofKey = inputtext.substr(colonPos + monsterListStart + 2, inputtext.find(']', monsterListStart + 1) - (colonPos + monsterListStart + 2));
+				keyvalue = searchandCleanJsonWord(keyvalue);
 				
 				std::string monsterFileList = "";
 				unsigned int filenameStartPos = 0;
@@ -72,7 +73,6 @@ JSON JSON::parseFromString(const std::string& inputtext) {
 				}
 
 				monsterFileList.erase(monsterFileList.end() - 1);
-				keyvalue = searchandCleanJsonWord(keyvalue);
 				dataOfHero[keyvalue] = monsterFileList;
 				dataCount++;
 				commaPos = monsterListEnd;
