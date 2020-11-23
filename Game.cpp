@@ -15,10 +15,15 @@ Game::~Game(){
 
 
 bool Game::isOccupied(int x, int y){
-    if (isHeroSet && gameHero.posx == x && gameHero.posy == y) return true;
+    if (isHeroSet && gameHero.posx == x && gameHero.posy == y) {
+        return true;
+    }
     else if (isMonsterSet) {
         int cv = 0;
-        while(cv < (int)gameMonsters.size() && (gameMonsters[cv].posx != x || gameMonsters[cv].posy != y)) cv++;
+        while(cv < (int)gameMonsters.size() && (gameMonsters[cv].posx != x || gameMonsters[cv].posy != y)) 
+        {
+            cv++;
+        }
         if (cv < (int)gameMonsters.size()) return true;
     }
 
@@ -47,7 +52,7 @@ void Game::putHero(Hero hero, int x, int y){
 
 void Game::putMonster(Monster monster, int x, int y){
     if (!isMapSet) throw Map::WrongIndexException("No map initialized!");
-    if (isOccupied(x,y) || gameMap.get(x,y) == Map::type::Wall) throw OccupiedException("This position is occupied!");
+    if (gameMap.get(x,y) == Map::type::Wall) throw OccupiedException("This position is occupied!");
 
     gameMonsters.push_back({new Monster(monster), x, y});
     isMonsterSet = true;
@@ -67,7 +72,7 @@ void Game::draw(){
 
     std::cout << "╔";
     for(int i = 0; i < width; i++) std::cout << "══";
-    std::cout << "╗";
+    std::cout << "╗" << std::endl;
 
     for (int i = 0; i < heigth; i++){
         std::cout << "║";
@@ -86,6 +91,10 @@ void Game::draw(){
         }
         std::cout << "║\n";
     }
+
+    std::cout << "╚";
+    for (int i = 0; i < width; i++) std::cout << "══";
+    std::cout << "╝" << std::endl;
 }
 
 void Game::run(){
@@ -133,9 +142,10 @@ void Game::run(){
                 }
             }
         }
+        draw();
 
     }while(gameHero.name->isAlive() && gameMonsters.size() > 0);
-    
+
     if(gameHero.name->isAlive()) std::cout << gameHero.name->getName() << " cleared the map." << std::endl;
     else std::cout << gameHero.name->getName() << " died." << std::endl;
 }

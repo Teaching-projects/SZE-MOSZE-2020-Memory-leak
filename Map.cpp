@@ -17,14 +17,14 @@ Map::mapType Map::readMap(std::string filename){
     std::string line;
 
     while(std::getline(inputMap, line)){
-        std::vector<type> line;
+        std::vector<type> lineofMap;
         for (auto ch: line){
-            if (ch == '#') line.push_back(type::Wall);
-            else if (ch == ' ') line.push_back(type::Free);
+            if (ch == '#') lineofMap.push_back(type::Wall);
+            else if (ch == ' ') lineofMap.push_back(type::Free);
         }
-        map.push_back(line);
+        
+        map.push_back(lineofMap);
     }
-
     inputMap.close();
     return map;
 }

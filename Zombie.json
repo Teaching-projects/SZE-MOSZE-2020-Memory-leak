@@ -4,6 +4,9 @@
  
     "name" : "Zombie",
     "health_points" : 10, 
-    "damage" : 1, "attack_cooldown" : 2.8,
-    "race" : "undead"
+    "attack_cooldown" : 2.8,
+    "race" : "undead",
+    "physical_damage"          : 3,
+    "magical_damage": 1,
+    "defense": 0
 }

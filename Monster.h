@@ -86,8 +86,8 @@ public:
 	 * \param defense the defense of the monster
 	 * \param atkspeed the attack speed of the monster
 	*/
-	Monster(const std::string name, int maxhp, int phdmg, int magdmg, int defense, float atkspeed) : name(name), acthp(maxhp), maxhp(maxhp),
-	dmg({phdmg, magdmg}), defense(defense), atkspeed(atkspeed){} 
+	Monster(const std::string _name, int _maxhp, int _phdmg, int _magdmg, int _defense, float _atkspeed) : name(_name), acthp(_maxhp), maxhp(_maxhp),
+	dmg({_phdmg, _magdmg}), defense(_defense), atkspeed(_atkspeed){} 
 	virtual ~Monster() {} 	///< Virtual destructor for the class
 	/**
 	 * \brief parse a monster from json file or string input

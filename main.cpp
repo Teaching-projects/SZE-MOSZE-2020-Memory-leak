@@ -69,8 +69,9 @@ int main(int argc, char** argv){
         Hero hero{Hero::parse(hero_unit.name)};
         Game game(map_name);
         game.putHero(hero, hero_unit.posx, hero_unit.posy);
-        for (const auto& monster : monsters)
+        for (const auto& monster : monsters) {
             game.putMonster(Monster::parse(monster.name), monster.posx, monster.posy);
+        }
         game.run();       
     } catch (const JSON::ParseException& e) {bad_exit(4);}
     return 0;

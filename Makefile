@@ -33,17 +33,17 @@ cppcheck:
 	cppcheck *.cpp --enable=warning,style,performance --output-file=test/styleperform.txt
 
 memoryleak-check:
-	valgrind --leak-check=full --error-exitcode=1 ./run-test scenario1.json
+	valgrind --leak-check=full --error-exitcode=1 cat test/input_sc1.txt | ./run-test scenario1.json
 
 fight:
 	touch fight_sc1.txt
 	> fight_sc1.txt
-
+	
 	touch fight_sc2.txt
 	> fight_sc2.txt
 
-	./run-test scenario1.json >> fight_sc1.txt
-	./run-test scenario2.json >> fight_sc2.txt
+	cat test/input_sc1.txt | ./run-test scenario1.json >> fight_sc1.txt
+	cat test/input_sc2.txt | ./run-test scenario2.json >> fight_sc2.txt
 
 fight-diff: fight
 	diff fight_sc1.txt test/expected_sc1.txt
