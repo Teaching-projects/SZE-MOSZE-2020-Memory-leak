@@ -42,6 +42,7 @@ public:
         }
         return maxlen;
     }
+    static mapType readMap (std::string filename);
 
     class WrongIndexException : public std::runtime_error{
         public:
@@ -50,7 +51,6 @@ public:
 
 private:
     std::vector<std::vector<type>> data;
-    static mapType readMap (std::string filename);
 };
 
 #endif

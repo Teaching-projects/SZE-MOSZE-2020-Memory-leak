@@ -12,6 +12,7 @@ void Hero::incXp(int getxp) {
 		dmg.physical = (int)round(dmg.physical + bonus_physical_damage_per_level);
 		dmg.magical = (int)round(dmg.magical + bonus_magical_damage_per_level);
 		atkspeed = (float)atkspeed * atkspeed_multiplier;
+		defense = (int)round(defense + bonus_defense_per_level);
 		acthp = maxhp;
 		lvl++;
 		xp -= xpforlvlup;
