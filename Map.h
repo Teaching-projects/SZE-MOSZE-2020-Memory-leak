@@ -29,10 +29,7 @@ public:
 
     Map() {}
     Map(std::string filename);
-
-private:
-    std::vector<std::vector<type>> data;
-    static mapType readMap (std::string filename);
+    
     Map::type get(int x, int y) const;
     int getMapHeigth() const { return data.size(); }
     int getMapWidth() const {
@@ -47,4 +44,8 @@ private:
         public:
             WrongIndexException(const std::string& msg) : std::runtime_error(msg) {}
     };
+
+private:
+    std::vector<std::vector<type>> data;
+    static mapType readMap (std::string filename);
 };
