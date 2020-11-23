@@ -5,7 +5,7 @@ Map::Map(std::string filename){
 }
 
 Map::type Map::get(int x, int y) const{
-    if (data.size() < 0 || y >= data.size() || x < 0 || y < 0 || x >= data[y].size()) WrongIndexException("One of the coordinates out of index!");
+    if ((int)data.size() < 0 || y >= (int)data.size() || x < 0 || y < 0 || x >= (int)data[y].size()) WrongIndexException("One of the coordinates out of index!");
     return data[y][x];
 }
 

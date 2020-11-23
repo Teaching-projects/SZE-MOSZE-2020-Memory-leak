@@ -9,7 +9,8 @@ Monster Monster::parse(const std::string& s)
 	*/
 	JSON monsterData = JSON::parseFromFile(s);
 	return Monster(monsterData.get<std::string>("name"), monsterData.get<int>("health_points"),
-	monsterData.get<int>("damage"), monsterData.get<float>("attack_cooldown"));
+	monsterData.get<int>("physical_damage"), monsterData.get<int>("magical_damage"),
+	monsterData.get<int>("defense"), monsterData.get<float>("attack_cooldown"));
 }
 
 Monster Monster::parse(std::istream& stream)
@@ -21,7 +22,8 @@ Monster Monster::parse(std::istream& stream)
 	*/
 	JSON monsterData = JSON::parseFromStream(stream);
 	return Monster(monsterData.get<std::string>("name"), monsterData.get<int>("health_points"),
-	monsterData.get<int>("physical_damage"), monsterData.get<int>("magical_damage"), monsterData.get<float>("attack_cooldown"));
+	monsterData.get<int>("physical_damage"), monsterData.get<int>("magical_damage"),
+	monsterData.get<int>("defense"), monsterData.get<float>("attack_cooldown"));
 }
 
 bool Monster::isAlive(){

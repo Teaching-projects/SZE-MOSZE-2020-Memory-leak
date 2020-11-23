@@ -1,7 +1,5 @@
 #include "Game.h"
 
-Game::Game() : isMapSet(false), isHeroSet(false), isMonsterSet(false), isStarted(false), gameHero(){}
-
 Game::Game(std::string mapfilename): isMapSet(false), isHeroSet(false), isMonsterSet(false), isStarted(false), gameHero() {
     Map gamemap(mapfilename);
     setMap(gamemap);
@@ -20,8 +18,8 @@ bool Game::isOccupied(int x, int y){
     if (isHeroSet && gameHero.posx == x && gameHero.posy == y) return true;
     else if (isMonsterSet) {
         int cv = 0;
-        while(cv < gameMonsters.size() && (gameMonsters[cv].posx != x || gameMonsters[cv].posy != y)) cv++;
-        if (cv < gameMonsters.size()) return true;
+        while(cv < (int)gameMonsters.size() && (gameMonsters[cv].posx != x || gameMonsters[cv].posy != y)) cv++;
+        if (cv < (int)gameMonsters.size()) return true;
     }
 
     return false;
@@ -57,7 +55,7 @@ void Game::putMonster(Monster monster, int x, int y){
 
 std::vector<int> Game::getMonsterInThisPos(int x, int y){
     std::vector<int> idx;
-    for (int i = 0; i < gameMonsters.size(); i++){
+    for (int i = 0; i < (int)gameMonsters.size(); i++){
         if (gameMonsters[i].posx == x && gameMonsters[i].posy == y) idx.push_back(i);
     }
     return idx;
@@ -104,26 +102,26 @@ void Game::run(){
         inputIsWrong = true;
         if (inputDirection == "north" && gameMap.get(gameHero.posx, gameHero.posy - 1) == Map::type::Free){
             gameHero.posy -= 1;
-            !inputIsWrong; 
+            inputIsWrong = false;
         }
         else if (inputDirection == "south" && gameMap.get(gameHero.posx, gameHero.posy + 1) == Map::type::Free){
             gameHero.posy += 1;
-            !inputIsWrong; 
+            inputIsWrong = false; 
         }
         else if (inputDirection == "west" && gameMap.get(gameHero.posx - 1, gameHero.posy) == Map::type::Free){
             gameHero.posx -= 1;
-            !inputIsWrong; 
+            inputIsWrong = false; 
         }
         else if (inputDirection == "east" && gameMap.get(gameHero.posx + 1, gameHero.posy) == Map::type::Free){
             gameHero.posx += 1;
-            !inputIsWrong; 
+            inputIsWrong = false;
         }
 
         if(inputIsWrong == false){
             std::vector<int> monstersHere = getMonsterInThisPos(gameHero.posx, gameHero.posy);
             if (monstersHere.size() > 0){
                 int cv = 0;
-                while(gameHero.name->isAlive() && cv < monstersHere.size()){
+                while(gameHero.name->isAlive() && cv < (int)monstersHere.size()){
                     gameHero.name->fightTilDeath(*gameMonsters[monstersHere[cv]].name);
                     cv++;
                 }

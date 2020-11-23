@@ -57,9 +57,9 @@ public:
 	 * 
 	*/
 	Hero(const std::string name, int maxhp, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage,
-	    const int bonus_dmg_per_level, const float atkspeed_multiplier, float atkspeed, const int defense, const int bonus_defense_per_level)
+	    const int bonus_physical_dmg_per_level, const int bonus_magical_dmg_per_level, const float atkspeed_multiplier, float atkspeed, const int defense, const int bonus_defense_per_level)
 		: Monster(name, maxhp, physical_damage, magical_damage, defense, atkspeed), bonus_health_per_level(bonus_health_per_level),
-		xp(0), xpforlvlup(xpforlvlup), lvl(1), bonus_physical_damage_per_level(bonus_physical_damage_per_level), bonus_magical_damage_per_level(bonus_magical_damage_per_level),
+		xp(0), xpforlvlup(xpforlvlup), lvl(1), bonus_physical_damage_per_level(bonus_physical_dmg_per_level), bonus_magical_damage_per_level(bonus_magical_dmg_per_level),
 		atkspeed_multiplier(atkspeed_multiplier), bonus_defense_per_level(bonus_defense_per_level){} 	
 	/**
 	 * \brief parse hero from json file or string input

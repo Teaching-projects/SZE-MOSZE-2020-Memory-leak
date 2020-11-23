@@ -13,6 +13,9 @@
  * 
 */
 
+#ifndef MAP_H
+#define MAP_H
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -35,7 +38,7 @@ public:
     int getMapWidth() const {
         int maxlen = 0;
         for (auto element: data){
-            if (element.size() > maxlen) maxlen = element.size();
+            if ((int)element.size() > maxlen) maxlen = element.size();
         }
         return maxlen;
     }
@@ -49,3 +52,5 @@ private:
     std::vector<std::vector<type>> data;
     static mapType readMap (std::string filename);
 };
+
+#endif

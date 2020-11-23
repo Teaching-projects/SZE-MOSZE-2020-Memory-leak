@@ -13,6 +13,9 @@
  * 
 */
 
+#ifndef GAME_H
+#define GAME_H
+
 #include "Map.h"
 #include "Hero.h"
 #include "Monster.h"
@@ -26,7 +29,7 @@ public:
         int posy;
     };
 
-    Game();
+    Game() : isMapSet(false), isHeroSet(false), isMonsterSet(false), isStarted(false), gameHero(){}
     Game(std::string mapfilename);
     ~Game();
     
@@ -59,19 +62,20 @@ public:
         public:
             NotInitializedExpection(const std::string& msg) : std::runtime_error(msg) {}
     };
-
 private:
-    Map gameMap;
-    monster gameHero;
-    std::vector<monster> gameMonsters;
-    std::vector<int> monsterInPos;
-
     bool isMapSet;
     bool isHeroSet;
     bool isMonsterSet;
     bool isStarted;
 
+    Map gameMap;
+    monster gameHero;
+    std::vector<monster> gameMonsters;
+    std::vector<int> monsterInPos;
+
     bool isOccupied(int x, int y);
     std::vector<int> getMonsterInThisPos(int x, int y);
     void draw();
 };
+
+#endif

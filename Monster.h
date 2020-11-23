@@ -32,10 +32,9 @@ protected:
 		int magical;
 
 		Damage& operator+(const Damage& another){
-			Damage tmp;
-			tmp.physical = this->physical + another.physical;
-			tmp.magical = this->magical + another.magical;
-			return tmp;
+			this->physical = this->physical + another.physical;
+			this->magical = this->magical + another.physical;
+			return *this;
 		}
 
 		Damage& operator+=(const Damage& another){
@@ -46,7 +45,7 @@ protected:
 
 		Damage& operator*=(const Damage& another){
 			this->physical *= another.physical;
-			this->magical *+ another.magical;
+			this->magical *= another.magical;
 			return *this;
 		}
 	};
