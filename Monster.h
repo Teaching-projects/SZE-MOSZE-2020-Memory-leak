@@ -27,10 +27,34 @@
 class Monster
 {
 protected:
+	struct Damage {
+		int physical;
+		int magical;
+
+		Damage& operator+(const Damage& another){
+			Damage tmp;
+			tmp.physical = this->physical + another.physical;
+			tmp.magical = this->magical + another.magical;
+			return tmp;
+		}
+
+		Damage& operator+=(const Damage& another){
+			this->physical += another.physical;
+			this->magical += another.magical;
+			return *this;
+		}
+
+		Damage& operator*=(const Damage& another){
+			this->physical *= another.physical;
+			this->magical *+ another.magical;
+			return *this;
+		}
+	};
 	const std::string name; ///< The name of the monster
 	int acthp; ///< The actual hp of the monster
 	int maxhp; ///< The maximum hp of the monster at the start
-	int dmg; ///< The damage of the monster
+	Damage dmg; ///< The damage of the monster
+	int defense; ///< The defense of the monster
 	float atkspeed; ///< How many seconds pass between the attacks of the monster
 	float nextAttack=atkspeed; ///< Keeps track of the current attackspeed 
     /**
@@ -56,13 +80,15 @@ public:
  * Setting the hero properties and the required things to the battle.
 */
 	/**
-	 * \brief constructor for the hero class
-	 * \param name the name of the hero
-	 * \param hp the healt points of the hero
-	 * \param dmg the damage of the hero
-	 * \param atkspeed the attack speed of the hero
+	 * \brief constructor for the monster class
+	 * \param name the name of the monster
+	 * \param hp the healt points of the monster
+	 * \param dmg the damage of the monster
+	 * \param defense the defense of the monster
+	 * \param atkspeed the attack speed of the monster
 	*/
-	Monster(const std::string name, int maxhp, int dmg,  float atkspeed) : name(name), acthp(maxhp), maxhp(maxhp), dmg(dmg), atkspeed(atkspeed){} 
+	Monster(const std::string name, int maxhp, int phdmg, int magdmg, int defense, float atkspeed) : name(name), acthp(maxhp), maxhp(maxhp),
+	dmg({phdmg, magdmg}), defense(defense), atkspeed(atkspeed){} 
 	virtual ~Monster() {} 	///< Virtual destructor for the class
 	/**
 	 * \brief parse a monster from json file or string input
@@ -92,7 +118,7 @@ public:
 	*/
 	void fightTilDeath(Monster& m);
 	/**
-	 * \brief getter for the next attack time of the hero
+	 * \brief getter for the next attack time of the monster
 	 * \return the next attack time of the hero
 	*/
 	float getAttackCoolDown() const { return atkspeed; } 
@@ -102,15 +128,25 @@ public:
 	*/
 	int getHealthPoints() const { return acthp; }
 	/**
-	 * \brief getter for the maximum hp of the hero
+	 * \brief getter for the maximum hp of the monster
 	 * \return the maximum hp of the monster
 	*/
 	int getMaxHealthPoints() const { return maxhp; }
 	/**
-	 * \brief getter for the damage of the hero
-	 * \return the damage of the monster
+	 * \brief getter for the defense of the monster
+	 * \return the defense of the monster
 	*/
-	int getDamage() const { return dmg; }
+	int getDefense() const { return defense; }
+	/**
+	 * \brief getter for the physical damage of the monster
+	 * \return the physical damage of the monster
+	*/
+	int getPhysicalDamage() const { return dmg.physical; }
+	/**
+	 * \brief getter for the magical damage of the monster
+	 * \return the magical damage of the monster
+	*/
+	int getMagicalDamage() const { return dmg.magical; }
 };
 
 #endif 

@@ -21,7 +21,7 @@ Monster Monster::parse(std::istream& stream)
 	*/
 	JSON monsterData = JSON::parseFromStream(stream);
 	return Monster(monsterData.get<std::string>("name"), monsterData.get<int>("health_points"),
-	monsterData.get<int>("damage"), monsterData.get<float>("attack_cooldown"));
+	monsterData.get<int>("physical_damage"), monsterData.get<int>("magical_damage"), monsterData.get<float>("attack_cooldown"));
 }
 
 bool Monster::isAlive(){
@@ -51,16 +51,20 @@ int Monster::takeDamage(Monster& m)
 	 * At the end the fucntion return the real taken damage.
 	*/
 	int takenDmg = 0;
+	int realDmg = m.getPhysicalDamage() - defense;
 
-	if (acthp - m.getDamage() < 0)
+	if (realDmg <= 0) realDmg = m.getMagicalDamage();
+	else realDmg += m.getMagicalDamage();
+
+	if (acthp - realDmg < 0)
 	{
 		takenDmg = acthp;
 		acthp = 0;
 	}
 	else
 	{
-		acthp -= m.getDamage();
-		takenDmg = m.getDamage();
+		acthp -= realDmg;
+		takenDmg = realDmg;
 	}
 
 	return takenDmg;

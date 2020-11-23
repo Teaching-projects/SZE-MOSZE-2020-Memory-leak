@@ -9,7 +9,8 @@ void Hero::incXp(int getxp) {
 	xp += getxp;
 	while(xp >= xpforlvlup){ 
 		maxhp = (int)round(maxhp + bonus_health_per_level);
-		dmg = (int)round(dmg + bonus_damage_per_level);
+		dmg.physical = (int)round(dmg.physical + bonus_physical_damage_per_level);
+		dmg.magical = (int)round(dmg.magical + bonus_magical_damage_per_level);
 		atkspeed = (float)atkspeed * atkspeed_multiplier;
 		acthp = maxhp;
 		lvl++;
@@ -37,7 +38,8 @@ Hero Hero::parse(const std::string& s)
 	JSON heroData = JSON::parseFromFile(s);
 	return Hero(heroData.get<std::string>("name"), heroData.get<int>("base_health_points"),
 	heroData.get<int>("health_point_bonus_per_level"), heroData.get<int>("experience_per_level"),
-	heroData.get<int>("base_damage"), heroData.get<int>("damage_bonus_per_level"),
+	heroData.get<int>("base_physical_damage"), heroData.get<int>("base_magical_damage"),
+	heroData.get<int>("physical_damage_bonus_per_level"), heroData.get<int>("magical_damage_bonus_per_level"),
 	heroData.get<float>("cooldown_multiplier_per_level"), heroData.get<float>("base_attack_cooldown"));
 }
 
