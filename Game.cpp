@@ -135,4 +135,7 @@ void Game::run(){
         }
 
     }while(gameHero.name->isAlive() && gameMonsters.size() > 0);
+    
+    if(gameHero.name->isAlive()) std::cout << gameHero.name->getName() << " cleared the map." << std::endl;
+    else std::cout << gameHero.name->getName() << " died." << std::endl;
 }

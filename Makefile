@@ -1,5 +1,4 @@
-OBJS := Hero.o Monster.o main.o JSON.o
-FILES := test/units/kakarott.json test/units/kekarott.json test/units/kikarott.json
+OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o
 FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
@@ -8,7 +7,7 @@ run-test: $(OBJS)
 Hero.o: Hero.cpp Hero.h JSON.h Monster.h
 	g++ $(FLAGS) Hero.cpp
 
-main.o: main.cpp Hero.h JSON.h Monster.h
+main.o: main.cpp Hero.h JSON.h Monster.h Map.h Game.h
 	clang++ -fPIC $(FLAGS) main.cpp
 
 JSON.o: JSON.cpp JSON.h 
@@ -16,6 +15,12 @@ JSON.o: JSON.cpp JSON.h
 
 Monster.o: Monster.cpp Monster.h JSON.h
 	g++ $(FLAGS) Monster.cpp
+
+Map.o: Map.cpp Map.h
+	g++ $(FLAGS) Map.cpp
+
+Game.o: Game.cpp Game.h Map.h Hero.h Monster.h
+	g++ $(FLAGS) Game.cpp
 
 clean:
 	rm -rf *.o run-test ./DOCS
