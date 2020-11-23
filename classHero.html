@@ -98,9 +98,9 @@ Collaboration diagram for Hero:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa5dd2ad18ae1297146044aeeefe27aff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#aa5dd2ad18ae1297146044aeeefe27aff">Hero</a> (const std::string <a class="el" href="classMonster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0">name</a>, int <a class="el" href="classMonster.html#a3935c40431f7f6dbdf0a4729c551679b">maxhp</a>, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage, const int bonus_dmg_per_level, const float atkspeed_multiplier, float <a class="el" href="classMonster.html#a11435e775a409979d9f32db50cf56cf1">atkspeed</a>, const int <a class="el" href="classMonster.html#ad867513550d7fde7e4b79806fe90ae2f">defense</a>, const int bonus_defense_per_level)</td></tr>
-<tr class="memdesc:aa5dd2ad18ae1297146044aeeefe27aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the hero class  <a href="classHero.html#aa5dd2ad18ae1297146044aeeefe27aff">More...</a><br /></td></tr>
-<tr class="separator:aa5dd2ad18ae1297146044aeeefe27aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26154849e8da400eb10739fd5357d29c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a26154849e8da400eb10739fd5357d29c">Hero</a> (const std::string <a class="el" href="classMonster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0">name</a>, int <a class="el" href="classMonster.html#a3935c40431f7f6dbdf0a4729c551679b">maxhp</a>, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage, const int bonus_physical_dmg_per_level, const int bonus_magical_dmg_per_level, const float atkspeed_multiplier, float <a class="el" href="classMonster.html#a11435e775a409979d9f32db50cf56cf1">atkspeed</a>, const int <a class="el" href="classMonster.html#ad867513550d7fde7e4b79806fe90ae2f">defense</a>, const int bonus_defense_per_level)</td></tr>
+<tr class="memdesc:a26154849e8da400eb10739fd5357d29c"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the hero class  <a href="classHero.html#a26154849e8da400eb10739fd5357d29c">More...</a><br /></td></tr>
+<tr class="separator:a26154849e8da400eb10739fd5357d29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88a4a824d6588a9a616d3f69057d7215"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a88a4a824d6588a9a616d3f69057d7215">takeAttack</a> (<a class="el" href="classMonster.html">Monster</a> &amp;m) override</td></tr>
 <tr class="memdesc:a88a4a824d6588a9a616d3f69057d7215"><td class="mdescLeft">&#160;</td><td class="mdescRight">A monster get damage from the hero.  <a href="classHero.html#a88a4a824d6588a9a616d3f69057d7215">More...</a><br /></td></tr>
 <tr class="separator:a88a4a824d6588a9a616d3f69057d7215"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,8 +207,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <p>Here we crate the heroes and set their properties.</p>
 <dl class="section date"><dt>Date</dt><dd>2020/10/13 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa5dd2ad18ae1297146044aeeefe27aff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5dd2ad18ae1297146044aeeefe27aff">&#9670;&nbsp;</a></span>Hero()</h2>
+<a id="a26154849e8da400eb10739fd5357d29c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26154849e8da400eb10739fd5357d29c">&#9670;&nbsp;</a></span>Hero()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +256,13 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>bonus_dmg_per_level</em>, </td>
+          <td class="paramname"><em>bonus_physical_dmg_per_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>bonus_magical_dmg_per_level</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
