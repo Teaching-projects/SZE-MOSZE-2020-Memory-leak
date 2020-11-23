@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['takeattack_81',['takeAttack',['../classHero.html#a88a4a824d6588a9a616d3f69057d7215',1,'Hero::takeAttack()'],['../classMonster.html#a42b769b925b32ffc2bdbef57be3f7378',1,'Monster::takeAttack()']]],
-  ['takedamage_82',['takeDamage',['../classMonster.html#a94ec7f74fb0555a8e3c5abc02fe72291',1,'Monster']]]
+  ['run_96',['run',['../classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa',1,'Game']]]
 ];

@@ -67,7 +67,6 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classMap-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Map Class Reference</div>  </div>
@@ -86,42 +85,193 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a41697b848ea9a5aad1910714e0196b7b"><td class="memItemLeft" align="right" valign="top"><a id="a41697b848ea9a5aad1910714e0196b7b"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>type</b> { <b>Wall</b>, 
+<tr class="memitem:a41697b848ea9a5aad1910714e0196b7b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">type</a> { <b>Wall</b>, 
 <b>Free</b>
  }</td></tr>
 <tr class="separator:a41697b848ea9a5aad1910714e0196b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95d026cc39d814dd819e2ffaf155693a"><td class="memItemLeft" align="right" valign="top"><a id="a95d026cc39d814dd819e2ffaf155693a"></a>
-typedef std::vector&lt; std::vector&lt; type &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mapType</b></td></tr>
+<tr class="memitem:a95d026cc39d814dd819e2ffaf155693a"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::vector&lt; <a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">type</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a95d026cc39d814dd819e2ffaf155693a">mapType</a></td></tr>
 <tr class="separator:a95d026cc39d814dd819e2ffaf155693a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab124c12c6c9dec693aedb1a4b6384ecd"><td class="memItemLeft" align="right" valign="top"><a id="ab124c12c6c9dec693aedb1a4b6384ecd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Map</b> (std::string filename)</td></tr>
+<tr class="memitem:a0f5ad0fd4563497b4214038cbca8b582"><td class="memItemLeft" align="right" valign="top"><a id="a0f5ad0fd4563497b4214038cbca8b582"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0f5ad0fd4563497b4214038cbca8b582">Map</a> ()</td></tr>
+<tr class="memdesc:a0f5ad0fd4563497b4214038cbca8b582"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a constructor for the map class which does not have any input. <br /></td></tr>
+<tr class="separator:a0f5ad0fd4563497b4214038cbca8b582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab124c12c6c9dec693aedb1a4b6384ecd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ab124c12c6c9dec693aedb1a4b6384ecd">Map</a> (std::string filename)</td></tr>
+<tr class="memdesc:ab124c12c6c9dec693aedb1a4b6384ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a constructor for the map class which have a filename input.  <a href="classMap.html#ab124c12c6c9dec693aedb1a4b6384ecd">More...</a><br /></td></tr>
 <tr class="separator:ab124c12c6c9dec693aedb1a4b6384ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74d5010209ad0da6b05595a33f36fc76"><td class="memItemLeft" align="right" valign="top"><a id="a74d5010209ad0da6b05595a33f36fc76"></a>
-Map::type&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (int x, int y) const</td></tr>
+<tr class="memitem:a74d5010209ad0da6b05595a33f36fc76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">Map::type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a74d5010209ad0da6b05595a33f36fc76">get</a> (int x, int y) const</td></tr>
+<tr class="memdesc:a74d5010209ad0da6b05595a33f36fc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Here happens the query of a map element.  <a href="classMap.html#a74d5010209ad0da6b05595a33f36fc76">More...</a><br /></td></tr>
 <tr class="separator:a74d5010209ad0da6b05595a33f36fc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b915bae065c7685bfc9302e146b165c"><td class="memItemLeft" align="right" valign="top"><a id="a0b915bae065c7685bfc9302e146b165c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMapHeigth</b> () const</td></tr>
+<tr class="memitem:a0b915bae065c7685bfc9302e146b165c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#a0b915bae065c7685bfc9302e146b165c">getMapHeigth</a> () const</td></tr>
+<tr class="memdesc:a0b915bae065c7685bfc9302e146b165c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the map heigth.  <a href="classMap.html#a0b915bae065c7685bfc9302e146b165c">More...</a><br /></td></tr>
 <tr class="separator:a0b915bae065c7685bfc9302e146b165c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae10f08208cda780d6ff5997190953e58"><td class="memItemLeft" align="right" valign="top"><a id="ae10f08208cda780d6ff5997190953e58"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMapWidth</b> () const</td></tr>
+<tr class="memitem:ae10f08208cda780d6ff5997190953e58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMap.html#ae10f08208cda780d6ff5997190953e58">getMapWidth</a> () const</td></tr>
+<tr class="memdesc:ae10f08208cda780d6ff5997190953e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the map width.  <a href="classMap.html#ae10f08208cda780d6ff5997190953e58">More...</a><br /></td></tr>
 <tr class="separator:ae10f08208cda780d6ff5997190953e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a99bbce2ed9cdeec2ca94c7a24d2d33cb"><td class="memItemLeft" align="right" valign="top"><a id="a99bbce2ed9cdeec2ca94c7a24d2d33cb"></a>
-static mapType&#160;</td><td class="memItemRight" valign="bottom"><b>readMap</b> (std::string filename)</td></tr>
-<tr class="separator:a99bbce2ed9cdeec2ca94c7a24d2d33cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classMap.html" title="Map class.">Map</a> class. </p>
 <dl class="section author"><dt>Author</dt><dd>joostibor, Krisiiii98, Peti96</dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.7</dd></dl>
-<p>Here we do the parse and init the map.</p>
+<p>Here we make the parse and init the map.</p>
 <dl class="section date"><dt>Date</dt><dd>2020/11/23 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a95d026cc39d814dd819e2ffaf155693a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d026cc39d814dd819e2ffaf155693a">&#9670;&nbsp;</a></span>mapType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;std::vector&lt;<a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">type</a>&gt; &gt; <a class="el" href="classMap.html#a95d026cc39d814dd819e2ffaf155693a">Map::mapType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is a type definition for storing the map. This is a two dimensional vector what has type typed elements. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a41697b848ea9a5aad1910714e0196b7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41697b848ea9a5aad1910714e0196b7b">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">Map::type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This enum is giving back if the current area is a wall or free cell. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab124c12c6c9dec693aedb1a4b6384ecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab124c12c6c9dec693aedb1a4b6384ecd">&#9670;&nbsp;</a></span>Map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Map::Map </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is a constructor for the map class which have a filename input. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>input what contains the map </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a74d5010209ad0da6b05595a33f36fc76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d5010209ad0da6b05595a33f36fc76">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMap.html#a41697b848ea9a5aad1910714e0196b7b">Map::type</a> Map::get </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Here happens the query of a map element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the horizontal coordinate. </td></tr>
+    <tr><td class="paramname">y</td><td>the vertical coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>type of the map element which can be free or wall. </dd></dl>
+
+</div>
+</div>
+<a id="a0b915bae065c7685bfc9302e146b165c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b915bae065c7685bfc9302e146b165c">&#9670;&nbsp;</a></span>getMapHeigth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::getMapHeigth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the map heigth. </p>
+<dl class="section return"><dt>Returns</dt><dd>the heigth of the map. </dd></dl>
+
+</div>
+</div>
+<a id="ae10f08208cda780d6ff5997190953e58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae10f08208cda780d6ff5997190953e58">&#9670;&nbsp;</a></span>getMapWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Map::getMapWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the map width. </p>
+<dl class="section return"><dt>Returns</dt><dd>the width of the map. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Map_8h_source.html">Map.h</a></li>
 <li>Map.cpp</li>
 </ul>
