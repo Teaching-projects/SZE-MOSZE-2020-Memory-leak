@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['incxp_16',['incXp',['../classHero.html#a4042d6cf127e95d4137d78c5217b5724',1,'Hero']]],
-  ['isalive_17',['isAlive',['../classMonster.html#aca4e35d1b32aad3e5cf00157bb212956',1,'Monster']]]
+  ['incxp_20',['incXp',['../classHero.html#a4042d6cf127e95d4137d78c5217b5724',1,'Hero']]],
+  ['isalive_21',['isAlive',['../classMonster.html#aca4e35d1b32aad3e5cf00157bb212956',1,'Monster']]]
 ];

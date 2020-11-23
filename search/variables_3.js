@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['name_64',['name',['../classMonster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0',1,'Monster']]],
-  ['nextattack_65',['nextAttack',['../classMonster.html#ad93c37b981f2d8c55ff0e3c6f5515e2f',1,'Monster']]]
+  ['name_78',['name',['../classMonster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0',1,'Monster']]],
+  ['nextattack_79',['nextAttack',['../classMonster.html#ad93c37b981f2d8c55ff0e3c6f5515e2f',1,'Monster']]]
 ];

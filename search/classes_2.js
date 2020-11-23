@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['map_35',['Map',['../classMap.html',1,'']]],
-  ['monster_36',['Monster',['../classMonster.html',1,'']]]
+  ['hero_43',['Hero',['../classHero.html',1,'']]],
+  ['herofileerror_44',['HeroFileError',['../classHeroFileError.html',1,'']]]
 ];

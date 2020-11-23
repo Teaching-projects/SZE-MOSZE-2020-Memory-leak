@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maxhp_63',['maxhp',['../classMonster.html#a3935c40431f7f6dbdf0a4729c551679b',1,'Monster']]]
+  ['maxhp_77',['maxhp',['../classMonster.html#a3935c40431f7f6dbdf0a4729c551679b',1,'Monster']]]
 ];
