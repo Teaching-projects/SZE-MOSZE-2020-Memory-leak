@@ -106,7 +106,6 @@ private:
     std::vector<monster> gameMonsters;
     std::vector<int> monsterInPos;
 
-    bool isOccupied(int x, int y);
     std::vector<int> getMonsterInThisPos(int x, int y);
     void draw();
 };
