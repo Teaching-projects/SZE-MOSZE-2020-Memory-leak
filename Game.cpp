@@ -18,14 +18,6 @@ bool Game::isOccupied(int x, int y){
     if (isHeroSet && gameHero.posx == x && gameHero.posy == y) {
         return true;
     }
-    else if (isMonsterSet) {
-        int cv = 0;
-        while(cv < (int)gameMonsters.size() && (gameMonsters[cv].posx != x || gameMonsters[cv].posy != y)) 
-        {
-            cv++;
-        }
-        if (cv < (int)gameMonsters.size()) return true;
-    }
 
     return false;
 }
