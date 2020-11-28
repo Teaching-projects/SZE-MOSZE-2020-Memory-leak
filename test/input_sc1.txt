@@ -1,0 +1,15 @@
+north
+north
+north
+north
+north
+north
+north
+east
+east
+east
+south
+south
+south
+west
+south
