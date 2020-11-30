@@ -21,10 +21,10 @@ MarkedMap::MarkedMap (const std::string filename){
                 lineofMap.push_back(type::Free);
             }
             else{
-                monsters.push_back({x,y,ch});
+                monsters.push_back({ch,x,y});
                 int i = 0;
-                while (i < monsterSign.size() && monsterSign[i] != ch) i++;
-                if (i >= monsterSign.size()) monsterSign.push_back(ch);
+                while (i < (int)monsterSign.size() && monsterSign[i] != ch) i++;
+                if (i >= (int)monsterSign.size()) monsterSign.push_back(ch);
                 lineofMap.push_back(type::Free);
             }
             x++;
@@ -34,7 +34,6 @@ MarkedMap::MarkedMap (const std::string filename){
     }
 
     inputMap.close();
-
     data = map;
 }
 

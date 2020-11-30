@@ -13,6 +13,9 @@
  * 
 */
 
+#ifndef MARKEDMAP_H
+#define MARKEDMAP_H
+
 #include "Map.h"
 
 #include <iostream>
@@ -31,7 +34,7 @@ public:
      * \brief This is a constructor for the map class which have a filename input.
      * \param filename input what contains the map
     */
-    MarkedMap(const std::string filename);
+    MarkedMap(std::string filename);
     /**
      * \brief Here happens the query of a map element.
      * \param x the horizontal coordinate.
@@ -50,9 +53,16 @@ public:
      * \return the vector, which contain the occurrence position of monster.
     */
     std::vector<mapElement> getMonsterPositions (char c) const;
+    /**
+     * \brief simply getter for monstersign
+     * \return the vector, which contain the monster signs
+    */
+    std::vector<char> getMonsterSign() const { return monsterSign; }
 
 private:
     mapElement hero;
     std::vector<mapElement> monsters;
     std::vector<char> monsterSign;
 };
+
+#endif
