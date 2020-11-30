@@ -14,8 +14,9 @@ var searchData=
   ['getmapwidth_21',['getMapWidth',['../classMap.html#ae10f08208cda780d6ff5997190953e58',1,'Map']]],
   ['getmaxhealthpoints_22',['getMaxHealthPoints',['../classMonster.html#a40a95011990070ee04c4e4518ad8a668',1,'Monster']]],
   ['getmonsterpositions_23',['getMonsterPositions',['../classMarkedMap.html#aacba1c68fc519430fbf644879a2fb7d1',1,'MarkedMap']]],
-  ['getname_24',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
-  ['getnextattack_25',['getNextAttack',['../classMonster.html#adb16b6fc3d7127ee8e3dbe8415f8c89c',1,'Monster']]],
-  ['getphysicaldamage_26',['getPhysicalDamage',['../classMonster.html#a6c970e972db4e7a515ecf387a0d6c9b3',1,'Monster']]],
-  ['getxp_27',['getXp',['../classHero.html#a2477a58e24f6cd1e330c694d68594a94',1,'Hero']]]
+  ['getmonstersign_24',['getMonsterSign',['../classMarkedMap.html#a3a12d3a61316fe8ea3f930bb1febde0b',1,'MarkedMap']]],
+  ['getname_25',['getName',['../classMonster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
+  ['getnextattack_26',['getNextAttack',['../classMonster.html#adb16b6fc3d7127ee8e3dbe8415f8c89c',1,'Monster']]],
+  ['getphysicaldamage_27',['getPhysicalDamage',['../classMonster.html#a6c970e972db4e7a515ecf387a0d6c9b3',1,'Monster']]],
+  ['getxp_28',['getXp',['../classHero.html#a2477a58e24f6cd1e330c694d68594a94',1,'Hero']]]
 ];
