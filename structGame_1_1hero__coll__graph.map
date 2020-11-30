@@ -1,0 +1,6 @@
+<map id="Game::hero" name="Game::hero">
+<area shape="rect" id="node1" title=" " alt="" coords="25,260,124,287"/>
+<area shape="rect" id="node2" href="$classHero.html" title="Hero class." alt="" coords="48,171,101,197"/>
+<area shape="rect" id="node3" href="$classMonster.html" title="Monster class." alt="" coords="37,95,112,121"/>
+<area shape="rect" id="node4" href="$structMonster_1_1Damage.html" title=" " alt="" coords="5,5,144,32"/>
+</map>

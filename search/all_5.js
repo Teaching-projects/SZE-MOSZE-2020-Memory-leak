@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hero_24',['Hero',['../classHero.html',1,'Hero'],['../classHero.html#a26154849e8da400eb10739fd5357d29c',1,'Hero::Hero()']]],
-  ['herofileerror_25',['HeroFileError',['../classHeroFileError.html',1,'']]]
+  ['hero_25',['Hero',['../classHero.html',1,'Hero'],['../structGame_1_1hero.html',1,'Game::hero'],['../classHero.html#a71aee6a33c6b71341ce311503ab9f7ab',1,'Hero::Hero()']]],
+  ['herofileerror_26',['HeroFileError',['../classHeroFileError.html',1,'']]]
 ];
