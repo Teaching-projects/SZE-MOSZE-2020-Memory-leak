@@ -25,7 +25,7 @@ Game.o: Game.cpp Game.h Map.h Hero.h Monster.h
 MarkedMap.o: Map.h MarkedMap.h MarkedMap.cpp
 	g++ $(FLAGS) MarkedMap.cpp
 
-PreparedGame.o: Game.h MarkedMap.h JSON.h PreparedGame.cpp
+PreparedGame.o: Game.h MarkedMap.h JSON.h PreparedGame.cpp Hero.h Monster.h
 	g++ $(FLAGS) PreparedGame.cpp
 
 clean:
