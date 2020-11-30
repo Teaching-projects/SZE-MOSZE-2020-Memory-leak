@@ -8,11 +8,12 @@ void Hero::incXp(int getxp) {
 	*/
 	xp += getxp;
 	while(xp >= xpforlvlup){ 
-		maxhp = (int)round(maxhp + bonus_health_per_level);
-		dmg.physical = (int)round(dmg.physical + bonus_physical_damage_per_level);
-		dmg.magical = (int)round(dmg.magical + bonus_magical_damage_per_level);
+		maxhp += bonus_health_per_level;
+		dmg.physical += bonus_physical_damage_per_level;
+		dmg.magical += bonus_magical_damage_per_level;
 		atkspeed = (float)atkspeed * atkspeed_multiplier;
-		defense = (int)round(defense + bonus_defense_per_level);
+		defense += bonus_defense_per_level;
+		light_radius += bonus_light_radius;
 		acthp = maxhp;
 		lvl++;
 		xp -= xpforlvlup;
@@ -42,7 +43,8 @@ Hero Hero::parse(const std::string& s)
 	heroData.get<int>("base_physical_damage"), heroData.get<int>("base_magical_damage"),
 	heroData.get<int>("physical_damage_bonus_per_level"), heroData.get<int>("magical_damage_bonus_per_level"),
 	heroData.get<float>("cooldown_multiplier_per_level"), heroData.get<float>("base_attack_cooldown"),
-	heroData.get<int>("defense"), heroData.get<int>("bonus_defense_per_level"));
+	heroData.get<int>("defense"), heroData.get<int>("bonus_defense_per_level"),
+	heroData.get<int>("light_radius"), heroData.get<int>("bonus_light_radius"));
 }
 
 Hero Hero::parse(std::istream& stream){
@@ -56,5 +58,6 @@ Hero Hero::parse(std::istream& stream){
 	heroData.get<int>("base_physical_damage"), heroData.get<int>("base_magical_damage"),
 	heroData.get<int>("physical_damage_bonus_per_level"), heroData.get<int>("magical_damage_bonus_per_level"),
 	heroData.get<float>("cooldown_multiplier_per_level"), heroData.get<float>("base_attack_cooldown"),
-	heroData.get<int>("defense"), heroData.get<int>("bonus_defense_per_level"));
+	heroData.get<int>("defense"), heroData.get<int>("bonus_defense_per_level"),
+	heroData.get<int>("light_radius"), heroData.get<int>("bonus_light_radius"));
 }

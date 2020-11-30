@@ -23,7 +23,7 @@ Game.o: Game.cpp Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) Game.cpp
 
 clean:
-	rm -rf *.o run-test ./DOCS
+	rm -rf *.o run-test ./DOCS fight_sc1.txt fight_sc2.txt a.out 
 
 doc:
 	doxygen doxconf
@@ -42,8 +42,8 @@ fight:
 	touch fight_sc2.txt
 	> fight_sc2.txt
 
-	cat test/input_sc1.txt | ./run-test scenario1.json >> fight_sc1.txt
-	cat test/input_sc2.txt | ./run-test scenario2.json >> fight_sc2.txt
+	cat test/input_sc1.txt | ./run-test scenario1.json | tail -1 >> fight_sc1.txt
+	cat test/input_sc2.txt | ./run-test scenario2.json | tail -1 >> fight_sc2.txt
 
 fight-diff: fight
 	diff fight_sc1.txt test/expected_sc1.txt
