@@ -9,11 +9,11 @@ Map::type Map::get(int x, int y) const{
     return data[y][x];
 }
 
-Map::mapType Map::readMap(std::string filename){
+Map::mapType Map::readMap(const std::string filename){
     std::ifstream inputMap(filename);
     if (inputMap.fail()) throw std::runtime_error("Can not open the file!");
 
-    std::vector<std::vector<type>> map;
+    mapType map;
     std::string line;
 
     while(std::getline(inputMap, line)){
