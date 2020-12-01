@@ -25,7 +25,9 @@ public:
     std::ostream& outWriter = std::cout;
     TextRenderer(std::ofstream& ofs) : outWriter(ofs) {}
 
-    void setOutputStream (std::ostream& ofs) { ofs.copyfmt(outWriter); }
+    void setOutputStream (std::ostream& ofs) { 
+        ofs.copyfmt(outWriter); 
+    }
     virtual void render(const Game&) const = 0;
 };
 

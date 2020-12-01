@@ -21,6 +21,7 @@
 class HeroTextRenderer : public TextRenderer{
 public:
     HeroTextRenderer() {}
+    HeroTextRenderer(std::ofstream ofs) : TextRenderer(ofs) {}
     virtual void render (const Game&) const override;
 };
 

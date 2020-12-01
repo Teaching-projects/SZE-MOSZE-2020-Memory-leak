@@ -42,6 +42,8 @@ int main(int argc, char** argv){
 
     try {
         PreparedGame game(argv[1]);
+        game.registerRenderer(new HeroTextRenderer());
+        game.registerRenderer(new ObserverTextRenderer(std::ofstream("log.txt")));
         game.run();
     }
     catch (const JSON::ParseException& e) {bad_exit(4);}

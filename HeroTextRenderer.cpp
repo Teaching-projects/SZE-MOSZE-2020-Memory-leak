@@ -8,35 +8,35 @@ void HeroTextRenderer::render (const Game& game) const{
     int mapWidth = gameMap.getMapWidth();
     int mapHeight = gameMap.getMapHeigth();
 
-    std::cout << "╔";
+    outWriter << "╔";
     for(int i = gameHero.posx - radius; i <= gameHero.posx + radius; i++){
-        if(i >= 0 && i < mapWidth) std::cout << "══";
+        if(i >= 0 && i < mapWidth) outWriter << "══";
     }
-    std::cout << "╗" << std::endl;
+    outWriter << "╗" << std::endl;
 
     for (int i = gameHero.posy - radius; i <= gameHero.posy + radius; i++){
         if (i >= 0 && i < mapHeight){
-            std::cout << "║";    
+            outWriter << "║";    
             for (int j = gameHero.posx - radius; j <= gameHero.posx + radius; j++){ 
                 if (j >= 0 && j < mapWidth){
-                    if (gameMap.get(j, i) == Map::type::Wall) std::cout << "██";
-                    else if (gameHero.posx == j && gameHero.posy == i) std::cout << "┣┫";
+                    if (gameMap.get(j, i) == Map::type::Wall) outWriter << "██";
+                    else if (gameHero.posx == j && gameHero.posy == i) outWriter << "┣┫";
                     else{
                         int monstersHere = game.getMonsterInThisPos(j, i).size();
-                        if (monstersHere == 1) std::cout << "M░";
-                        else if (monstersHere > 1) std::cout << "MM";
-                        else std::cout << "░░";
+                        if (monstersHere == 1) outWriter << "M░";
+                        else if (monstersHere > 1) outWriter << "MM";
+                        else outWriter << "░░";
                     
                     }
                 }
             }
-            std::cout << "║\n";
+            outWriter << "║\n";
         }
     }
 
-    std::cout << "╚";
+    outWriter << "╚";
     for(int i = gameHero.posx - radius; i <= gameHero.posx + radius; i++){
-        if(i >= 0 && i < mapWidth) std::cout << "══";
+        if(i >= 0 && i < mapWidth) outWriter << "══";
     }
-    std::cout << "╝" << std::endl;
+    outWriter << "╝" << std::endl;
 }

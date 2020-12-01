@@ -54,8 +54,13 @@ void Game::run(){
 
     isStarted = true;
 
-    ObserverTextRenderer renderer;
-    renderer.render(*this);
+    //ObserverTextRenderer renderer;
+    //renderer.render(*this);
+
+    for (auto r: renderers){
+        r->render(*this);
+    }
+
     std::string inputDirection = "";
     bool inputIsWrong = true;
 
@@ -95,10 +100,16 @@ void Game::run(){
                 }
             }
         }
-        renderer.render(*this);
+        for (auto r: renderers){
+            r->render(*this);
+        }
 
     }while(gameHero.name->isAlive() && gameMonsters.size() > 0);
 
     if(gameHero.name->isAlive()) std::cout << gameHero.name->getName() << " cleared the map." << std::endl;
     else std::cout << gameHero.name->getName() << " died." << std::endl;
+}
+
+void Game::registerRenderer(Renderer* r){
+    renderers.push_back(r);
 }

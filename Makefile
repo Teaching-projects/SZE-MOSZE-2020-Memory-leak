@@ -38,7 +38,7 @@ main.o: main.cpp Hero.h JSON.h Monster.h Map.h Game.h Renderer.h
 	clang++ -fPIC $(FLAGS) main.cpp
 
 clean:
-	rm -rf *.o run-test ./DOCS fight_sc1.txt fight_sc2.txt a.out 
+	rm -rf *.o run-test ./DOCS fight_sc1.txt fight_sc2.txt a.out log.txt
 
 doc:
 	doxygen doxconf

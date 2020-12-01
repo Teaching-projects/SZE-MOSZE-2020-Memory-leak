@@ -96,6 +96,7 @@ public:
      * \return vector, which contain the monster's
     */
     std::vector<int> getMonsterInThisPos(int x, int y) const;
+    void registerRenderer(Renderer*);
     /**
      * In this section happens all the known errors
     */
@@ -133,6 +134,7 @@ private:
     hero gameHero;
     std::vector<monster> gameMonsters;
     std::vector<int> monsterInPos;
+    std::vector<Renderer*> renderers;
 };
 
 #endif
