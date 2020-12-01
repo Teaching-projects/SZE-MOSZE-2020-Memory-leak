@@ -34,6 +34,7 @@ public:
      * This is a type definition for storing the map. This is a two dimensional vector what has type typed elements.
     */
     typedef std::vector<std::vector<type>> mapType;
+    std::vector<std::vector<type>> data; ///< This contain the map.
     /**
      *\brief This is a constructor for the map class which does not have any input.
     */
@@ -77,7 +78,6 @@ public:
 
 private:
     static mapType readMap (std::string filename);
-    std::vector<std::vector<type>> data;
 };
 
 #endif

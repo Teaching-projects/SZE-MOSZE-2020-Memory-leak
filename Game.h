@@ -26,6 +26,14 @@ public:
     /**
      * Struct for store the datas of the monster.
     */
+    struct hero{
+        Hero* name;
+        int posx;
+        int posy;
+    };
+    /**
+     * Struct for store the datas of the monster.
+    */
     struct monster{
         Monster* name;
         int posx;
@@ -62,6 +70,7 @@ public:
      * \param monster The monster 
      * \param x the horizontal position of the monster
      * \param y the vertical position of the monster
+     * \param light_radius the light radius of the monster
     */
     void putMonster(Monster monster, int x, int y);
     /**
@@ -102,7 +111,7 @@ private:
     bool isStarted;
 
     Map gameMap;
-    monster gameHero;
+    hero gameHero;
     std::vector<monster> gameMonsters;
     std::vector<int> monsterInPos;
 

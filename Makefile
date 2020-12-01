@@ -1,4 +1,4 @@
-OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o
+OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o
 FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
@@ -22,8 +22,14 @@ Map.o: Map.cpp Map.h
 Game.o: Game.cpp Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) Game.cpp
 
+MarkedMap.o: Map.h MarkedMap.h MarkedMap.cpp
+	g++ $(FLAGS) MarkedMap.cpp
+
+PreparedGame.o: Game.h MarkedMap.h JSON.h PreparedGame.cpp Hero.h Monster.h
+	g++ $(FLAGS) PreparedGame.cpp
+
 clean:
-	rm -rf *.o run-test ./DOCS
+	rm -rf *.o run-test ./DOCS fight_sc1.txt fight_sc2.txt a.out 
 
 doc:
 	doxygen doxconf
@@ -38,16 +44,11 @@ memoryleak-check:
 fight:
 	touch fight_sc1.txt
 	> fight_sc1.txt
-	
-	touch fight_sc2.txt
-	> fight_sc2.txt
 
-	cat test/input_sc1.txt | ./run-test scenario1.json >> fight_sc1.txt
-	cat test/input_sc2.txt | ./run-test scenario2.json >> fight_sc2.txt
+	cat test/input_sc1.txt | ./run-test scenario1.json | tail -1 >> fight_sc1.txt
 
 fight-diff: fight
 	diff fight_sc1.txt test/expected_sc1.txt
-	diff fight_sc2.txt test/expected_sc2.txt
 
 programTest:
 	cd /usr/src/gtest && cmake CMakeLists.txt && make

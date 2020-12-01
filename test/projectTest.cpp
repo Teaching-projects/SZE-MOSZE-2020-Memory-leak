@@ -97,40 +97,42 @@ TEST(JSONFileTest, switchedKeys) {
 }
 
 TEST(HeroTest, heroLvlUpTest) {
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
     testhero.incXp(251);
     ASSERT_EQ(1050, testhero.getMaxHealthPoints());
     ASSERT_EQ(150, testhero.getPhysicalDamage());
     ASSERT_EQ(100, testhero.getMagicalDamage());
     ASSERT_EQ(10, testhero.getDefense());
     ASSERT_FLOAT_EQ(2.88, testhero.getAttackCoolDown());
+    ASSERT_EQ(3, testhero.getLightRadius());
 }
 
 TEST(HeroTest, multiplyLvlUp) {
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
     testhero.incXp(501);
     ASSERT_EQ(1100, testhero.getMaxHealthPoints());
     ASSERT_EQ(200, testhero.getPhysicalDamage());
     ASSERT_EQ(150, testhero.getMagicalDamage());
     ASSERT_EQ(15, testhero.getDefense());
     ASSERT_FLOAT_EQ(2.592, testhero.getAttackCoolDown());
+    ASSERT_EQ(4, testhero.getLightRadius());
 }
 
 TEST(HeroTest, xpDecTest){
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
     testhero.incXp(260);
     ASSERT_EQ(10, testhero.getXp());
 }
 
 TEST(HeroTest, xpNotIncTest){
-   Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5);
+   Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
     testhero.incXp(249);
     ASSERT_EQ(249, testhero.getXp());
 }
 
 TEST(FightTest, heroVsHero){
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5);
-    Hero testhero2 ("Testhero2", 1500, 106, 250, 100, 50, 50, 50, 0.9, 3.0, 5, 15);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
+    Hero testhero2 ("Testhero2", 1500, 106, 250, 100, 50, 50, 50, 0.9, 3.0, 5, 15, 2, 1);
 
     testhero.fightTilDeath(testhero2);
 
@@ -140,7 +142,7 @@ TEST(FightTest, heroVsHero){
 
 TEST(FightTest, monsterVsHero){
     Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8);
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
 
     testhero.fightTilDeath(testmonster);
 

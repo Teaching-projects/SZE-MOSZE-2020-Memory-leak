@@ -1,14 +1,7 @@
 {
-    "map" : "map.txt",
-    "hero" : "Dark_Wanderer.json;1;8",
-    "monsters" : [
-        "Fallen.json;1;1",
-        "Fallen.json;1;1",
-        "Zombie.json;1;3",
-        "Fallen.json;1;4",
-        "Fallen.json;1;4",
-        "Zombie.json;1;5",
-        "Fallen.json;3;5",
-        "Blood_Raven.json;3;5"
-    ]
+    "map" : "mmap.txt",
+    "hero" : "Dark_Wanderer.json",
+    "monster-1" : "Fallen.json",
+    "monster-2" : "Zombie.json",
+    "monster-3" : "Blood_Raven.json"
 }
