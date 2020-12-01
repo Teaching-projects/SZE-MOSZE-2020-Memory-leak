@@ -1,4 +1,4 @@
-OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o HeroTextRenderer.o ObserverTextRenderer.o
+OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o HeroTextRenderer.o ObserverTextRenderer.o TextRenderer.o HeroSVGRenderer.o
 FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
@@ -28,11 +28,20 @@ PreparedGame.o: Game.h MarkedMap.h JSON.h PreparedGame.cpp Hero.h Monster.h Rend
 Renderer.o: Renderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) Renderer.cpp
 
+TextRenderer.o: TextRenderer.h TextRenderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
+	g++ $(FLAGS) TextRenderer.cpp
+
 HeroTextRenderer.o: HeroTextRenderer.h HeroTextRenderer.cpp Renderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) HeroTextRenderer.cpp
 
 ObserverTextRenderer.o: ObserverTextRenderer.h ObserverTextRenderer.cpp Renderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) ObserverTextRenderer.cpp
+
+SVGRenderer.o: SVGRenderer.h SVGRenderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
+	g++ $(FLAGS) SVGRenderer.cpp
+
+HeroSVGRenderer.o: HeroSVGRenderer.cpp HeroSVGRenderer.h SVGRenderer.h Renderer.h Game.h Map.h Hero.h Monster.h
+	g++ $(FLAGS) HeroSVGRenderer.cpp
 
 main.o: main.cpp Hero.h JSON.h Monster.h Map.h Game.h Renderer.h
 	clang++ -fPIC $(FLAGS) main.cpp

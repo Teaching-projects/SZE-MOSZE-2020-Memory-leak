@@ -8,5 +8,6 @@
     "race" : "undead",
     "physical_damage"          : 3,
     "magical_damage": 1,
-    "defense": 0
+    "defense": 0,
+    "texture" : "SVG/Zombie.svg"
 }
