@@ -21,6 +21,8 @@
 #include "Monster.h"
 #include "Renderer.h"
 #include <string>
+#include "HeroTextRenderer.h"
+#include "ObserverTextRenderer.h"
 
 class Game{
 public:

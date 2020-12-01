@@ -54,7 +54,7 @@ void Game::run(){
 
     isStarted = true;
 
-    Renderer renderer;
+    ObserverTextRenderer renderer;
     renderer.render(*this);
     std::string inputDirection = "";
     bool inputIsWrong = true;

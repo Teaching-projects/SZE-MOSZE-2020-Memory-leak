@@ -16,14 +16,14 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-//#include "Game.h"
 #include <iostream>
 
 class Game;
 
 class Renderer{
 public:
-    virtual void render(const Game&) const;
+    Renderer() {}
+    virtual void render(const Game&) const = 0;
 };
 
 #endif
