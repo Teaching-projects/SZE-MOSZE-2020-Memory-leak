@@ -19,6 +19,7 @@
 #include "Map.h"
 #include "Hero.h"
 #include "Monster.h"
+#include "Renderer.h"
 #include <string>
 
 class Game{
@@ -52,7 +53,6 @@ public:
      * \brief Destructor for the game class.
     */
     ~Game();
-    
     /**
      * \brief This function make the map ready to game
      * \param map the map what we want to use for the game
@@ -77,6 +77,23 @@ public:
      * \brief THis function is for the game loop
     */
     void run();
+    /**
+     * \brief simply getter for the hero of the game
+     * \return the hero who play in the game
+    */
+    hero getHero() const { return gameHero; }
+    /**
+     * \brief simply getter for the map of the game
+     * \return the map where the game is
+    */
+    Map getMap() const { return gameMap; }
+    /**
+     * \brief getter for monsters in a position
+     * \param x x coordinate of the map
+     * \param y y coordinate of the map
+     * \return vector, which contain the monster's
+    */
+    std::vector<int> getMonsterInThisPos(int x, int y) const;
     /**
      * In this section happens all the known errors
     */
@@ -114,9 +131,6 @@ private:
     hero gameHero;
     std::vector<monster> gameMonsters;
     std::vector<int> monsterInPos;
-
-    std::vector<int> getMonsterInThisPos(int x, int y);
-    void draw();
 };
 
 #endif

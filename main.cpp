@@ -14,6 +14,7 @@
 #include "Map.h"
 #include "MarkedMap.h"
 #include "PreparedGame.h"
+#include "Renderer.h"
 
 struct unitData
 {

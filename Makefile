@@ -1,4 +1,4 @@
-OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o
+OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o
 FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
@@ -6,9 +6,6 @@ run-test: $(OBJS)
 
 Hero.o: Hero.cpp Hero.h JSON.h Monster.h
 	g++ $(FLAGS) Hero.cpp
-
-main.o: main.cpp Hero.h JSON.h Monster.h Map.h Game.h
-	clang++ -fPIC $(FLAGS) main.cpp
 
 JSON.o: JSON.cpp JSON.h 
 	g++ $(FLAGS) JSON.cpp
@@ -19,14 +16,20 @@ Monster.o: Monster.cpp Monster.h JSON.h
 Map.o: Map.cpp Map.h
 	g++ $(FLAGS) Map.cpp
 
-Game.o: Game.cpp Game.h Map.h Hero.h Monster.h
+Game.o: Game.cpp Game.h Map.h Hero.h Monster.h Renderer.h
 	g++ $(FLAGS) Game.cpp
 
 MarkedMap.o: Map.h MarkedMap.h MarkedMap.cpp
 	g++ $(FLAGS) MarkedMap.cpp
 
-PreparedGame.o: Game.h MarkedMap.h JSON.h PreparedGame.cpp Hero.h Monster.h
+PreparedGame.o: Game.h MarkedMap.h JSON.h PreparedGame.cpp Hero.h Monster.h Renderer.h
 	g++ $(FLAGS) PreparedGame.cpp
+
+Renderer.o: Renderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
+	g++ $(FLAGS) Renderer.cpp
+
+main.o: main.cpp Hero.h JSON.h Monster.h Map.h Game.h Renderer.h
+	clang++ -fPIC $(FLAGS) main.cpp
 
 clean:
 	rm -rf *.o run-test ./DOCS fight_sc1.txt fight_sc2.txt a.out 
