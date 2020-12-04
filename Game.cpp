@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game(std::string mapfilename): isMapSet(false), isHeroSet(false), isMonsterSet(false), isStarted(false), gameHero() {
+Game::Game(const std::string mapfilename): isMapSet(false), isHeroSet(false), isMonsterSet(false), isStarted(false), gameHero() {
     Map gamemap(mapfilename);
     setMap(gamemap);
 }
@@ -21,7 +21,7 @@ void Game::setMap(Map map){
     isMapSet = true;
 }
 
-void Game::putHero(Hero hero, int x, int y){
+void Game::putHero(Hero hero, const int x, const int y){
     if (isStarted) throw GameAlreadyStartedExpection("The game is initialized yet!");
     if (!isMapSet) throw Map::WrongIndexException("No map initialized!");
     if (isHeroSet) throw AlreadyHasHeroExpection("The hero is already initialized!");
@@ -33,7 +33,7 @@ void Game::putHero(Hero hero, int x, int y){
     isHeroSet = true;
 }
 
-void Game::putMonster(Monster monster, int x, int y){
+void Game::putMonster(Monster monster, const int x, const int y){
     if (!isMapSet) throw Map::WrongIndexException("No map initialized!");
     if (gameMap.get(x,y) == Map::type::Wall) throw OccupiedException("This position is occupied!");
 
@@ -41,7 +41,7 @@ void Game::putMonster(Monster monster, int x, int y){
     isMonsterSet = true;
 }
 
-std::vector<int> Game::getMonsterInThisPos(int x, int y) const{
+std::vector<int> Game::getMonsterInThisPos(const int x, const int y) const{
     std::vector<int> idx;
     for (int i = 0; i < (int)gameMonsters.size(); i++){
         if (gameMonsters[i].posx == x && gameMonsters[i].posy == y) idx.push_back(i);

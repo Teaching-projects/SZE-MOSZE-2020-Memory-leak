@@ -34,14 +34,14 @@ public:
      * \brief This is a constructor for the map class which have a filename input.
      * \param filename input what contains the map
     */
-    MarkedMap(std::string filename);
+    MarkedMap(const std::string filename);
     /**
      * \brief Here happens the query of a map element.
      * \param x the horizontal coordinate.
      * \param y the vertical coordinate. 
      * \return type of the map element which can be free or wall.
     */
-    MarkedMap::type get(int x, int y) const;
+    MarkedMap::type get(const int x, const int y) const;
     /**
      * \brief This fucntion return the position of the hero.
      * \return the mapElement, which contain the hero's data include position.
@@ -52,7 +52,7 @@ public:
      * \param c the monster's sign in the map
      * \return the vector, which contain the occurrence position of monster.
     */
-    std::vector<mapElement> getMonsterPositions (char c) const;
+    std::vector<mapElement> getMonsterPositions (const char c) const;
     /**
      * \brief simply getter for monstersign
      * \return the vector, which contain the monster signs

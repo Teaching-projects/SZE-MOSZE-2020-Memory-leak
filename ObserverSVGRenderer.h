@@ -20,7 +20,15 @@
 
 class ObserverSVGRenderer : public SVGRenderer{
 public:
+    /**
+     * \brief construktor for the class
+     * \param outfile the filename where we print the SVG file
+    */
     ObserverSVGRenderer(std::string outfile) : SVGRenderer(outfile), filename(outfile) {}
+    /**
+     * \brief this function render the actual state of the game
+     * \param game the game what we want to render 
+    */
     virtual void render (const Game&) const override;
 
 private:

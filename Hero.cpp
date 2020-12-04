@@ -1,6 +1,6 @@
 #include "Hero.h"
 
-void Hero::incXp(int getxp) {
+void Hero::incXp(const int getxp) {
 	/**
 	 * The Hero get xp from attack and if it reach xpforlvlup parameter xp it keep some extra dmg, hp and decrease the attack cooldown.
 	 * And its actual hp will be its maximum hp.

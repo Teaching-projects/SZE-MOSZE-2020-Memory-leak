@@ -50,7 +50,7 @@ public:
      * \brief Constructor for the game class with input.
      * \param mapfilename name of the file which contains map data.
     */
-    Game(std::string mapfilename);
+    Game(const std::string mapfilename);
     /**
      * \brief Destructor for the game class.
     */
@@ -66,7 +66,7 @@ public:
      * \param x the horizontal position of the hero
      * \param y the vertical position of the hero
     */
-    void putHero(Hero hero, int x, int y);
+    void putHero(Hero hero, const int x, const int y);
     /**
      * \brief This function put a monster to the map
      * \param monster The monster 
@@ -74,7 +74,7 @@ public:
      * \param y the vertical position of the monster
      * \param light_radius the light radius of the monster
     */
-    void putMonster(Monster monster, int x, int y);
+    void putMonster(Monster monster, const int x, const int y);
     /**
      * \brief THis function is for the game loop
     */
@@ -95,9 +95,23 @@ public:
      * \param y y coordinate of the map
      * \return vector, which contain the monster's
     */
-    std::vector<int> getMonsterInThisPos(int x, int y) const;
-    void registerRenderer(Renderer*);
+    std::vector<int> getMonsterInThisPos(const int x, const int y) const;
+    /**
+     * \brief regist a renderer to outwrite
+     * \param renderer the renderer what we want to register
+    */
+    void registerRenderer(Renderer* renderer);
+    /**
+     * \brief simply getter for the game's json filename
+     * \return the game's json filename
+    */
     virtual std::string getGameJSON() const { return gameJSON; }
+    /**
+     * \brief get the monster in x,y koordinates
+     * \param x x koordinate of the map
+     * \param y y koordinate of the map
+     * \return the monster
+    */
     monster getMonster(const int x, const int y) const;
     /**
      * In this section happens all the known errors

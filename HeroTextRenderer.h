@@ -20,8 +20,19 @@
 
 class HeroTextRenderer : public TextRenderer{
 public:
+    /**
+     * Default construktor for the class
+    */
     HeroTextRenderer() {}
+    /**
+     * \brief construkor for the class
+     * \param ofs the outputstream what we want to initialize
+    */
     HeroTextRenderer(std::ofstream ofs) : TextRenderer(ofs) {}
+    /**
+     * \brief this function render the actual state of the game
+     * \param game the game what we want to render 
+    */
     virtual void render (const Game&) const override;
 };
 

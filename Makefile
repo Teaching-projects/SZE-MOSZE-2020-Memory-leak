@@ -1,4 +1,4 @@
-OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o HeroTextRenderer.o ObserverTextRenderer.o TextRenderer.o HeroSVGRenderer.o ObserverSVGRenderer.o
+OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o HeroTextRenderer.o ObserverTextRenderer.o TextRenderer.o HeroSVGRenderer.o ObserverSVGRenderer.o SVGRenderer.o
 FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
@@ -25,10 +25,10 @@ MarkedMap.o: Map.h MarkedMap.h MarkedMap.cpp
 PreparedGame.o: Game.h MarkedMap.h JSON.h PreparedGame.cpp Hero.h Monster.h Renderer.h
 	g++ $(FLAGS) PreparedGame.cpp
 
-Renderer.o: Renderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
+Renderer.o: Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) Renderer.cpp
 
-TextRenderer.o: TextRenderer.h TextRenderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
+TextRenderer.o: TextRenderer.h Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) TextRenderer.cpp
 
 HeroTextRenderer.o: HeroTextRenderer.h HeroTextRenderer.cpp Renderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
@@ -37,7 +37,7 @@ HeroTextRenderer.o: HeroTextRenderer.h HeroTextRenderer.cpp Renderer.cpp Rendere
 ObserverTextRenderer.o: ObserverTextRenderer.h ObserverTextRenderer.cpp Renderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) ObserverTextRenderer.cpp
 
-SVGRenderer.o: SVGRenderer.h SVGRenderer.cpp Renderer.h Game.h Map.h Hero.h Monster.h
+SVGRenderer.o: SVGRenderer.h Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) SVGRenderer.cpp
 
 HeroSVGRenderer.o: HeroSVGRenderer.cpp HeroSVGRenderer.h SVGRenderer.h Renderer.h Game.h Map.h Hero.h Monster.h

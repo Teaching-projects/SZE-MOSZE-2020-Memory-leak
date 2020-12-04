@@ -99,7 +99,7 @@ public:
 	 * \brief increment the xp of the hero
 	 * \param getxp the xp, what the hero will recive
 	*/
-	void incXp(int getxp);
+	void incXp(const int getxp);
 	/**
 	 * \brief getter for the light radius of the hero
 	 * \return the light radius of the hero

@@ -24,8 +24,19 @@
 
 class PreparedGame : public Game{
 public:
+    /**
+     * \brief construktor for PreparedGame class
+     * \param filename the JSON, where we want to init the game
+    */
     PreparedGame(const std::string filename) :gameJSON(filename) { initGame(filename); }
+    /**
+     * \brief this function start the main loop
+    */
     void run() { Game::run(); }
+    /**
+     * \brief simply getter for the game's JSON filename
+     * \return the game's JSON filename
+    */
     virtual std::string getGameJSON() const override { return gameJSON; }
 private:
     void initGame(const std::string);

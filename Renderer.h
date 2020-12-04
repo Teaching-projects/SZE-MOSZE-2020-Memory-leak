@@ -22,8 +22,15 @@ class Game;
 
 class Renderer{
 public:
+    /**
+     * Default construktor for the class
+    */
     Renderer() {}
-    virtual void render(const Game&) const = 0;
+    /**
+     * \brief Virtual function which will declarate in children classes
+     * \param game the game what wi will render out
+    */
+    virtual void render(const Game& game) const = 0;
 };
 
 #endif

@@ -1,10 +1,10 @@
 #include "Map.h"
 
-Map::Map(std::string filename){
+Map::Map(const std::string filename){
     data = readMap(filename);
 }
 
-Map::type Map::get(int x, int y) const{
+Map::type Map::get(const int x, const int y) const{
     if ((int)data.size() < 0 || y >= (int)data.size() || x < 0 || y < 0 || x >= (int)data[y].size()) WrongIndexException("One of the coordinates out of index!");
     return data[y][x];
 }

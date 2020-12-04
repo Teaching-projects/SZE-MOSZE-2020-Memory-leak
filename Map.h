@@ -43,14 +43,14 @@ public:
      * \brief This is a constructor for the map class which have a filename input.
      * \param filename input what contains the map
     */
-    Map(std::string filename);
+    Map(const std::string filename);
     /**
      * \brief Here happens the query of a map element.
      * \param x the horizontal coordinate.
      * \param y the vertical coordinate. 
      * \return type of the map element which can be free or wall.
     */
-    Map::type get(int x, int y) const;
+    Map::type get(const int x, const int y) const;
     /**
      * \brief Getter for the map heigth.
      * \return the heigth of  the map.
@@ -77,7 +77,7 @@ public:
     };
 
 private:
-    static mapType readMap (std::string filename);
+    static mapType readMap (const std::string filename);
 };
 
 #endif
