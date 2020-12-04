@@ -72,17 +72,10 @@ public:
 	 * \brief constructor for the hero class where the JSON don't have all attributes
 	 * \param name the name of the hero
 	 * \param maxhp the maximum healt points of the hero
-	 * \param bonus_health_per_level the hp, what keep the hero in levelup.
 	 * \param xpforlvlup how many xp need for levelup.
 	 * \param physical_damage the physical damage of the hero
 	 * \param magical_damage the magical damage of the hero
-	 * \param bonus_physical_dmg_per_level the physical dmg, what keep the hero in levelup.
-	 * \param bonus_magical_dmg_per_level the magical dmg, what keep the hero in levelup.
-	 * \param atkspeed_multiplier this multiplier reduce atkspeed in levelup.
 	 * \param atkspeed the attack speed of the hero
-	 * \param bonus_defense_per_level the defense, what keep the hero in levelup
-	 * \param light_radius the radius, what the hero can see
-	 * \param bonus_light_radius the radius what the hero keep in every levelup
 	 * \param texture the svg texture of the hero
 	*/
 	Hero(const std::string name, int maxhp, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage, float atkspeed,
@@ -90,7 +83,7 @@ public:
 		: Monster(name, maxhp, physical_damage, magical_damage, defense, atkspeed, texture), bonus_health_per_level(0),
 		xp(0), xpforlvlup(xpforlvlup), lvl(1), bonus_physical_damage_per_level(0), bonus_magical_damage_per_level(0),
 		atkspeed_multiplier(1), bonus_defense_per_level(0),
-		light_radius(1), bonus_light_radius(0){} 
+		light_radius(2), bonus_light_radius(1){} 
 	/**
 	 * \brief parse hero from json file or string input
 	 * \param s name of the json file or the content of string parameter
