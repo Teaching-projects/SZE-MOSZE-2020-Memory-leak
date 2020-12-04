@@ -75,21 +75,23 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classHeroSVGRenderer.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHeroSVGRenderer.html">HeroSVGRenderer</a> : <span class="keyword">public</span> <a class="code" href="classSVGRenderer.html">SVGRenderer</a>{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classHeroSVGRenderer.html">HeroSVGRenderer</a>(std::string outfile) : <a class="code" href="classSVGRenderer.html">SVGRenderer</a>(outfile), filename(outfile) {}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> render (<span class="keyword">const</span> <a class="code" href="classGame.html">Game</a>&amp;) <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::string getSVGContent(<span class="keyword">const</span> std::string filename, <span class="keyword">const</span> <a class="code" href="classGame.html">Game</a>&amp; game) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::string setXYInSVG(std::string content, <span class="keyword">const</span> std::string x, <span class="keyword">const</span> std::string y) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::string setXYInSVGMonster(std::string content, <span class="keyword">const</span> std::string x, <span class="keyword">const</span> std::string y) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::string filename;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classHeroSVGRenderer.html#a4ff551090950640b92b00f7dc6800629">   27</a></span>&#160;    <a class="code" href="classHeroSVGRenderer.html#a4ff551090950640b92b00f7dc6800629">HeroSVGRenderer</a>(std::string outfile) : <a class="code" href="classSVGRenderer.html">SVGRenderer</a>(outfile), filename(outfile) {}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classHeroSVGRenderer.html#ac5ff29733733ca9ef47b475427e8ee8b">render</a> (<span class="keyword">const</span> <a class="code" href="classGame.html">Game</a>&amp;) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::string getSVGContent(<span class="keyword">const</span> std::string filename, <span class="keyword">const</span> <a class="code" href="classGame.html">Game</a>&amp; game) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::string setXYInSVG(std::string content, <span class="keyword">const</span> std::string x, <span class="keyword">const</span> std::string y) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::string setXYInSVGMonster(std::string content, <span class="keyword">const</span> std::string x, <span class="keyword">const</span> std::string y) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string filename;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassHeroSVGRenderer_html_ac5ff29733733ca9ef47b475427e8ee8b"><div class="ttname"><a href="classHeroSVGRenderer.html#ac5ff29733733ca9ef47b475427e8ee8b">HeroSVGRenderer::render</a></div><div class="ttdeci">virtual void render(const Game &amp;) const override</div><div class="ttdoc">this function render the actual state of the game</div><div class="ttdef"><b>Definition:</b> HeroSVGRenderer.cpp:47</div></div>
 <div class="ttc" id="aclassSVGRenderer_html"><div class="ttname"><a href="classSVGRenderer.html">SVGRenderer</a></div><div class="ttdoc">SVGRenderer class.</div><div class="ttdef"><b>Definition:</b> SVGRenderer.h:21</div></div>
 <div class="ttc" id="aclassGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdoc">Game class.</div><div class="ttdef"><b>Definition:</b> Game.h:27</div></div>
 <div class="ttc" id="aclassHeroSVGRenderer_html"><div class="ttname"><a href="classHeroSVGRenderer.html">HeroSVGRenderer</a></div><div class="ttdoc">HeroSVGRenderer class.</div><div class="ttdef"><b>Definition:</b> HeroSVGRenderer.h:21</div></div>
+<div class="ttc" id="aclassHeroSVGRenderer_html_a4ff551090950640b92b00f7dc6800629"><div class="ttname"><a href="classHeroSVGRenderer.html#a4ff551090950640b92b00f7dc6800629">HeroSVGRenderer::HeroSVGRenderer</a></div><div class="ttdeci">HeroSVGRenderer(std::string outfile)</div><div class="ttdoc">construktor for the class</div><div class="ttdef"><b>Definition:</b> HeroSVGRenderer.h:27</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

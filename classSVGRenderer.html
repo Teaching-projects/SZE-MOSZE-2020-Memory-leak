@@ -65,7 +65,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classSVGRenderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SVGRenderer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -99,15 +99,18 @@ Collaboration diagram for SVGRenderer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7124e9b4c655c8166e68fb6538e44fd"><td class="memItemLeft" align="right" valign="top"><a id="ac7124e9b4c655c8166e68fb6538e44fd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SVGRenderer</b> (std::string filename)</td></tr>
+<tr class="memitem:ac7124e9b4c655c8166e68fb6538e44fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSVGRenderer.html#ac7124e9b4c655c8166e68fb6538e44fd">SVGRenderer</a> (std::string filename)</td></tr>
+<tr class="memdesc:ac7124e9b4c655c8166e68fb6538e44fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">construktor for the class, which init the output file  <a href="classSVGRenderer.html#ac7124e9b4c655c8166e68fb6538e44fd">More...</a><br /></td></tr>
 <tr class="separator:ac7124e9b4c655c8166e68fb6538e44fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70402f90f60db1312b232f53a9e3dac4"><td class="memItemLeft" align="right" valign="top"><a id="a70402f90f60db1312b232f53a9e3dac4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (const <a class="el" href="classGame.html">Game</a> &amp;) const =0</td></tr>
+<tr class="memitem:a70402f90f60db1312b232f53a9e3dac4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSVGRenderer.html#a70402f90f60db1312b232f53a9e3dac4">render</a> (const <a class="el" href="classGame.html">Game</a> &amp;) const =0</td></tr>
+<tr class="memdesc:a70402f90f60db1312b232f53a9e3dac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual function which will declarate in children classes.  <a href="classSVGRenderer.html#a70402f90f60db1312b232f53a9e3dac4">More...</a><br /></td></tr>
 <tr class="separator:a70402f90f60db1312b232f53a9e3dac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classRenderer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classRenderer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classRenderer.html">Renderer</a></td></tr>
+<tr class="memitem:a7ebf46f54dab9905f79b80f7fddb76a6 inherit pub_methods_classRenderer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a7ebf46f54dab9905f79b80f7fddb76a6">Renderer</a> ()</td></tr>
+<tr class="separator:a7ebf46f54dab9905f79b80f7fddb76a6 inherit pub_methods_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:a0efceb036c1a88991d96a05130ae2765"><td class="memItemLeft" align="right" valign="top"><a id="a0efceb036c1a88991d96a05130ae2765"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>outfile</b></td></tr>
 <tr class="separator:a0efceb036c1a88991d96a05130ae2765"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,7 +121,81 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>outfile</b></t
 <dl class="section version"><dt>Version</dt><dd>0.7</dd></dl>
 <p>Here we init the svg renderer.</p>
 <dl class="section date"><dt>Date</dt><dd>2020/12/01 </dd></dl>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac7124e9b4c655c8166e68fb6538e44fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7124e9b4c655c8166e68fb6538e44fd">&#9670;&nbsp;</a></span>SVGRenderer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SVGRenderer::SVGRenderer </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>construktor for the class, which init the output file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the filename where we will render out </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a70402f90f60db1312b232f53a9e3dac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70402f90f60db1312b232f53a9e3dac4">&#9670;&nbsp;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SVGRenderer::render </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classGame.html">Game</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual function which will declarate in children classes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>the game what wi will render out </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classRenderer.html#a7807be1ea11a875555010e7a8dc6ca65">Renderer</a>.</p>
+
+<p>Implemented in <a class="el" href="classHeroSVGRenderer.html#ac5ff29733733ca9ef47b475427e8ee8b">HeroSVGRenderer</a>, and <a class="el" href="classObserverSVGRenderer.html#a053bc102f86bea94789b45253585000e">ObserverSVGRenderer</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="SVGRenderer_8h_source.html">SVGRenderer.h</a></li>
 </ul>
 </div><!-- contents -->

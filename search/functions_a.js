@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['takeattack_135',['takeAttack',['../classHero.html#a88a4a824d6588a9a616d3f69057d7215',1,'Hero::takeAttack()'],['../classMonster.html#a42b769b925b32ffc2bdbef57be3f7378',1,'Monster::takeAttack()']]],
-  ['takedamage_136',['takeDamage',['../classMonster.html#a94ec7f74fb0555a8e3c5abc02fe72291',1,'Monster']]]
+  ['setmap_148',['setMap',['../classGame.html#ab83e25f737717d7bb4ec95b22efc82d9',1,'Game']]],
+  ['svgrenderer_149',['SVGRenderer',['../classSVGRenderer.html#ac7124e9b4c655c8166e68fb6538e44fd',1,'SVGRenderer']]]
 ];
