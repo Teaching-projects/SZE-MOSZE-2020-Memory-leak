@@ -15,6 +15,8 @@
 #include "MarkedMap.h"
 #include "PreparedGame.h"
 #include "Renderer.h"
+#include "ObserverSVGRenderer.h"
+#include "HeroSVGRenderer.h"
 
 struct unitData
 {
@@ -44,6 +46,8 @@ int main(int argc, char** argv){
         PreparedGame game(argv[1]);
         game.registerRenderer(new HeroTextRenderer());
         game.registerRenderer(new ObserverTextRenderer(std::ofstream("log.txt")));
+        game.registerRenderer(new HeroSVGRenderer("pretty.svg"));
+        game.registerRenderer(new ObserverSVGRenderer("pretty2.svg"));
         game.run();
     }
     catch (const JSON::ParseException& e) {bad_exit(4);}

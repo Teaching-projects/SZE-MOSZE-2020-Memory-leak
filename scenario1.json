@@ -4,6 +4,6 @@
     "monster-1" : "Fallen.json",
     "monster-2" : "Zombie.json",
     "monster-3" : "Blood_Raven.json",
-    "wall_textrue" : "SVG/wall.svg",
+    "wall_texture" : "SVG/wall.svg",
     "free_texture" : "SVG/free.svg"
 }

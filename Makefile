@@ -1,4 +1,4 @@
-OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o HeroTextRenderer.o ObserverTextRenderer.o TextRenderer.o HeroSVGRenderer.o
+OBJS := Hero.o Monster.o main.o JSON.o Map.o Game.o MarkedMap.o PreparedGame.o Renderer.o HeroTextRenderer.o ObserverTextRenderer.o TextRenderer.o HeroSVGRenderer.o ObserverSVGRenderer.o
 FLAGS := -std=c++17 -Wall -Wextra -c
 
 run-test: $(OBJS)
@@ -43,11 +43,15 @@ SVGRenderer.o: SVGRenderer.h SVGRenderer.cpp Renderer.h Game.h Map.h Hero.h Mons
 HeroSVGRenderer.o: HeroSVGRenderer.cpp HeroSVGRenderer.h SVGRenderer.h Renderer.h Game.h Map.h Hero.h Monster.h
 	g++ $(FLAGS) HeroSVGRenderer.cpp
 
+ObserverSVGRenderer.o: ObserverSVGRenderer.cpp ObserverSVGRenderer.h SVGRenderer.h Renderer.h Game.h Map.h Hero.h Monster.h
+	g++ $(FLAGS) ObserverSVGRenderer.cpp
+
+
 main.o: main.cpp Hero.h JSON.h Monster.h Map.h Game.h Renderer.h
 	clang++ -fPIC $(FLAGS) main.cpp
 
 clean:
-	rm -rf *.o run-test ./DOCS fight_sc1.txt fight_sc2.txt a.out log.txt
+	rm -rf *.o run-test ./DOCS fight_sc1.txt fight_sc2.txt a.out log.txt pretty.svg pretty2.svg
 
 doc:
 	doxygen doxconf

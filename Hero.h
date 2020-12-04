@@ -58,12 +58,12 @@ public:
 	 * \param bonus_defense_per_level the defense, what keep the hero in levelup
 	 * \param light_radius the radius, what the hero can see
 	 * \param bonus_light_radius the radius what the hero keep in every levelup
-	 * 
+	 * \param texture the svg texture of the hero
 	*/
 	Hero(const std::string name, int maxhp, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage,
 	    const int bonus_physical_dmg_per_level, const int bonus_magical_dmg_per_level, const float atkspeed_multiplier, float atkspeed,
-		const int defense, const int bonus_defense_per_level, int light_radius, const int bonus_light_radius)
-		: Monster(name, maxhp, physical_damage, magical_damage, defense, atkspeed), bonus_health_per_level(bonus_health_per_level),
+		const int defense, const int bonus_defense_per_level, int light_radius, const int bonus_light_radius, const std::string texture)
+		: Monster(name, maxhp, physical_damage, magical_damage, defense, atkspeed, texture), bonus_health_per_level(bonus_health_per_level),
 		xp(0), xpforlvlup(xpforlvlup), lvl(1), bonus_physical_damage_per_level(bonus_physical_dmg_per_level), bonus_magical_damage_per_level(bonus_magical_dmg_per_level),
 		atkspeed_multiplier(atkspeed_multiplier), bonus_defense_per_level(bonus_defense_per_level),
 		light_radius(light_radius), bonus_light_radius(bonus_light_radius){} 	

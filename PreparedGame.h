@@ -24,10 +24,12 @@
 
 class PreparedGame : public Game{
 public:
-    PreparedGame(const std::string filename) { initGame(filename); }
+    PreparedGame(const std::string filename) :gameJSON(filename) { initGame(filename); }
     void run() { Game::run(); }
+    virtual std::string getGameJSON() const override { return gameJSON; }
 private:
     void initGame(const std::string);
+    std::string gameJSON;
 };
 
 #endif

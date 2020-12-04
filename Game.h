@@ -97,6 +97,8 @@ public:
     */
     std::vector<int> getMonsterInThisPos(int x, int y) const;
     void registerRenderer(Renderer*);
+    virtual std::string getGameJSON() const { return gameJSON; }
+    monster getMonster(const int x, const int y) const;
     /**
      * In this section happens all the known errors
     */
@@ -129,6 +131,8 @@ private:
     bool isHeroSet;
     bool isMonsterSet;
     bool isStarted;
+
+    std::string gameJSON;
 
     Map gameMap;
     hero gameHero;

@@ -49,13 +49,18 @@ std::vector<int> Game::getMonsterInThisPos(int x, int y) const{
     return idx;
 }
 
+Game::monster Game::getMonster(const int x, const int y) const{
+    int idx = 0;
+    for (int i = 0; i < (int)gameMonsters.size(); i++){
+        if (gameMonsters[i].posx == x && gameMonsters[i].posy == y) idx = i;
+    }
+    return gameMonsters[idx];
+}
+
 void Game::run(){
     if (!isMapSet || !isHeroSet || !isMonsterSet) throw NotInitializedExpection("The map or hero or monster not initialized!");
 
     isStarted = true;
-
-    //ObserverTextRenderer renderer;
-    //renderer.render(*this);
 
     for (auto r: renderers){
         r->render(*this);

@@ -1,26 +1,26 @@
 /**
- * \class HeroSVGRenderer
+ * \class ObserverSVGRenderer
  * 
- * \brief HeroSVGRenderer class
+ * \brief ObserverSVGRenderer class
  * 
  * \author joostibor, Krisiiii98, Peti96
  * 
  * \version 0.7
  * 
- * Here we render the map, what the hero see.
+ * Here we render the map, what the observer see.
  * 
- * \date 2020/12/01
+ * \date 2020/12/04
  * 
 */
 
-#ifndef HEROSVGRENDERER_H
-#define HEROSVGRENDERER_H
+#ifndef OBSERVERSVGRENDERER_H
+#define OBSERVERSVGRENDERER_H
 
 #include "SVGRenderer.h"
 
-class HeroSVGRenderer : public SVGRenderer{
+class ObserverSVGRenderer : public SVGRenderer{
 public:
-    HeroSVGRenderer(std::string outfile) : SVGRenderer(outfile), filename(outfile) {}
+    ObserverSVGRenderer(std::string outfile) : SVGRenderer(outfile), filename(outfile) {}
     virtual void render (const Game&) const override;
 
 private:
