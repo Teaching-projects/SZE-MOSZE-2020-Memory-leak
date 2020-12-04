@@ -4,6 +4,7 @@
 #include "../Monster.h"
 #include "../Map.h"
 #include "../Game.h"
+#include "../MarkedMap.h"
 
 TEST(ParseTest, stringParseTest) {
     std::string testJsonText = "{\"name\": \"Zombie\",\"health_points\": 10,\"physical_damage\": 3, \"magical_damage\": 1, \"attack_cooldown\": 2.8, \"defense\": 0}";
@@ -158,6 +159,36 @@ TEST(FightTest, monsterVsMonster){
 
     ASSERT_TRUE(!testmonster.isAlive());
     ASSERT_EQ(testmonster2.getHealthPoints(), 4400);
+}
+
+TEST(MapTest, MapSizeTest){
+    Map m("../map.txt");
+
+    ASSERT_EQ(m.getMapHeigth(), 10);
+    ASSERT_EQ(m.getMapWidth(), 20);
+}
+
+TEST(MapTest, MarkedMapTest){
+    MarkedMap mm("../mmap.txt");
+
+    ASSERT_EQ(mm.getMapHeigth(), 10);
+    ASSERT_EQ(mm.getMapWidth(), 20);
+
+    ASSERT_EQ(mm.getHeroPosition().xpos, 1);
+    ASSERT_EQ(mm.getHeroPosition().ypos, 8);
+}
+
+TEST(GameTest, GameInitTest){
+    Game game("../map.txt");
+    Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8, "texture.json");
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
+
+    game.putHero(testhero, 1, 1);
+    game.putMonster(testmonster, 1, 2);
+
+    ASSERT_EQ(game.getHero().posx, 1);
+    ASSERT_EQ(game.getHero().posy, 1);
+    ASSERT_EQ(game.getMonster(1,2).name->getName(), "TestMonster");
 }
 
 int main(int argc, char* argv[]){
