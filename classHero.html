@@ -99,8 +99,11 @@ Collaboration diagram for Hero:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fbe998350ceb8237879a5b6c9525e38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a6fbe998350ceb8237879a5b6c9525e38">Hero</a> (const std::string <a class="el" href="classMonster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0">name</a>, int <a class="el" href="classMonster.html#a3935c40431f7f6dbdf0a4729c551679b">maxhp</a>, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage, const int bonus_physical_dmg_per_level, const int bonus_magical_dmg_per_level, const float atkspeed_multiplier, float <a class="el" href="classMonster.html#a11435e775a409979d9f32db50cf56cf1">atkspeed</a>, const int <a class="el" href="classMonster.html#ad867513550d7fde7e4b79806fe90ae2f">defense</a>, const int bonus_defense_per_level, int light_radius, const int bonus_light_radius, const std::string <a class="el" href="classMonster.html#aefc60af296cf019f3ddceb0cf6093efc">texture</a>)</td></tr>
-<tr class="memdesc:a6fbe998350ceb8237879a5b6c9525e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the hero class  <a href="classHero.html#a6fbe998350ceb8237879a5b6c9525e38">More...</a><br /></td></tr>
+<tr class="memdesc:a6fbe998350ceb8237879a5b6c9525e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the hero class where the <a class="el" href="classJSON.html" title="JSON class.">JSON</a> has all infos  <a href="classHero.html#a6fbe998350ceb8237879a5b6c9525e38">More...</a><br /></td></tr>
 <tr class="separator:a6fbe998350ceb8237879a5b6c9525e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6aa0f4257f59bd2c834269f2067a10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a6c6aa0f4257f59bd2c834269f2067a10">Hero</a> (const std::string <a class="el" href="classMonster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0">name</a>, int <a class="el" href="classMonster.html#a3935c40431f7f6dbdf0a4729c551679b">maxhp</a>, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage, float <a class="el" href="classMonster.html#a11435e775a409979d9f32db50cf56cf1">atkspeed</a>, const int <a class="el" href="classMonster.html#ad867513550d7fde7e4b79806fe90ae2f">defense</a>, const std::string <a class="el" href="classMonster.html#aefc60af296cf019f3ddceb0cf6093efc">texture</a>)</td></tr>
+<tr class="memdesc:a6c6aa0f4257f59bd2c834269f2067a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the hero class where the <a class="el" href="classJSON.html" title="JSON class.">JSON</a> don't have all attributes  <a href="classHero.html#a6c6aa0f4257f59bd2c834269f2067a10">More...</a><br /></td></tr>
+<tr class="separator:a6c6aa0f4257f59bd2c834269f2067a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88a4a824d6588a9a616d3f69057d7215"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHero.html#a88a4a824d6588a9a616d3f69057d7215">takeAttack</a> (<a class="el" href="classMonster.html">Monster</a> &amp;m) override</td></tr>
 <tr class="memdesc:a88a4a824d6588a9a616d3f69057d7215"><td class="mdescLeft">&#160;</td><td class="mdescRight">A monster get damage from the hero.  <a href="classHero.html#a88a4a824d6588a9a616d3f69057d7215">More...</a><br /></td></tr>
 <tr class="separator:a88a4a824d6588a9a616d3f69057d7215"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -218,7 +221,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <dl class="section date"><dt>Date</dt><dd>2020/10/13 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6fbe998350ceb8237879a5b6c9525e38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fbe998350ceb8237879a5b6c9525e38">&#9670;&nbsp;</a></span>Hero()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fbe998350ceb8237879a5b6c9525e38">&#9670;&nbsp;</a></span>Hero() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,8 +332,107 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>constructor for the hero class </p>
+<p>constructor for the hero class where the <a class="el" href="classJSON.html" title="JSON class.">JSON</a> has all infos </p>
 <p>Setting the hero properties and the required things to the battle. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the hero </td></tr>
+    <tr><td class="paramname">maxhp</td><td>the maximum healt points of the hero </td></tr>
+    <tr><td class="paramname">bonus_health_per_level</td><td>the hp, what keep the hero in levelup. </td></tr>
+    <tr><td class="paramname">xpforlvlup</td><td>how many xp need for levelup. </td></tr>
+    <tr><td class="paramname">physical_damage</td><td>the physical damage of the hero </td></tr>
+    <tr><td class="paramname">magical_damage</td><td>the magical damage of the hero </td></tr>
+    <tr><td class="paramname">bonus_physical_dmg_per_level</td><td>the physical dmg, what keep the hero in levelup. </td></tr>
+    <tr><td class="paramname">bonus_magical_dmg_per_level</td><td>the magical dmg, what keep the hero in levelup. </td></tr>
+    <tr><td class="paramname">atkspeed_multiplier</td><td>this multiplier reduce atkspeed in levelup. </td></tr>
+    <tr><td class="paramname">atkspeed</td><td>the attack speed of the hero </td></tr>
+    <tr><td class="paramname">bonus_defense_per_level</td><td>the defense, what keep the hero in levelup </td></tr>
+    <tr><td class="paramname">light_radius</td><td>the radius, what the hero can see </td></tr>
+    <tr><td class="paramname">bonus_light_radius</td><td>the radius what the hero keep in every levelup </td></tr>
+    <tr><td class="paramname">texture</td><td>the svg texture of the hero </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6c6aa0f4257f59bd2c834269f2067a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c6aa0f4257f59bd2c834269f2067a10">&#9670;&nbsp;</a></span>Hero() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Hero::Hero </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxhp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>bonus_health_per_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>xpforlvlup</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>physical_damage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>magical_damage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>atkspeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>defense</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>texture</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructor for the hero class where the <a class="el" href="classJSON.html" title="JSON class.">JSON</a> don't have all attributes </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>the name of the hero </td></tr>
     <tr><td class="paramname">maxhp</td><td>the maximum healt points of the hero </td></tr>
