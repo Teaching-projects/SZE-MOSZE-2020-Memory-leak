@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fighttildeath_80',['fightTilDeath',['../classMonster.html#a600cb382648a4f660ec11153ac671666',1,'Monster']]]
+  ['fighttildeath_98',['fightTilDeath',['../classMonster.html#a600cb382648a4f660ec11153ac671666',1,'Monster']]]
 ];

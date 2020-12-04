@@ -1,0 +1,9 @@
+<map id="Renderer" name="Renderer">
+<area shape="rect" id="node1" title="Renderer class." alt="" coords="299,5,381,32"/>
+<area shape="rect" id="node2" href="$classSVGRenderer.html" title="SVGRenderer class." alt="" coords="198,80,306,107"/>
+<area shape="rect" id="node5" href="$classTextRenderer.html" title="TextRenderer class." alt="" coords="375,80,483,107"/>
+<area shape="rect" id="node3" href="$classHeroSVGRenderer.html" title="HeroSVGRenderer class." alt="" coords="5,155,144,181"/>
+<area shape="rect" id="node4" href="$classObserverSVGRenderer.html" title="ObserverSVGRenderer class." alt="" coords="169,155,335,181"/>
+<area shape="rect" id="node6" href="$classHeroTextRenderer.html" title="HeroTextRenderer class." alt="" coords="360,155,499,181"/>
+<area shape="rect" id="node7" href="$classObserverTextRenderer.html" title="ObserverTextRenderer class." alt="" coords="523,155,690,181"/>
+</map>

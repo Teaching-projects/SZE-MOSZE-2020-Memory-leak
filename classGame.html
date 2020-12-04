@@ -129,6 +129,24 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a1ab78f5ed0d5ea879157357cf2fb2afa">run</a> ()</td></tr>
 <tr class="memdesc:a1ab78f5ed0d5ea879157357cf2fb2afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">THis function is for the game loop. <br /></td></tr>
 <tr class="separator:a1ab78f5ed0d5ea879157357cf2fb2afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0d63d9be8083811138cbbea98947e3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structGame_1_1hero.html">hero</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ae0d63d9be8083811138cbbea98947e3c">getHero</a> () const</td></tr>
+<tr class="memdesc:ae0d63d9be8083811138cbbea98947e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">simply getter for the hero of the game  <a href="classGame.html#ae0d63d9be8083811138cbbea98947e3c">More...</a><br /></td></tr>
+<tr class="separator:ae0d63d9be8083811138cbbea98947e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85fbbee31a858735355b7873e128af6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMap.html">Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#ae85fbbee31a858735355b7873e128af6">getMap</a> () const</td></tr>
+<tr class="memdesc:ae85fbbee31a858735355b7873e128af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">simply getter for the map of the game  <a href="classGame.html#ae85fbbee31a858735355b7873e128af6">More...</a><br /></td></tr>
+<tr class="separator:ae85fbbee31a858735355b7873e128af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c3c699fbe3a95d3313f8d3d66ffa807"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame.html#a8c3c699fbe3a95d3313f8d3d66ffa807">getMonsterInThisPos</a> (int x, int y) const</td></tr>
+<tr class="memdesc:a8c3c699fbe3a95d3313f8d3d66ffa807"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for monsters in a position  <a href="classGame.html#a8c3c699fbe3a95d3313f8d3d66ffa807">More...</a><br /></td></tr>
+<tr class="separator:a8c3c699fbe3a95d3313f8d3d66ffa807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab234db2839bf8776c31998fee8d02038"><td class="memItemLeft" align="right" valign="top"><a id="ab234db2839bf8776c31998fee8d02038"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>registerRenderer</b> (<a class="el" href="classRenderer.html">Renderer</a> *)</td></tr>
+<tr class="separator:ab234db2839bf8776c31998fee8d02038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c5771d77f00ad17f7b1e12de69640d2"><td class="memItemLeft" align="right" valign="top"><a id="a3c5771d77f00ad17f7b1e12de69640d2"></a>
+virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getGameJSON</b> () const</td></tr>
+<tr class="separator:a3c5771d77f00ad17f7b1e12de69640d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ed8dc57313389585bc24c85dda865d8"><td class="memItemLeft" align="right" valign="top"><a id="a4ed8dc57313389585bc24c85dda865d8"></a>
+<a class="el" href="structGame_1_1monster.html">monster</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getMonster</b> (const int x, const int y) const</td></tr>
+<tr class="separator:a4ed8dc57313389585bc24c85dda865d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classGame.html" title="Game class.">Game</a> class. </p>
@@ -164,6 +182,100 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae0d63d9be8083811138cbbea98947e3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d63d9be8083811138cbbea98947e3c">&#9670;&nbsp;</a></span>getHero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGame_1_1hero.html">hero</a> Game::getHero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>simply getter for the hero of the game </p>
+<dl class="section return"><dt>Returns</dt><dd>the hero who play in the game </dd></dl>
+
+</div>
+</div>
+<a id="ae85fbbee31a858735355b7873e128af6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae85fbbee31a858735355b7873e128af6">&#9670;&nbsp;</a></span>getMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classMap.html">Map</a> Game::getMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>simply getter for the map of the game </p>
+<dl class="section return"><dt>Returns</dt><dd>the map where the game is </dd></dl>
+
+</div>
+</div>
+<a id="a8c3c699fbe3a95d3313f8d3d66ffa807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c3c699fbe3a95d3313f8d3d66ffa807">&#9670;&nbsp;</a></span>getMonsterInThisPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; Game::getMonsterInThisPos </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter for monsters in a position </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x coordinate of the map </td></tr>
+    <tr><td class="paramname">y</td><td>y coordinate of the map </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector, which contain the monster's </dd></dl>
+
+</div>
+</div>
 <a id="a2c9bbc80ff60480af1bbdf06cd3380a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c9bbc80ff60480af1bbdf06cd3380a7">&#9670;&nbsp;</a></span>putHero()</h2>
 

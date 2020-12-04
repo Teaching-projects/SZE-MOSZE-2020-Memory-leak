@@ -105,9 +105,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a09efc96cb4d304a6eb55343d5f028b1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a09efc96cb4d304a6eb55343d5f028b1e">Monster</a> (const std::string _name, int _maxhp, int _phdmg, int _magdmg, int _defense, float _atkspeed)</td></tr>
-<tr class="memdesc:a09efc96cb4d304a6eb55343d5f028b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the monster class  <a href="classMonster.html#a09efc96cb4d304a6eb55343d5f028b1e">More...</a><br /></td></tr>
-<tr class="separator:a09efc96cb4d304a6eb55343d5f028b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a0a88b9711b0cb0c6191e13c5af297"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#a31a0a88b9711b0cb0c6191e13c5af297">Monster</a> (const std::string _name, int _maxhp, int _phdmg, int _magdmg, int _defense, float _atkspeed, std::string _texture)</td></tr>
+<tr class="memdesc:a31a0a88b9711b0cb0c6191e13c5af297"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for the monster class  <a href="classMonster.html#a31a0a88b9711b0cb0c6191e13c5af297">More...</a><br /></td></tr>
+<tr class="separator:a31a0a88b9711b0cb0c6191e13c5af297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca4e35d1b32aad3e5cf00157bb212956"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#aca4e35d1b32aad3e5cf00157bb212956">isAlive</a> ()</td></tr>
 <tr class="memdesc:aca4e35d1b32aad3e5cf00157bb212956"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function check monster's hp &gt;= 0.  <a href="classMonster.html#aca4e35d1b32aad3e5cf00157bb212956">More...</a><br /></td></tr>
 <tr class="separator:aca4e35d1b32aad3e5cf00157bb212956"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +135,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad0cc0de8870f9a5170a757e73c9fe009"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#ad0cc0de8870f9a5170a757e73c9fe009">getMagicalDamage</a> () const</td></tr>
 <tr class="memdesc:ad0cc0de8870f9a5170a757e73c9fe009"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for the magical damage of the monster  <a href="classMonster.html#ad0cc0de8870f9a5170a757e73c9fe009">More...</a><br /></td></tr>
 <tr class="separator:ad0cc0de8870f9a5170a757e73c9fe009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2ded9d50be9e307f69b08c5b9a611e"><td class="memItemLeft" align="right" valign="top"><a id="a6d2ded9d50be9e307f69b08c5b9a611e"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTexture</b> () const</td></tr>
+<tr class="separator:a6d2ded9d50be9e307f69b08c5b9a611e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -187,6 +190,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#ad93c37b981f2d8c55ff0e3c6f5515e2f">nextAttack</a> =<a class="el" href="classMonster.html#a11435e775a409979d9f32db50cf56cf1">atkspeed</a></td></tr>
 <tr class="memdesc:ad93c37b981f2d8c55ff0e3c6f5515e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps track of the current attackspeed. <br /></td></tr>
 <tr class="separator:ad93c37b981f2d8c55ff0e3c6f5515e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefc60af296cf019f3ddceb0cf6093efc"><td class="memItemLeft" align="right" valign="top"><a id="aefc60af296cf019f3ddceb0cf6093efc"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMonster.html#aefc60af296cf019f3ddceb0cf6093efc">texture</a></td></tr>
+<tr class="memdesc:aefc60af296cf019f3ddceb0cf6093efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The monster's svg texture. <br /></td></tr>
+<tr class="separator:aefc60af296cf019f3ddceb0cf6093efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classMonster.html" title="Monster class.">Monster</a> class. </p>
@@ -195,8 +202,8 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <p>Here we crate the monsters and set their properties.</p>
 <dl class="section date"><dt>Date</dt><dd>2020/10/30 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a09efc96cb4d304a6eb55343d5f028b1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09efc96cb4d304a6eb55343d5f028b1e">&#9670;&nbsp;</a></span>Monster()</h2>
+<a id="a31a0a88b9711b0cb0c6191e13c5af297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31a0a88b9711b0cb0c6191e13c5af297">&#9670;&nbsp;</a></span>Monster()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,7 +245,13 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>_atkspeed</em>&#160;</td>
+          <td class="paramname"><em>_atkspeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>_texture</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -261,6 +274,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
     <tr><td class="paramname">dmg</td><td>the damage of the monster </td></tr>
     <tr><td class="paramname">defense</td><td>the defense of the monster </td></tr>
     <tr><td class="paramname">atkspeed</td><td>the attack speed of the monster </td></tr>
+    <tr><td class="paramname">texture</td><td>the svg texture of the monster </td></tr>
   </table>
   </dd>
 </dl>
