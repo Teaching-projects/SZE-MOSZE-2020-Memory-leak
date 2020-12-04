@@ -1,6 +1,6 @@
 #include "Hero.h"
 
-void Hero::incXp(int getxp) {
+void Hero::incXp(const int getxp) {
 	/**
 	 * The Hero get xp from attack and if it reach xpforlvlup parameter xp it keep some extra dmg, hp and decrease the attack cooldown.
 	 * And its actual hp will be its maximum hp.
@@ -44,7 +44,7 @@ Hero Hero::parse(const std::string& s)
 	heroData.get<int>("physical_damage_bonus_per_level"), heroData.get<int>("magical_damage_bonus_per_level"),
 	heroData.get<float>("cooldown_multiplier_per_level"), heroData.get<float>("base_attack_cooldown"),
 	heroData.get<int>("defense"), heroData.get<int>("bonus_defense_per_level"),
-	heroData.get<int>("light_radius"), heroData.get<int>("bonus_light_radius"));
+	heroData.get<int>("light_radius"), heroData.get<int>("bonus_light_radius"), heroData.get<std::string>("texture"));
 }
 
 Hero Hero::parse(std::istream& stream){
@@ -59,5 +59,5 @@ Hero Hero::parse(std::istream& stream){
 	heroData.get<int>("physical_damage_bonus_per_level"), heroData.get<int>("magical_damage_bonus_per_level"),
 	heroData.get<float>("cooldown_multiplier_per_level"), heroData.get<float>("base_attack_cooldown"),
 	heroData.get<int>("defense"), heroData.get<int>("bonus_defense_per_level"),
-	heroData.get<int>("light_radius"), heroData.get<int>("bonus_light_radius"));
+	heroData.get<int>("light_radius"), heroData.get<int>("bonus_light_radius"), heroData.get<std::string>("texture"));
 }

@@ -4,6 +4,7 @@
 #include "../Monster.h"
 #include "../Map.h"
 #include "../Game.h"
+#include "../MarkedMap.h"
 
 TEST(ParseTest, stringParseTest) {
     std::string testJsonText = "{\"name\": \"Zombie\",\"health_points\": 10,\"physical_damage\": 3, \"magical_damage\": 1, \"attack_cooldown\": 2.8, \"defense\": 0}";
@@ -97,7 +98,7 @@ TEST(JSONFileTest, switchedKeys) {
 }
 
 TEST(HeroTest, heroLvlUpTest) {
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
     testhero.incXp(251);
     ASSERT_EQ(1050, testhero.getMaxHealthPoints());
     ASSERT_EQ(150, testhero.getPhysicalDamage());
@@ -108,7 +109,7 @@ TEST(HeroTest, heroLvlUpTest) {
 }
 
 TEST(HeroTest, multiplyLvlUp) {
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
     testhero.incXp(501);
     ASSERT_EQ(1100, testhero.getMaxHealthPoints());
     ASSERT_EQ(200, testhero.getPhysicalDamage());
@@ -119,20 +120,20 @@ TEST(HeroTest, multiplyLvlUp) {
 }
 
 TEST(HeroTest, xpDecTest){
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
     testhero.incXp(260);
     ASSERT_EQ(10, testhero.getXp());
 }
 
 TEST(HeroTest, xpNotIncTest){
-   Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
+   Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
     testhero.incXp(249);
     ASSERT_EQ(249, testhero.getXp());
 }
 
 TEST(FightTest, heroVsHero){
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
-    Hero testhero2 ("Testhero2", 1500, 106, 250, 100, 50, 50, 50, 0.9, 3.0, 5, 15, 2, 1);
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
+    Hero testhero2 ("Testhero2", 1500, 106, 250, 100, 50, 50, 50, 0.9, 3.0, 5, 15, 2, 1, "texture.json");
 
     testhero.fightTilDeath(testhero2);
 
@@ -141,8 +142,8 @@ TEST(FightTest, heroVsHero){
 } 
 
 TEST(FightTest, monsterVsHero){
-    Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8);
-    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1);
+    Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8, "texture.json");
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
 
     testhero.fightTilDeath(testmonster);
 
@@ -151,13 +152,43 @@ TEST(FightTest, monsterVsHero){
 } 
 
 TEST(FightTest, monsterVsMonster){
-    Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8);
-    Monster testmonster2 ("TestMonster", 10000, 500, 250, 50, 5.9);
+    Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8, "texture.json");
+    Monster testmonster2 ("TestMonster", 10000, 500, 250, 50, 5.9, "texture.json");
 
     testmonster.fightTilDeath(testmonster2);
 
     ASSERT_TRUE(!testmonster.isAlive());
     ASSERT_EQ(testmonster2.getHealthPoints(), 4400);
+}
+
+TEST(MapTest, MapSizeTest){
+    Map m("../map.txt");
+
+    ASSERT_EQ(m.getMapHeigth(), 10);
+    ASSERT_EQ(m.getMapWidth(), 20);
+}
+
+TEST(MapTest, MarkedMapTest){
+    MarkedMap mm("../mmap.txt");
+
+    ASSERT_EQ(mm.getMapHeigth(), 10);
+    ASSERT_EQ(mm.getMapWidth(), 20);
+
+    ASSERT_EQ(mm.getHeroPosition().xpos, 1);
+    ASSERT_EQ(mm.getHeroPosition().ypos, 8);
+}
+
+TEST(GameTest, GameInitTest){
+    Game game("../map.txt");
+    Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8, "texture.json");
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
+
+    game.putHero(testhero, 1, 1);
+    game.putMonster(testmonster, 1, 2);
+
+    ASSERT_EQ(game.getHero().posx, 1);
+    ASSERT_EQ(game.getHero().posy, 1);
+    ASSERT_EQ(game.getMonster(1,2).name->getName(), "TestMonster");
 }
 
 int main(int argc, char* argv[]){

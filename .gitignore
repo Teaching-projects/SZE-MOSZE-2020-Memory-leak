@@ -1,0 +1,16 @@
+*.o
+run-test
+./DOCS
+./.vscode
+fight_sc1.txt
+fight_sc2.txt
+a.out
+log.txt
+pretty.svg
+pretty2.svg
+./test/CMakeFiles
+./test/cmake_install.cmake
+./test/CMakeCache.txt
+./test/Makefile
+./test/runTests
+./test/styleperform.txt

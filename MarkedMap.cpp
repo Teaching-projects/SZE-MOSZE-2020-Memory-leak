@@ -37,7 +37,7 @@ MarkedMap::MarkedMap (const std::string filename){
     data = map;
 }
 
-std::vector<MarkedMap::mapElement> MarkedMap::getMonsterPositions (char c) const{
+std::vector<MarkedMap::mapElement> MarkedMap::getMonsterPositions (const char c) const{
     std::vector<mapElement> monstersWithThisSign;
     for (auto m: monsters){
         if (m.type == c) monstersWithThisSign.push_back(m);
