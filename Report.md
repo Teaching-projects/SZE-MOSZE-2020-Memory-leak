@@ -2,15 +2,15 @@
 
 | Név | Github azonosito  | Javasolt relatív érdemjegy | Becsült óra | Indoklás  | 
 | --- | ---- | --- | ------------------ | --------- |
-| Joós Tibor | @joostibor | 0 | >100 | A rábízott a feladatot megoldotta, ahol tudott segített. Nehezebb feladatokat is rá lehetett bízni. |
-| Károlyi Péter | @Peti96 | 0 | 70-80 | A rá kitűzött feladatokat megoldotta határidőre, a közös munkák során mindig jelen volt, jó tanácsokat adott. |
-| Török Kristóf | @Krisiiii98 | 0 | 70-80 | Amit kért a csapat megoldotta. Számos jó ötlete volt a fejlesztésekkel kapcsolatban. Közös kódolásoknál mindig jelen volt. |
+| Joós Tibor | @joostibor | 0 | >100 | A rábízott a feladatot megoldotta, ahol tudott segített. Nehezebb feladatokat is rá lehetett bízni. Projekt összefogási feladatok. |
+| Károlyi Péter | @Peti96 | 0 | 80-100 | A rá kitűzött feladatokat megoldotta határidőre, a közös munkák során mindig jelen volt, jó tanácsokat adott. |
+| Török Kristóf | @Krisiiii98 | 0 | 80-100 | Amit kért a csapat megoldotta. Számos jó ötlete volt a fejlesztésekkel kapcsolatban. Közös kódolásoknál mindig jelen volt. |
 
 
 # Videók
 
- - [Gameplay](/videos/gameplay.mp4)
- - [CodeBaseDefense](/videos/codebasedefense.mp4)
+ - [Gameplay](/videos/Memory_leak_code.mp4)
+ - [CodeBaseDefense](/videos/Memory_leak_code.mp4)
 
 # Befejezett feladatok
 
@@ -69,7 +69,6 @@
 | `Renderer` | | |   
 
 
-
 # Mindenféle számok
 
  - Összes cpp kódsor : 848
@@ -94,7 +93,7 @@ Olyanok, amik nem a tárgy anyaga, de muszáj/hasznos volt elsajátítani:
 
 # Feedback 
 
-Előszöris úgy gondoljuk fontos megemlíteni, hogy a képzés egyik, a gyakorlatban legjobban használható tárgya volt. Jó volt találkozni a gyakorlatban is valóban használt megoldásokkal, ez sokszor hiányzik más tárgyak esetében.
+Először is úgy gondoljuk fontos megemlíteni, hogy a képzés egyik, a gyakorlatban legjobban használható tárgya volt. Jó volt találkozni a gyakorlatban is valóban használt megoldásokkal, ez sokszor hiányzik más tárgyak esetében.
 
 A félév talán leghasznosabb része a GitHub mélyebb megismerése volt, mivel ezt a tudás fel tudjuk használni más tárgyak esetében történő kódfejlesztéshez, hasznos jövőbeli tudás. A másik dolog, amit nagyon hasznosnak találtunk, az a Makefile volt, mivel előtte elképzelni sem tudtunk volna ilyen könnyű megoldást. Emellett hasznos tudás volt a Docker tárolók megismerése is.
 
