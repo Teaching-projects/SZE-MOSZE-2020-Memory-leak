@@ -97,6 +97,21 @@ TEST(JSONFileTest, switchedKeys) {
     ASSERT_FLOAT_EQ(testing.get<float>("attack_cooldown"), 4.2);
 }
 
+TEST(HeroTest, heroConstructTest){
+    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
+
+    ASSERT_EQ(testhero.getName(), "Testhero");
+    ASSERT_FLOAT_EQ(testhero.getAttackCoolDown(), 3.2);
+    ASSERT_EQ(testhero.getDefense(), 5);
+    ASSERT_EQ(testhero.getHealthPoints(), 1000);
+    ASSERT_EQ(testhero.getLevel(), 1);
+    ASSERT_EQ(testhero.getLightRadius(), 2);
+    ASSERT_EQ(testhero.getMagicalDamage(), 50);
+    ASSERT_EQ(testhero.getPhysicalDamage(), 100);
+    ASSERT_EQ(testhero.getTexture(), "texture.json");
+    ASSERT_EQ(testhero.getXp(), 0);
+}
+
 TEST(HeroTest, heroLvlUpTest) {
     Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
     testhero.incXp(251);
@@ -129,6 +144,18 @@ TEST(HeroTest, xpNotIncTest){
    Hero testhero ("Testhero", 1000, 50, 250, 100, 50, 50, 50, 0.9, 3.2, 5, 5, 2, 1, "texture.json");
     testhero.incXp(249);
     ASSERT_EQ(249, testhero.getXp());
+}
+
+TEST(MonsterTest, monsterConstructTest){
+    Monster testmonster ("TestMonster", 5000, 500, 250, 50, 5.8, "texture.json");
+
+    ASSERT_FLOAT_EQ(testmonster.getAttackCoolDown(), 5.8);
+    ASSERT_EQ(testmonster.getDefense(), 50);
+    ASSERT_EQ(testmonster.getHealthPoints(), 5000);
+    ASSERT_EQ(testmonster.getMagicalDamage(), 250);
+    ASSERT_EQ(testmonster.getName(), "TestMonster");
+    ASSERT_EQ(testmonster.getPhysicalDamage(), 500);
+    ASSERT_EQ(testmonster.getTexture(), "texture.json");
 }
 
 TEST(FightTest, heroVsHero){

@@ -78,7 +78,7 @@ public:
 	 * \param atkspeed the attack speed of the hero
 	 * \param texture the svg texture of the hero
 	*/
-	Hero(const std::string name, int maxhp, const int bonus_health_per_level, const int xpforlvlup, int physical_damage, int magical_damage, float atkspeed,
+	Hero(const std::string name, int maxhp, const int xpforlvlup, int physical_damage, int magical_damage, float atkspeed,
 		const int defense, const std::string texture)
 		: Monster(name, maxhp, physical_damage, magical_damage, defense, atkspeed, texture), bonus_health_per_level(0),
 		xp(0), xpforlvlup(xpforlvlup), lvl(1), bonus_physical_damage_per_level(0), bonus_magical_damage_per_level(0),
